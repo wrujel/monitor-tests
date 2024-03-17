@@ -80,6 +80,7 @@ class ProjectsReporter implements Reporter {
 
       const json = await JSON.parse(raw_data);
 
+      if (json.length > 90) json.shift();
       json.push({ summary: this.summary, projects: this.projects });
 
       await fs.writeFile("./data/report.json", JSON.stringify(json, null, 2), {
