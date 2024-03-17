@@ -27,11 +27,9 @@ const generateTableHTML = (projects) => {
                 .map(
                   (project) => `<tr>
                                   <td>${project.name}</td>
-                                  <td style="color:${
-                                    project.status === "passed"
-                                      ? "green"
-                                      : "red"
-                                  };">${project.status}</td>
+                                  <td>${project.status} ${
+                    project.status === "passed" ? "✅" : "❌"
+                  }</td>
                                 </tr>`
                 )
                 .join("")}
