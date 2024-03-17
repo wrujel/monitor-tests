@@ -1,7 +1,7 @@
 name: Monitor Tests
 on:
   push:
-    branches: [main, master]
+    branches: main
   schedule:
     - cron: "0 4 * * *"
 
