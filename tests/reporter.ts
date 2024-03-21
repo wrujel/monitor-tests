@@ -6,7 +6,7 @@ import type {
   TestResult,
   FullResult,
 } from "@playwright/test/reporter";
-import { ProjectStatus, Summary } from "./constants";
+import { ProjectStatus, Summary } from "../utils/types";
 import { promises as fs } from "fs";
 
 class ProjectsReporter implements Reporter {

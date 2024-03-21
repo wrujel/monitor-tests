@@ -1,5 +1,5 @@
 import { promises as fs } from "fs";
-import { PLACEHOLDER_SUMMARY, PLACEHOLDER_TABLE } from "./constants";
+import { PLACEHOLDER_SUMMARY, PLACEHOLDER_TABLE } from "../utils/constants";
 
 const generateSummaryHTML = (summary) => {
   const { projects_count, last_update, passed, failed } = summary;

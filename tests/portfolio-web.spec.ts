@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { portfolio_web as project } from "../utils/projects";
 import util from "util";
-import { portfolioWebProject } from "../src/constants";
 
-const TITLE = portfolioWebProject.title;
-const URL_PATH = portfolioWebProject.projectUrl;
+const TITLE = project.title;
+const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
   await page.goto(URL_PATH);

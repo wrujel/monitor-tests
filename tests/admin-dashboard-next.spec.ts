@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import { adminDashboardNextProject } from "../src/constants";
+import { admin_dashboard_next as project } from "../utils/projects";
 
-const TITLE = adminDashboardNextProject.title;
-const URL_PATH = adminDashboardNextProject.projectUrl;
+const TITLE = project.title;
+const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
   await page.goto(URL_PATH);
