@@ -16,6 +16,16 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
+      - name: Clone Monitor Repositories
+        uses: actions/checkout@main
+        with:
+          repository: "wrujel/monitor-repos"
+          path: "./monitor-repos"
+          submodules: "recursive"
+      - name: Copy projects
+        run: cp -r ./monitor-repos/data/projects.json ./data
+      - name: Update Projects
+        run: npm run update
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
@@ -33,7 +43,8 @@ jobs:
           git config --local user.email "$USER_EMAIL"
           git config --local user.name "$USER_NAME"
           git add README.md
-          git add data/report.json
+          git add data
+          git add tests
           git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update report"
           git push origin main
         env:

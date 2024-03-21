@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test(`${TITLE} - Test sidebar and search`, async ({ page }) => {
-  await await expect(page.getByText("Admin", { exact: true })).toBeVisible();
+  await expect(page.getByText("Admin", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Dashboard" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Users" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Products" })).toBeVisible();
