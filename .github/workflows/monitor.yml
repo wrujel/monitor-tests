@@ -18,12 +18,9 @@ jobs:
         run: npm ci
       - name: Clone Monitor Repositories
         uses: actions/checkout@main
-        env:
-          MONITOR_REPO: ${{ vars.MONITOR_REPO }}
-          MONITOR_PATH: ${{ vars.MONITOR_PATH }}
         with:
-          repository: "$MONITOR_REPO"
-          path: "$MONITOR_PATH"
+          repository: "wrujel/monitor-repos"
+          path: "./monitor-repos"
       - name: Copy projects and remove monitor-repos
         run: |
           cp -r ./monitor-repos/data/projects.json ./data
