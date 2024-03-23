@@ -6,6 +6,23 @@ import {
   PLACEHOLDER_REPO_URL,
   PLACEHOLDER_TITLE,
 } from "../utils/constants";
+import mailgun from "mailgun-js";
+import dotenv from "dotenv";
+dotenv.config();
+
+const DOMAIN = process.env.MAILGUN_DOMAIN;
+const API_KEY = process.env.MAILGUN_API_KEY;
+
+const generateMessage = (repos: string[]) => {
+  return {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "Monitor Tests - New Tests Created",
+    html: `<p>The following tests has been created:</p><ul>${repos
+      .map((repo) => `<li>${repo}</li>`)
+      .join("")}</ul>`,
+  };
+};
 
 const generateNewProject = (template: any, project: Project) => {
   return template
@@ -36,15 +53,29 @@ const generateNewTest = (template: any, repo: string, title: string) => {
   const projectsTemplate = data3;
 
   let newProjects = "";
+  let newTests = [];
   for (const project of projects) {
     newProjects += generateNewProject(projectsTemplate, project);
 
     if (!tests.includes(project.repo)) {
-      //TODO: notify new test is created
+      newTests.push(project.repo);
       await fs.writeFile(
         `./tests/${project.repo}.spec.ts`,
         generateNewTest(testTemplate, project.repo, project.title)
       );
+    }
+  }
+
+  if (newTests.length > 0) {
+    const mg = mailgun({
+      apiKey: API_KEY,
+      domain: DOMAIN,
+    });
+    const message = generateMessage(newTests);
+    try {
+      await mg.messages().send(message);
+    } catch (error) {
+      console.error(error);
     }
   }
 

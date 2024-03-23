@@ -16,6 +16,11 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
+      - name: Create env file
+        run: |
+          touch .env
+          echo "${{ secrets.ENV_FILE }}" > .env
+          cat .env
       - name: Clone Monitor Repositories
         uses: actions/checkout@main
         with:
