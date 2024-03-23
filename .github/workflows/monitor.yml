@@ -52,6 +52,7 @@ jobs:
           git add README.md
           git add data
           git add tests
+          git add utils
           git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update report"
           git push origin main
         env:
