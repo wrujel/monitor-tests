@@ -1,17 +1,17 @@
 
 ---
-#### Summary:
+### Summary:
 <p><ul>
-            <li><span>Number of Projects: 3</span></li>
-            <li><span>Last Update: Sat, 23 Mar 2024 19:27:18 GMT</span></li>
-            <li><span>Passed: 3</span></li>
+            <li><span>Number of Projects: 12</span></li>
+            <li><span>Last Update: Sat, 23 Mar 2024 19:44:03 GMT</span></li>
+            <li><span>Passed: 12</span></li>
             <li><span>Failed: 0</span></li>
           </ul></p>
   
 
 ---
 
-#### 📝 Project Statuses:
+### 📝 Project Statuses:
 <table>
             <thead>
               <tr>
@@ -24,10 +24,37 @@
                                   <td>Admin Dashboard Next</td>
                                   <td>passed ✅</td>
                                 </tr><tr>
+                                  <td>Airbnb Clone</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Clock App</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Django Crud React</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Github History</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
                                   <td>Movies Search</td>
                                   <td>passed ✅</td>
                                 </tr><tr>
+                                  <td>Netflix Clone</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
                                   <td>Portfolio Web</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Rest Api Et</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Slider Static</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Tesla Landing</td>
+                                  <td>passed ✅</td>
+                                </tr><tr>
+                                  <td>Tetris Javascript</td>
                                   <td>passed ✅</td>
                                 </tr>
             </tbody>
