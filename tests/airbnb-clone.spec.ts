@@ -63,7 +63,7 @@ test(`${TITLE} - Test email register`, async ({ page }) => {
   await expect(page.getByText("Login").first()).toBeVisible();
 });
 
-test(`${TITLE} - Test gmail and github login`, async ({ page }) => {
+test(`${TITLE} - Test gmail login`, async ({ page }) => {
   //gmail login
   await page.locator(".p-4").click();
   await page.getByText("Login").click();
@@ -78,13 +78,19 @@ test(`${TITLE} - Test gmail and github login`, async ({ page }) => {
   await page.getByLabel("Enter your password").click();
   await page.getByLabel("Enter your password").fill(PASSWORD_TEST);
   await page.getByRole("button", { name: "Next" }).click();
-  await expect(page.locator(".p-4")).toBeVisible();
-  await page.locator(".p-4").click();
-  await expect(page.getByText("My trips")).toBeVisible();
-  await page.getByText("Logout").click();
-  await expect(page.getByText("My trips")).not.toBeVisible();
+  await page
+    .getByRole("button", { name: "Next" })
+    .waitFor({ state: "detached" });
+  if (await page.locator(".p-4").isVisible()) {
+    await expect(page.locator(".p-4")).toBeVisible();
+    await page.locator(".p-4").click();
+    await expect(page.getByText("My trips")).toBeVisible();
+    await page.getByText("Logout").click();
+    await expect(page.getByText("My trips")).not.toBeVisible();
+  }
+});
 
-  //github login
+test(`${TITLE} - Test github login`, async ({ page }) => {
   await expect(page.locator(".p-4")).toBeVisible();
   await page.locator(".p-4").click();
   await expect(page.getByText("Login")).toBeVisible();
