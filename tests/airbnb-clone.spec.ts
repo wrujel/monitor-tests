@@ -63,7 +63,8 @@ test(`${TITLE} - Test email register`, async ({ page }) => {
   await expect(page.getByText("Login").first()).toBeVisible();
 });
 
-test(`${TITLE} - Test gmail login`, async ({ page }) => {
+test(`${TITLE} - Test gmail and github login`, async ({ page }) => {
+  //gmail login
   await page.locator(".p-4").click();
   await page.getByText("Login").click();
   await expect(
@@ -81,10 +82,12 @@ test(`${TITLE} - Test gmail login`, async ({ page }) => {
   await page.locator(".p-4").click();
   await expect(page.getByText("My trips")).toBeVisible();
   await page.getByText("Logout").click();
-});
+  await expect(page.getByText("My trips")).not.toBeVisible();
 
-test(`${TITLE} - Test github login`, async ({ page }) => {
+  //github login
+  await expect(page.locator(".p-4")).toBeVisible();
   await page.locator(".p-4").click();
+  await expect(page.getByText("Login")).toBeVisible();
   await page.getByText("Login").click();
   await expect(
     page.getByRole("button", { name: "Continue with Github" })
