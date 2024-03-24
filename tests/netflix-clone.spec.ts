@@ -88,6 +88,12 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   await page.getByLabel("Password").click();
   await page.getByLabel("Password").fill(PASSWORD_TEST);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Sign in", exact: true })
+    .waitFor({ state: "detached" });
+  if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
+    await page.getByRole("button", { name: "Ask me later" }).click();
+  }
   await expect(
     page.getByRole("heading", { name: "Who is watching" })
   ).toBeVisible();

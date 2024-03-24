@@ -105,6 +105,9 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   await page.getByLabel("Password").click();
   await page.getByLabel("Password").fill(PASSWORD_TEST);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
+    await page.getByRole("button", { name: "Ask me later" }).click();
+  }
   await expect(page.locator(".p-4")).toBeVisible();
   await page.locator(".p-4").click();
   await expect(page.getByText("My trips")).toBeVisible();
