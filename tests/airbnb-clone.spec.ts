@@ -116,6 +116,15 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
       .waitFor({ state: "detached" });
     if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
       await page.getByRole("button", { name: "Ask me later" }).click();
+      await page.getByRole("button", { name: "Ask me later" }).waitFor({
+        state: "detached",
+      });
+    }
+    if (await page.getByRole("button", { name: "Authorize" }).isVisible()) {
+      await page.getByRole("button", { name: "Authorize" }).click();
+      await page.getByRole("button", { name: "Authorize" }).waitFor({
+        state: "detached",
+      });
     }
     if (await page.locator(".p-4").isVisible()) {
       await expect(page.locator(".p-4")).toBeVisible();
