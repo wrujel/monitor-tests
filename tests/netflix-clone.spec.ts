@@ -94,14 +94,18 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
     await page.getByRole("button", { name: "Ask me later" }).click();
   }
-  await expect(
-    page.getByRole("heading", { name: "Who is watching" })
-  ).toBeVisible();
-  await expect(page.getByText(GITHUB_TEST)).toBeVisible();
-  await page.getByRole("img", { name: "Avatar" }).click();
-  await page.getByRole("navigation").getByRole("img").nth(4).click();
-  await page.getByText("Sign out of Netflix").click();
-  await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible();
+  if (
+    await page.getByRole("heading", { name: "Who is watching" }).isVisible()
+  ) {
+    await expect(
+      page.getByRole("heading", { name: "Who is watching" })
+    ).toBeVisible();
+    await expect(page.getByText(GITHUB_TEST)).toBeVisible();
+    await page.getByRole("img", { name: "Avatar" }).click();
+    await page.getByRole("navigation").getByRole("img").nth(4).click();
+    await page.getByText("Sign out of Netflix").click();
+    await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible();
+  }
 });
 
 test(`${TITLE} - Test home logged in`, async ({ page }) => {

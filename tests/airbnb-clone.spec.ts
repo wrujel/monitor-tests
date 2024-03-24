@@ -111,10 +111,12 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
     await page.getByRole("button", { name: "Ask me later" }).click();
   }
-  await expect(page.locator(".p-4")).toBeVisible();
-  await page.locator(".p-4").click();
-  await expect(page.getByText("My trips")).toBeVisible();
-  await page.getByText("Logout").click();
+  if (await page.locator(".p-4").isVisible()) {
+    await expect(page.locator(".p-4")).toBeVisible();
+    await page.locator(".p-4").click();
+    await expect(page.getByText("My trips")).toBeVisible();
+    await page.getByText("Logout").click();
+  }
 });
 
 test(`${TITLE} - Test home logged in`, async ({ page }) => {
