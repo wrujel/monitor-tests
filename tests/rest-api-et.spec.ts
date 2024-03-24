@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto(URL_PATH);
 });
 
-test(`${TITLE} - Test home`, async ({ page }) => {
+test(`${TITLE} - Test home without logging in`, async ({ page }) => {
   await expect(page.getByRole("link", { name: "Home" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Login" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Register" })).toBeVisible();
