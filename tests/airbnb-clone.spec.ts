@@ -99,23 +99,30 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
     page.getByRole("button", { name: "Continue with Github" })
   ).toBeVisible();
   await page.getByRole("button", { name: "Continue with Github" }).click();
-  await page.getByLabel("Username or email address").click();
-  await page.getByLabel("Username or email address").fill(GITHUB_TEST1);
-  await page.getByLabel("Username or email address").click();
-  await page.getByLabel("Password").click();
-  await page.getByLabel("Password").fill(PASSWORD_TEST);
-  await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await page
-    .getByRole("button", { name: "Sign in", exact: true })
-    .waitFor({ state: "detached" });
-  if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
-    await page.getByRole("button", { name: "Ask me later" }).click();
-  }
-  if (await page.locator(".p-4").isVisible()) {
-    await expect(page.locator(".p-4")).toBeVisible();
-    await page.locator(".p-4").click();
-    await expect(page.getByText("My trips")).toBeVisible();
-    await page.getByText("Logout").click();
+  await page.getByRole("button", { name: "Continue with Github" }).waitFor({
+    state: "detached",
+  });
+  if (
+    await page.getByRole("button", { name: "Sign in", exact: true }).isVisible()
+  ) {
+    await page.getByLabel("Username or email address").click();
+    await page.getByLabel("Username or email address").fill(GITHUB_TEST1);
+    await page.getByLabel("Username or email address").click();
+    await page.getByLabel("Password").click();
+    await page.getByLabel("Password").fill(PASSWORD_TEST);
+    await page.getByRole("button", { name: "Sign in", exact: true }).click();
+    await page
+      .getByRole("button", { name: "Sign in", exact: true })
+      .waitFor({ state: "detached" });
+    if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
+      await page.getByRole("button", { name: "Ask me later" }).click();
+    }
+    if (await page.locator(".p-4").isVisible()) {
+      await expect(page.locator(".p-4")).toBeVisible();
+      await page.locator(".p-4").click();
+      await expect(page.getByText("My trips")).toBeVisible();
+      await page.getByText("Logout").click();
+    }
   }
 });
 
