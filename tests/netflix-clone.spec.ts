@@ -80,7 +80,9 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   await page
     .locator("div:nth-child(4) > div:nth-child(2)")
     .waitFor({ state: "detached" });
-  if (await page.getByText("Sign in to GitHub to continue").isVisible()) {
+  if (
+    await page.getByRole("button", { name: "Sign in", exact: true }).isVisible()
+  ) {
     await expect(page.getByText("Sign in to GitHub to continue")).toBeVisible();
     await expect(page.getByLabel("Username or email address")).toBeVisible();
     await expect(page.getByLabel("Password")).toBeVisible();
