@@ -29,6 +29,8 @@ class ProjectsReporter implements Reporter {
     const duration = result.duration;
     const startTime = result.startTime;
 
+    console.log(testName + " - " + status);
+
     for (const project of this.projects) {
       if (project.name === projectName) {
         if (project.status !== status) {
