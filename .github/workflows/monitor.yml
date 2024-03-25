@@ -46,6 +46,7 @@ jobs:
             utils
 
   monitor-tests-report:
+    needs: monitor-tests-bot
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
