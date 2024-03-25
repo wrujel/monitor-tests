@@ -35,7 +35,7 @@ const generateTableHTML = (projects: ProjectStatus[]) => {
                     <td>${project.passed}/${
                       project.passed + project.failed
                     }</td>
-                    <td>${project.duration}</td>
+                    <td>${(project.duration / 1000).toFixed(2)}s</td>
                   </tr>`
                 )
                 .join("")}

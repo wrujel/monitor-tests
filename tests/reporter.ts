@@ -19,8 +19,6 @@ class ProjectsReporter implements Reporter {
 
   onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
     console.log("Test run started at: " + new Date().toUTCString());
-    console.log("Running tests with config: " + config);
-    console.log("Suite: " + suite);
   }
 
   onTestEnd(test: TestCase, result: TestResult): void {
@@ -54,7 +52,7 @@ class ProjectsReporter implements Reporter {
     if (!skipProject) {
       this.projects.push({
         name: projectName,
-        status: "",
+        status: "passed",
         startTime,
         passed: 0,
         failed: 0,
@@ -98,7 +96,7 @@ class ProjectsReporter implements Reporter {
     };
 
     console.log("Test run finished at: " + new Date().toUTCString());
-    console.log("Results: " + result);
+    console.log("Results: " + JSON.stringify(result));
   }
 
   onExit(): Promise<void> {
