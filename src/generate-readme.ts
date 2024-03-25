@@ -10,7 +10,9 @@ const generateSummaryHTML = (summary: Summary) => {
             ).toUTCString()}</span></li>
             <li><span>Passed: ${summary.passed}</span></li>
             <li><span>Failed: ${summary.failed}</span></li>
-            <li><span>Duration: ${summary.duration}</span></li>
+            <li><span>Duration: 
+              ${(summary.duration / 1000).toFixed(2)}s
+            </span></li>
           </ul></p>
   `;
 };
