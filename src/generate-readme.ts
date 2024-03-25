@@ -63,15 +63,17 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
             <tbody>
               ${projects
                 .map((project) => {
-                  return project.tests.map(
-                    (test) =>
-                      `<tr>
+                  return project.tests
+                    .map(
+                      (test) =>
+                        `<tr>
                           <td>${project.name}</td>
                           <td>${test.name.split(" - ")[1]}</td>
                           <td>${test.status === "passed" ? "✅" : "❌"}</td>
                           <td>${(test.duration / 1000).toFixed(2)}s</td>
                         </tr>`
-                  );
+                    )
+                    .join("");
                 })
                 .join("")}
             </tbody>
