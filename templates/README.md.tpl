@@ -1,9 +1,9 @@
 
----
-### Summary:
+## Summary:
 %{{summary}}%
 
----
+## 📝 Projects:
+%{{projects}}%
 
-### 📝 Project Statuses:
-%{{table}}%
+## 🎯 Tests:
+%{{tests}}%
