@@ -22,7 +22,8 @@ class ProjectsReporter implements Reporter {
   }
 
   onTestEnd(test: TestCase, result: TestResult): void {
-    let skipped = false;
+    let skipProject,
+      skipTest = false;
     const testName = test.title;
     const projectName = test.title.split(" - ")[0];
     const status = result.status;
@@ -33,18 +34,25 @@ class ProjectsReporter implements Reporter {
 
     for (const project of this.projects) {
       if (project.name === projectName) {
-        if (project.status !== status) {
-          project.status = status;
+        for (const test of project.tests) {
+          if (test.name === testName) {
+            test.status = status;
+            test.duration = duration;
+            test.startTime = startTime;
+            skipTest = true;
+          }
         }
-        project.tests.push({ name: testName, status, duration, startTime });
-        skipped = true;
+        if (!skipTest) {
+          project.tests.push({ name: testName, status, duration, startTime });
+        }
+        skipProject = true;
       }
     }
 
-    if (!skipped) {
+    if (!skipProject) {
       this.projects.push({
         name: projectName,
-        status,
+        status: "",
         startTime,
         tests: [{ name: testName, status, duration, startTime }],
       });
@@ -56,6 +64,12 @@ class ProjectsReporter implements Reporter {
     let failed = 0;
 
     for (const project of this.projects) {
+      for (const test of project.tests) {
+        if (test.status === "failed") {
+          project.status = "failed";
+        }
+      }
+
       if (project.status === "passed") {
         passed++;
       } else {
