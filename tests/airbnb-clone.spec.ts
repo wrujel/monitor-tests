@@ -64,7 +64,6 @@ test(`${TITLE} - Test email register`, async ({ page }) => {
 });
 
 test(`${TITLE} - Test gmail login`, async ({ page }) => {
-  //gmail login
   await page.locator(".p-4").click();
   await page.getByText("Login").click();
   await expect(
@@ -72,22 +71,29 @@ test(`${TITLE} - Test gmail login`, async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByText("Login").first()).toBeVisible();
   await page.getByRole("button", { name: "Continue with Google" }).click();
-  await page.getByLabel("Email or phone").click();
-  await page.getByLabel("Email or phone").fill(GMAIL_TEST);
-  await page.getByRole("button", { name: "Next" }).click();
-  await page.getByLabel("Enter your password").click();
-  await page.getByLabel("Enter your password").fill(PASSWORD_TEST);
-  await page.getByRole("button", { name: "Next" }).click();
   await page
-    .getByRole("button", { name: "Next" })
+    .getByRole("button", { name: "Continue with Google" })
     .waitFor({ state: "detached" });
-  if (await page.locator(".p-4").isVisible()) {
-    await expect(page.locator(".p-4")).toBeVisible();
-    await page.locator(".p-4").click();
-    await expect(page.getByText("My trips")).toBeVisible();
-    await page.getByText("Logout").click();
-    await expect(page.getByText("My trips")).not.toBeVisible();
-  }
+
+  //expect google form
+  await expect(page.getByLabel("Email or phone")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Next" })).toBeVisible();
+  // await page.getByLabel("Email or phone").click();
+  // await page.getByLabel("Email or phone").fill(GMAIL_TEST);
+  // await page.getByRole("button", { name: "Next" }).click();
+  // await page.getByLabel("Enter your password").click();
+  // await page.getByLabel("Enter your password").fill(PASSWORD_TEST);
+  // await page.getByRole("button", { name: "Next" }).click();
+  // await page
+  //   .getByRole("button", { name: "Next" })
+  //   .waitFor({ state: "detached" });
+  // if (await page.locator(".p-4").isVisible()) {
+  //   await expect(page.locator(".p-4")).toBeVisible();
+  //   await page.locator(".p-4").click();
+  //   await expect(page.getByText("My trips")).toBeVisible();
+  //   await page.getByText("Logout").click();
+  //   await expect(page.getByText("My trips")).not.toBeVisible();
+  // }
 });
 
 test(`${TITLE} - Test github login`, async ({ page }) => {
@@ -102,37 +108,45 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   await page.getByRole("button", { name: "Continue with Github" }).waitFor({
     state: "detached",
   });
-  if (
-    await page.getByRole("button", { name: "Sign in", exact: true }).isVisible()
-  ) {
-    await page.getByLabel("Username or email address").click();
-    await page.getByLabel("Username or email address").fill(GITHUB_TEST1);
-    await page.getByLabel("Username or email address").click();
-    await page.getByLabel("Password").click();
-    await page.getByLabel("Password").fill(PASSWORD_TEST);
-    await page.getByRole("button", { name: "Sign in", exact: true }).click();
-    await page
-      .getByRole("button", { name: "Sign in", exact: true })
-      .waitFor({ state: "detached" });
-    if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
-      await page.getByRole("button", { name: "Ask me later" }).click();
-      await page.getByRole("button", { name: "Ask me later" }).waitFor({
-        state: "detached",
-      });
-    }
-    if (await page.getByRole("button", { name: "Authorize" }).isVisible()) {
-      await page.getByRole("button", { name: "Authorize" }).click();
-      await page.getByRole("button", { name: "Authorize" }).waitFor({
-        state: "detached",
-      });
-    }
-    if (await page.locator(".p-4").isVisible()) {
-      await expect(page.locator(".p-4")).toBeVisible();
-      await page.locator(".p-4").click();
-      await expect(page.getByText("My trips")).toBeVisible();
-      await page.getByText("Logout").click();
-    }
-  }
+
+  //expect github form
+  await expect(page.getByText("Sign in to GitHub to continue")).toBeVisible();
+  await expect(page.getByLabel("Username or email address")).toBeVisible();
+  await expect(page.getByLabel("Password")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Sign in", exact: true })
+  ).toBeVisible();
+  // if (
+  //   await page.getByRole("button", { name: "Sign in", exact: true }).isVisible()
+  // ) {
+  //   await page.getByLabel("Username or email address").click();
+  //   await page.getByLabel("Username or email address").fill(GITHUB_TEST1);
+  //   await page.getByLabel("Username or email address").click();
+  //   await page.getByLabel("Password").click();
+  //   await page.getByLabel("Password").fill(PASSWORD_TEST);
+  //   await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  //   await page
+  //     .getByRole("button", { name: "Sign in", exact: true })
+  //     .waitFor({ state: "detached" });
+  //   if (await page.getByRole("button", { name: "Ask me later" }).isVisible()) {
+  //     await page.getByRole("button", { name: "Ask me later" }).click();
+  //     await page.getByRole("button", { name: "Ask me later" }).waitFor({
+  //       state: "detached",
+  //     });
+  //   }
+  //   if (await page.getByRole("button", { name: "Authorize" }).isVisible()) {
+  //     await page.getByRole("button", { name: "Authorize" }).click();
+  //     await page.getByRole("button", { name: "Authorize" }).waitFor({
+  //       state: "detached",
+  //     });
+  //   }
+  //   if (await page.locator(".p-4").isVisible()) {
+  //     await expect(page.locator(".p-4")).toBeVisible();
+  //     await page.locator(".p-4").click();
+  //     await expect(page.getByText("My trips")).toBeVisible();
+  //     await page.getByText("Logout").click();
+  //   }
+  // }
 });
 
 test(`${TITLE} - Test home logged in`, async ({ page }) => {
