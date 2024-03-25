@@ -6,7 +6,7 @@ on:
     - cron: "0 4 * * *"
 
 jobs:
-  monitor-tests-bot:
+  run-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -45,9 +45,9 @@ jobs:
             tests
             utils
 
-  monitor-tests-report:
+  generate-report:
     if: always()
-    needs: monitor-tests-bot
+    needs: run-tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
