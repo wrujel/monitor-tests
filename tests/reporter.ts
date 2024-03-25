@@ -18,7 +18,9 @@ class ProjectsReporter implements Reporter {
   }
 
   onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
-    console.log("Starting test run");
+    console.log("Test run started at: " + new Date().toUTCString());
+    console.log("Running tests with config: " + config);
+    console.log("Suite: " + suite);
   }
 
   onTestEnd(test: TestCase, result: TestResult): void {
@@ -54,6 +56,9 @@ class ProjectsReporter implements Reporter {
         name: projectName,
         status: "",
         startTime,
+        passed: 0,
+        failed: 0,
+        duration: 0,
         tests: [{ name: testName, status, duration, startTime }],
       });
     }
@@ -62,12 +67,18 @@ class ProjectsReporter implements Reporter {
   onEnd(result: FullResult) {
     let passed = 0;
     let failed = 0;
+    let duration = 0;
 
     for (const project of this.projects) {
       for (const test of project.tests) {
         if (test.status === "failed") {
           project.status = "failed";
+          project.failed++;
         }
+        if (test.status === "passed") {
+          project.passed++;
+        }
+        project.duration += test.duration;
       }
 
       if (project.status === "passed") {
@@ -75,6 +86,7 @@ class ProjectsReporter implements Reporter {
       } else {
         failed++;
       }
+      duration += project.duration;
     }
 
     this.summary = {
@@ -82,9 +94,11 @@ class ProjectsReporter implements Reporter {
       last_update: new Date().toUTCString(),
       passed,
       failed,
+      duration,
     };
 
-    console.log("Test run finished");
+    console.log("Test run finished at: " + new Date().toUTCString());
+    console.log("Results: " + result);
   }
 
   onExit(): Promise<void> {

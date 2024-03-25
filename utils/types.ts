@@ -1,21 +1,25 @@
 export type Summary = {
-  projects_count: Number;
+  projects_count: number;
   last_update: string;
-  passed: Number;
-  failed: Number;
+  passed: number;
+  failed: number;
+  duration: number;
 };
 
 export type ProjectStatus = {
   name: string;
   status: string;
   startTime: Date;
+  passed: number;
+  failed: number;
+  duration: number;
   tests: TestStatus[];
 };
 
 type TestStatus = {
   name: string;
   status: string;
-  duration: Number;
+  duration: number;
   startTime: Date;
 };
 
@@ -24,4 +28,9 @@ export type Project = {
   title: string;
   repoUrl: string;
   url: string;
+};
+
+export type Report = {
+  summary: Summary;
+  projects: ProjectStatus[];
 };
