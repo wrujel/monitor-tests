@@ -20,7 +20,7 @@ export const airbnb_clone = {
 };
 export const clock_app = {
   title: "Clock App",
-  projectUrl: "https://clock-app-wrujel.vercel.app/",
+  projectUrl: "https://clock-app-wrujel.vercel.app",
   repoUrl: "https://github.com/wrujel/clock-app",
 };
 export const django_crud_react = {
@@ -30,7 +30,7 @@ export const django_crud_react = {
 };
 export const github_history = {
   title: "Github History",
-  projectUrl: "https://github-history.vercel.app/",
+  projectUrl: "https://github-history.vercel.app",
   repoUrl: "https://github.com/wrujel/github-history",
 };
 export const netflix_clone = {
@@ -45,12 +45,12 @@ export const rest_api_et = {
 };
 export const slider_static = {
   title: "Slider Static",
-  projectUrl: "https://ephemeral-zuccutto-49ec06.netlify.app/",
+  projectUrl: "https://ephemeral-zuccutto-49ec06.netlify.app",
   repoUrl: "https://github.com/wrujel/slider-static",
 };
 export const tesla_landing = {
   title: "Tesla Landing",
-  projectUrl: "https://sage-daffodil-4904c3.netlify.app/",
+  projectUrl: "https://sage-daffodil-4904c3.netlify.app",
   repoUrl: "https://github.com/wrujel/tesla-landing",
 };
 export const tetris_javascript = {
