@@ -2,11 +2,11 @@
 ## Summary:
 <p><ul>
             <li><span>Total Projects: 12</span></li>
-            <li><span>Last Update: Thu, 28 Mar 2024 04:07:53 GMT</span></li>
+            <li><span>Last Update: Fri, 29 Mar 2024 04:08:00 GMT</span></li>
             <li><span>Passed: 12</span></li>
             <li><span>Failed: 0</span></li>
             <li><span>Duration: 
-              111.92s
+              104.36s
             </span></li>
           </ul></p>
   
@@ -26,62 +26,62 @@
                     <td>Admin Dashboard Next</td>
                     <td>✅</td>
                     <td>4/4</td>
-                    <td>6.71s</td>
+                    <td>8.21s</td>
                   </tr><tr>
                     <td>Airbnb Clone</td>
                     <td>✅</td>
                     <td>5/5</td>
-                    <td>20.33s</td>
+                    <td>22.16s</td>
                   </tr><tr>
                     <td>Clock App</td>
                     <td>✅</td>
                     <td>1/1</td>
-                    <td>3.37s</td>
+                    <td>3.29s</td>
                   </tr><tr>
                     <td>Django Crud React</td>
                     <td>✅</td>
                     <td>2/2</td>
-                    <td>23.05s</td>
+                    <td>12.32s</td>
                   </tr><tr>
                     <td>Github History</td>
                     <td>✅</td>
                     <td>2/2</td>
-                    <td>1.98s</td>
+                    <td>1.94s</td>
                   </tr><tr>
                     <td>Movies Search</td>
                     <td>✅</td>
                     <td>2/2</td>
-                    <td>1.74s</td>
+                    <td>1.81s</td>
                   </tr><tr>
                     <td>Netflix Clone</td>
                     <td>✅</td>
                     <td>5/5</td>
-                    <td>14.80s</td>
+                    <td>14.89s</td>
                   </tr><tr>
                     <td>Portfolio Web</td>
                     <td>✅</td>
                     <td>7/7</td>
-                    <td>4.50s</td>
+                    <td>4.11s</td>
                   </tr><tr>
                     <td>Rest Api Et</td>
                     <td>✅</td>
                     <td>3/3</td>
-                    <td>32.02s</td>
+                    <td>31.82s</td>
                   </tr><tr>
                     <td>Slider Static</td>
                     <td>✅</td>
                     <td>1/1</td>
-                    <td>1.26s</td>
+                    <td>1.50s</td>
                   </tr><tr>
                     <td>Tesla Landing</td>
                     <td>✅</td>
                     <td>3/3</td>
-                    <td>1.87s</td>
+                    <td>1.94s</td>
                   </tr><tr>
                     <td>Tetris Javascript</td>
                     <td>✅</td>
                     <td>1/1</td>
-                    <td>0.29s</td>
+                    <td>0.35s</td>
                   </tr>
             </tbody>
           </table>
@@ -102,182 +102,182 @@
                           <td>Admin Dashboard Next</td>
                           <td>Test sidebar and search</td>
                           <td>✅</td>
-                          <td>1.21s</td>
+                          <td>0.82s</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test dashboard page</td>
                           <td>✅</td>
-                          <td>0.60s</td>
+                          <td>0.73s</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test users page</td>
                           <td>✅</td>
-                          <td>2.48s</td>
+                          <td>3.31s</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test products page</td>
                           <td>✅</td>
-                          <td>2.42s</td>
+                          <td>3.35s</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test home without logging in</td>
+                          <td>✅</td>
+                          <td>5.39s</td>
+                        </tr><tr>
+                          <td>Airbnb Clone</td>
+                          <td>Test email register</td>
                           <td>✅</td>
                           <td>4.08s</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
-                          <td>Test email register</td>
-                          <td>✅</td>
-                          <td>3.89s</td>
-                        </tr><tr>
-                          <td>Airbnb Clone</td>
                           <td>Test gmail login</td>
                           <td>✅</td>
-                          <td>4.71s</td>
+                          <td>4.62s</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test github login</td>
                           <td>✅</td>
-                          <td>2.07s</td>
+                          <td>2.15s</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test home logged in</td>
                           <td>✅</td>
-                          <td>5.56s</td>
+                          <td>5.92s</td>
                         </tr><tr>
                           <td>Clock App</td>
                           <td>Test home page</td>
                           <td>✅</td>
-                          <td>3.37s</td>
+                          <td>3.29s</td>
                         </tr><tr>
                           <td>Django Crud React</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td>22.27s</td>
+                          <td>11.77s</td>
                         </tr><tr>
                           <td>Django Crud React</td>
                           <td>Test create new task</td>
                           <td>✅</td>
-                          <td>0.78s</td>
+                          <td>0.55s</td>
                         </tr><tr>
                           <td>Github History</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td>0.39s</td>
+                          <td>0.38s</td>
                         </tr><tr>
                           <td>Github History</td>
                           <td>Test select a repo</td>
                           <td>✅</td>
-                          <td>1.59s</td>
+                          <td>1.57s</td>
                         </tr><tr>
                           <td>Movies Search</td>
                           <td>Test page</td>
                           <td>✅</td>
-                          <td>0.49s</td>
+                          <td>0.54s</td>
                         </tr><tr>
                           <td>Movies Search</td>
                           <td>Test search</td>
                           <td>✅</td>
-                          <td>1.25s</td>
+                          <td>1.27s</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test home without logging in</td>
                           <td>✅</td>
-                          <td>4.25s</td>
+                          <td>4.00s</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test email register</td>
                           <td>✅</td>
-                          <td>2.78s</td>
+                          <td>3.59s</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test google login</td>
                           <td>✅</td>
-                          <td>2.07s</td>
+                          <td>1.31s</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test github login</td>
                           <td>✅</td>
-                          <td>1.83s</td>
+                          <td>1.40s</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test home logged in</td>
                           <td>✅</td>
-                          <td>3.87s</td>
+                          <td>4.58s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>Home page</td>
                           <td>✅</td>
-                          <td>0.59s</td>
+                          <td>0.52s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>Sidebar</td>
                           <td>✅</td>
-                          <td>0.50s</td>
+                          <td>0.38s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>About page</td>
                           <td>✅</td>
-                          <td>0.67s</td>
+                          <td>0.62s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>Services page</td>
                           <td>✅</td>
-                          <td>0.65s</td>
+                          <td>0.59s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>Projects page</td>
                           <td>✅</td>
-                          <td>0.72s</td>
+                          <td>0.61s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>Costumers page</td>
                           <td>✅</td>
-                          <td>0.71s</td>
+                          <td>0.87s</td>
                         </tr><tr>
                           <td>Portfolio Web</td>
                           <td>Contact page</td>
                           <td>✅</td>
-                          <td>0.67s</td>
+                          <td>0.52s</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test home without logging in</td>
                           <td>✅</td>
-                          <td>12.14s</td>
+                          <td>12.16s</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test register and login</td>
                           <td>✅</td>
-                          <td>4.87s</td>
+                          <td>4.80s</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test crud products</td>
                           <td>✅</td>
-                          <td>15.01s</td>
+                          <td>14.86s</td>
                         </tr><tr>
                           <td>Slider Static</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td>1.26s</td>
+                          <td>1.50s</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td>0.98s</td>
+                          <td>1.16s</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test second section</td>
                           <td>✅</td>
-                          <td>0.46s</td>
+                          <td>0.40s</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test last section</td>
                           <td>✅</td>
-                          <td>0.43s</td>
+                          <td>0.38s</td>
                         </tr><tr>
                           <td>Tetris Javascript</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td>0.29s</td>
+                          <td>0.35s</td>
                         </tr>
             </tbody>
           </table>
