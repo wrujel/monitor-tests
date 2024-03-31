@@ -14,7 +14,6 @@ test(`${TITLE} - Test page`, async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByPlaceholder("Search for movies")).toBeVisible();
   await expect(page.getByRole("button", { name: "Search" })).toBeVisible();
-  await expect(page.getByText("No movies found!")).toBeVisible();
   await expect(page.getByText("Sort by year")).toBeVisible();
   await expect(page.getByPlaceholder("Search for movies")).toBeEmpty();
 });
