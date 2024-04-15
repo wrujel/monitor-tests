@@ -4,7 +4,7 @@ import {
   PLACEHOLDER_TABLE,
   PLACEHOLDER_TABLE_TESTS,
 } from "../utils/constants";
-import { ProjectStatus, Report, Summary } from "../utils/types";
+import { Project, ProjectStatus, Report, Summary } from "../utils/types";
 
 const generateSummaryHTML = (summary: Summary) => {
   return `<p><ul>
@@ -21,22 +21,31 @@ const generateSummaryHTML = (summary: Summary) => {
   `;
 };
 
-const generateTableHTML = (projects: ProjectStatus[]) => {
+const generateTableHTML = (
+  projectsStatus: ProjectStatus[],
+  projects: Project[]
+) => {
   return `<table>
             <thead>
               <tr>
                 <th>Project</th>
+                <th>Repo</th>
                 <th>Status</th>
                 <th>Passed/Total</th>
                 <th>Duration</th>
               </tr>
             </thead>
             <tbody>
-              ${projects
+              ${projectsStatus
                 .map(
                   (project) =>
                     `<tr>
-                    <td>${project.name}</td>
+                    <td><a href="${
+                      projects.find((p) => p.title === project.name).url
+                    }">${project.name}</a></td>
+                    <td><a href="${
+                      projects.find((p) => p.title === project.name).repoUrl
+                    }">Link</a></td>
                     <td>${project.status === "passed" ? "✅" : "❌"}</td>
                     <td>${project.passed}/${
                       project.passed + project.failed
@@ -82,16 +91,18 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
 };
 
 (async () => {
-  const [template, raw_data] = await Promise.all([
+  const [template, raw_data, data_projects] = await Promise.all([
     fs.readFile("./templates/README.md.tpl", { encoding: "utf-8" }),
     fs.readFile("./data/report.json", { encoding: "utf-8" }),
+    fs.readFile("./data/projects.json", { encoding: "utf-8" }),
   ]);
 
   const report: Report = (await JSON.parse(raw_data)).pop();
+  const projects: Project[] = (await JSON.parse(data_projects)).pop().projects;
 
   const newReadme = template
     .replace(PLACEHOLDER_SUMMARY, generateSummaryHTML(report.summary))
-    .replace(PLACEHOLDER_TABLE, generateTableHTML(report.projects))
+    .replace(PLACEHOLDER_TABLE, generateTableHTML(report.projects, projects))
     .replace(PLACEHOLDER_TABLE_TESTS, generateTestsTableHTML(report.projects));
 
   await fs.writeFile("./README.md", newReadme);
