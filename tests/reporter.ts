@@ -52,6 +52,7 @@ class ProjectsReporter implements Reporter {
     if (!skipProject) {
       this.projects.push({
         name: projectName,
+        repo: "",
         status: "passed",
         startTime,
         passed: 0,
@@ -108,11 +109,16 @@ class ProjectsReporter implements Reporter {
   onExit(): Promise<void> {
     console.log("Saving report to file");
     return new Promise(async (resolve) => {
-      const [raw_data] = await Promise.all([
+      const [raw_data, projects_data] = await Promise.all([
         fs.readFile("./data/report.json", { encoding: "utf-8" }),
+        fs.readFile("./data/projects.json", { encoding: "utf-8" }),
       ]);
-
+      const { projects } = (await JSON.parse(projects_data)).pop();
       const json = await JSON.parse(raw_data);
+
+      for (const project of this.projects) {
+        project.repo = projects.find((p) => p.title === project.name).repo;
+      }
 
       if (json.length > 90) json.shift();
       json.push({ summary: this.summary, projects: this.projects });
