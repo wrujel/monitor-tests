@@ -46,7 +46,13 @@ const generateTableHTML = (
                     <td><a href="${
                       projects.find((p) => p.title === project.name).repoUrl
                     }">Link</a></td>
-                    <td>${project.status === "passed" ? "✅" : "❌"}</td>
+                    <td>${
+                      project.status === "passed"
+                        ? "✅"
+                        : project.status === "warning"
+                        ? "⚠️"
+                        : "❌"
+                    }</td>
                     <td>${project.passed}/${
                       project.passed + project.failed
                     }</td>

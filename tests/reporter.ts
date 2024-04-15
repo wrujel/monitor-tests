@@ -69,14 +69,20 @@ class ProjectsReporter implements Reporter {
 
     for (const project of this.projects) {
       for (const test of project.tests) {
-        if (test.status === "failed") {
-          project.status = "failed";
-          project.failed++;
-        }
         if (test.status === "passed") {
           project.passed++;
+        } else {
+          project.failed++;
         }
         project.duration += test.duration;
+      }
+
+      if (project.passed === 0) {
+        project.status = "failed";
+      } else if (project.passed > 0 && project.failed > 0) {
+        project.status = "warning";
+      } else {
+        project.status = "passed";
       }
 
       if (project.status === "passed") {
