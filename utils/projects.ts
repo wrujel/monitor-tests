@@ -1,60 +1,60 @@
 export const admin_dashboard_next = {
   title: "Admin Dashboard Next",
-  projectUrl: "",
+  projectUrl: "https://admin-dashboard-next-roan.vercel.app",
   repoUrl: "https://github.com/wrujel/admin-dashboard-next",
 };
 export const movies_search = {
   title: "Movies Search",
-  projectUrl: "",
+  projectUrl: "https://movies-search-five.vercel.app",
   repoUrl: "https://github.com/wrujel/movies-search",
 };
 export const portfolio_web = {
   title: "Portfolio Web",
-  projectUrl: "",
+  projectUrl: "https://portfolio-web-wrujel.vercel.app",
   repoUrl: "https://github.com/wrujel/portfolio-web",
 };
 export const airbnb_clone = {
   title: "Airbnb Clone",
-  projectUrl: "",
+  projectUrl: "https://rental-app-delta.vercel.app",
   repoUrl: "https://github.com/wrujel/airbnb-clone",
 };
 export const clock_app = {
   title: "Clock App",
-  projectUrl: "",
+  projectUrl: "https://clock-app-wrujel.vercel.app",
   repoUrl: "https://github.com/wrujel/clock-app",
 };
 export const django_crud_react = {
   title: "Django Crud React",
-  projectUrl: "",
+  projectUrl: "https://django-crud-react.onrender.com",
   repoUrl: "https://github.com/wrujel/django-crud-react",
 };
 export const github_history = {
   title: "Github History",
-  projectUrl: "",
+  projectUrl: "https://github-history.vercel.app",
   repoUrl: "https://github.com/wrujel/github-history",
 };
 export const netflix_clone = {
   title: "Netflix Clone",
-  projectUrl: "",
+  projectUrl: "https://movies-app-wrujel.vercel.app",
   repoUrl: "https://github.com/wrujel/netflix-clone",
 };
 export const rest_api_et = {
   title: "Rest Api Et",
-  projectUrl: "",
+  projectUrl: "https://rest-api-et.onrender.com",
   repoUrl: "https://github.com/wrujel/rest-api-et",
 };
 export const slider_static = {
   title: "Slider Static",
-  projectUrl: "",
+  projectUrl: "https://ephemeral-zuccutto-49ec06.netlify.app",
   repoUrl: "https://github.com/wrujel/slider-static",
 };
 export const tesla_landing = {
   title: "Tesla Landing",
-  projectUrl: "",
+  projectUrl: "https://sage-daffodil-4904c3.netlify.app",
   repoUrl: "https://github.com/wrujel/tesla-landing",
 };
 export const tetris_javascript = {
   title: "Tetris Javascript",
-  projectUrl: "",
+  projectUrl: "https://tetris-javascript-pi.vercel.app",
   repoUrl: "https://github.com/wrujel/tetris-javascript",
 };
