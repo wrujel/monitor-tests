@@ -52,7 +52,6 @@ class ProjectsReporter implements Reporter {
     if (!skipProject) {
       this.projects.push({
         name: projectName,
-        repo: "",
         status: "passed",
         startTime,
         passed: 0,
@@ -80,10 +79,13 @@ class ProjectsReporter implements Reporter {
 
       if (project.passed === 0) {
         project.status = "failed";
+        project.color = "red";
       } else if (project.passed > 0 && project.failed > 0) {
         project.status = "warning";
+        project.color = "yellow";
       } else {
         project.status = "passed";
+        project.color = "green";
       }
 
       if (project.status === "passed") {

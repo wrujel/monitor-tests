@@ -8,8 +8,9 @@ export type Summary = {
 
 export type ProjectStatus = {
   name: string;
-  repo: string;
+  repo?: string;
   status: string;
+  color?: string;
   startTime: Date;
   passed: number;
   failed: number;
