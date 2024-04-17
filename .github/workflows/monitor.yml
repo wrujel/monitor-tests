@@ -33,7 +33,7 @@ jobs:
       - name: Update Projects
         run: npm run update
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
         run: npx playwright test --reporter="./tests/reporter.ts"
       - uses: actions/upload-artifact@v4
