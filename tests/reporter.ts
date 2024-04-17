@@ -90,7 +90,7 @@ class ProjectsReporter implements Reporter {
 
       project.badge = {
         schemaVersion: 1,
-        label: "status",
+        label: "tests",
         message: project.status,
         color: project.color,
         style: "for-the-badge",
