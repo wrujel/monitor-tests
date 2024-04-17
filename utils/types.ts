@@ -16,6 +16,20 @@ export type ProjectStatus = {
   failed: number;
   duration: number;
   tests: TestStatus[];
+  badge?: ProjectBadge;
+};
+
+type ProjectBadge = {
+  schemaVersion: 1;
+  label: string;
+  message: string;
+  color?: string;
+  labelColor?: string;
+  isError?: boolean;
+  namedLogo?: string;
+  logoSvg?: string;
+  logoColor?: string;
+  style?: string;
 };
 
 type TestStatus = {

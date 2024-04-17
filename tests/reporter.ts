@@ -88,6 +88,15 @@ class ProjectsReporter implements Reporter {
         project.color = "green";
       }
 
+      project.badge = {
+        schemaVersion: 1,
+        label: "status",
+        message: project.status,
+        color: project.color,
+        style: "for-the-badge",
+        namedLogo: "github",
+      };
+
       if (project.status === "passed") {
         passed++;
       } else {
@@ -120,6 +129,13 @@ class ProjectsReporter implements Reporter {
 
       for (const project of this.projects) {
         project.repo = projects.find((p) => p.title === project.name).repo;
+        await fs.writeFile(
+          `./data/${project.repo}.json`,
+          JSON.stringify(project.badge, null, 2),
+          {
+            encoding: "utf-8",
+          }
+        );
       }
 
       if (json.length > 90) json.shift();
