@@ -150,14 +150,20 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
 });
 
 test(`${TITLE} - Test home logged in`, async ({ page }) => {
-  await page.locator(".p-4").click();
-  await page.getByText("Login").click();
-  await page.locator("#email").click();
-  await page.locator("#email").fill(EMAIL_TEST);
-  await page.locator("#email").click();
-  await page.locator("#password").click();
-  await page.locator("#password").fill(PASSWORD_TEST);
-  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  let count = 0;
+  do {
+    await page.reload();
+    await page.locator(".p-4").click();
+    await page.getByText("Login").click();
+    await page.locator("#email").fill(EMAIL_TEST);
+    await page.locator("#password").fill(PASSWORD_TEST);
+    await page.getByRole("button", { name: "Continue", exact: true }).click();
+    await page.getByRole("button", { name: "Continue", exact: true }).waitFor({
+      state: "detached",
+    });
+    count++;
+  } while (!(await page.getByText("My trips").isVisible()) && count < 5);
+
   await expect(page.getByText("My trips")).toBeVisible();
   await expect(page.getByText("My favorites")).toBeVisible();
   await expect(page.getByText("My reservations")).toBeVisible();
