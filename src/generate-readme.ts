@@ -15,7 +15,7 @@ const generateSummaryHTML = (summary: Summary) => {
             <li><span>Passed: ${summary.passed}</span></li>
             <li><span>Failed: ${summary.failed}</span></li>
             <li><span>Duration: 
-              ${(summary.duration / 1000).toFixed(2)}s
+              ${(summary.duration / 1000).toFixed(2)} sec
             </span></li>
           </ul></p>
   `;
@@ -31,8 +31,8 @@ const generateTableHTML = (
                 <th>Project</th>
                 <th>Repo</th>
                 <th>Status</th>
-                <th>Passed/Total</th>
-                <th>Duration</th>
+                <th>Passed</th>
+                <th>Duration(s)</th>
               </tr>
             </thead>
             <tbody>
@@ -56,7 +56,9 @@ const generateTableHTML = (
                     <td>${project.passed}/${
                       project.passed + project.failed
                     }</td>
-                    <td>${(project.duration / 1000).toFixed(2)}s</td>
+                    <td align='right'>${(project.duration / 1000).toFixed(
+                      2
+                    )}</td>
                   </tr>`
                 )
                 .join("")}
@@ -72,7 +74,7 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
                 <th>Project</th>
                 <th>Tests</th>
                 <th>Status</th>
-                <th>Duration</th>
+                <th>Duration(s)</th>
               </tr>
             </thead>
             <tbody>
@@ -85,7 +87,9 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
                           <td>${project.name}</td>
                           <td>${test.name.split(" - ")[1]}</td>
                           <td>${test.status === "passed" ? "✅" : "❌"}</td>
-                          <td>${(test.duration / 1000).toFixed(2)}s</td>
+                          <td align='right'>${(test.duration / 1000).toFixed(
+                            2
+                          )}</td>
                         </tr>`
                     )
                     .join("");
