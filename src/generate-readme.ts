@@ -5,6 +5,7 @@ import {
   PLACEHOLDER_TABLE_TESTS,
 } from "../utils/constants";
 import { Project, ProjectStatus, Report, Summary } from "../utils/types";
+import { cloud_badges } from "../utils/badges.data";
 
 const generateSummaryHTML = (summary: Summary) => {
   return `<p><ul>
@@ -30,6 +31,7 @@ const generateTableHTML = (
               <tr>
                 <th>Project</th>
                 <th>Repo</th>
+                <th>Deployed</th>
                 <th>Status</th>
                 <th>Passed</th>
                 <th>Duration(s)</th>
@@ -37,15 +39,26 @@ const generateTableHTML = (
             </thead>
             <tbody>
               ${projectsStatus
-                .map(
-                  (project) =>
-                    `<tr>
+                .map((project) => {
+                  let badge_url = "";
+                  cloud_badges.forEach((badge) => {
+                    if (
+                      projects
+                        .find((p) => p.title === project.name)
+                        .url.includes(badge.name)
+                    ) {
+                      badge_url = badge.badge;
+                    }
+                  });
+
+                  return `<tr>
                     <td><a href="${
                       projects.find((p) => p.title === project.name).url
                     }">${project.name}</a></td>
                     <td><a href="${
                       projects.find((p) => p.title === project.name).repoUrl
                     }">Link</a></td>
+                    <td><img src="${badge_url}" alt="cloud"/></td>
                     <td>${
                       project.status === "passed"
                         ? "✅"
@@ -54,13 +67,13 @@ const generateTableHTML = (
                         : "❌"
                     }</td>
                     <td>${project.passed}/${
-                      project.passed + project.failed
-                    }</td>
+                    project.passed + project.failed
+                  }</td>
                     <td align='right'>${(project.duration / 1000).toFixed(
                       2
                     )}</td>
-                  </tr>`
-                )
+                  </tr>`;
+                })
                 .join("")}
             </tbody>
           </table>
