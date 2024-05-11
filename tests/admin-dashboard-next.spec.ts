@@ -38,17 +38,26 @@ test(`${TITLE} - Test dashboard page`, async ({ page }) => {
 test(`${TITLE} - Test users page`, async ({ page }) => {
   await page.getByRole("link", { name: "Users" }).click();
   await expect(
-    page.locator("div").filter({ hasText: /^Admin$/ })
+    page.getByRole("button", { name: "View" }).first()
   ).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "View" }).first()
+    page.getByRole("button", { name: "Delete" }).first()
   ).toBeVisible();
 });
 
 test(`${TITLE} - Test products page`, async ({ page }) => {
   await page.getByRole("link", { name: "Products" }).click();
-  await expect(page.getByText("Camera", { exact: true })).toBeVisible();
   await expect(
-    page.getByRole("cell", { name: "A professional-grade DSLR" })
+    page.getByRole("cell", { name: "A high-definition smart TV" })
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "View" }).first()
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Delete" }).first()
+  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "View" }).nth(1)).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Delete" }).nth(1)
   ).toBeVisible();
 });
