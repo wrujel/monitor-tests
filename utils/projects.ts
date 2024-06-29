@@ -58,3 +58,8 @@ export const tetris_javascript = {
   projectUrl: "https://tetris-javascript-pi.vercel.app",
   repoUrl: "https://github.com/wrujel/tetris-javascript",
 };
+export const webpage_gpt = {
+  title: "Webpage Gpt",
+  projectUrl: "https://webpage-gpt-wrujels-projects.vercel.app/",
+  repoUrl: "https://github.com/wrujel/webpage-gpt",
+};
