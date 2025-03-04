@@ -71,7 +71,7 @@ jobs:
           git add data
           git add tests
           git add utils
-          git add .github
+          git add .github/workflows
           git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update report"
           git push origin main
         env:
