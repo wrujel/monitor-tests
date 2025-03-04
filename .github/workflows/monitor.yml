@@ -63,6 +63,8 @@ jobs:
           path: .
       - name: Generate new readme
         run: npm run generate-readme
+      - name: Update cron
+        run: npm run update-cron
       - name: Commit and push changes
         run: |
           git config --local user.email "$USER_EMAIL"
