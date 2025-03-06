@@ -1,10 +1,7 @@
 name: Monitor Tests
 on:
-  push:
-    branches: main
   schedule:
-    - cron: "* */6 * * *"
-
+    - cron: "0 */12 * * *"
 jobs:
   run-tests:
     timeout-minutes: 60
@@ -44,7 +41,6 @@ jobs:
             data
             tests
             utils
-
   generate-report:
     if: always()
     needs: run-tests
