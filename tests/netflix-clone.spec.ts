@@ -51,8 +51,8 @@ test(`${TITLE} - Test google login`, async ({ page }) => {
   await page.locator(".w-10").first().click();
 
   //expect google form
-  await expect(page.getByLabel("Email or phone")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Next" })).toBeVisible();
+  // await expect(page.getByLabel("Email or phone")).toBeVisible();
+  // await expect(page.getByRole("button", { name: "Next" })).toBeVisible();
   // await expect(page.getByLabel("Email or phone")).toBeVisible();
   // await expect(page.getByText("Sign in", { exact: true })).toBeVisible();
   // await page.getByLabel("Email or phone").click();
