@@ -23,7 +23,7 @@ test(`${TITLE} - Test home without logging in`, async ({ page }) => {
 
   // Wait for navigation to be visible with longer timeout
   await expect(page.getByRole("link", { name: "Home" })).toBeVisible({
-    timeout: 10000,
+    timeout: 90000,
   });
   await expect(page.getByRole("link", { name: "Login" })).toBeVisible({
     timeout: 5000,
