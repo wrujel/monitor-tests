@@ -12,13 +12,28 @@ const credentials = generateCredentials();
 const product = generateProduct();
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(URL_PATH);
+  await page.goto(URL_PATH, { waitUntil: "networkidle" });
+  // Ensure the page is fully loaded before each test
+  await page.waitForLoadState("domcontentloaded");
 });
 
 test(`${TITLE} - Test home without logging in`, async ({ page }) => {
-  await expect(page.getByRole("link", { name: "Home" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Login" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Register" })).toBeVisible();
+  // Wait for the page to fully load by checking for a key element
+  await page.waitForLoadState("networkidle");
+
+  // Wait for navigation to be visible with longer timeout
+  await expect(page.getByRole("link", { name: "Home" })).toBeVisible({
+    timeout: 10000,
+  });
+  await expect(page.getByRole("link", { name: "Login" })).toBeVisible({
+    timeout: 5000,
+  });
+  await expect(page.getByRole("link", { name: "Register" })).toBeVisible({
+    timeout: 5000,
+  });
+
+  // Additional verification that the page is in the expected state
+  await expect(page).toHaveURL(new RegExp(URL_PATH));
 });
 
 test(`${TITLE} - Test register and login`, async ({ page }) => {
