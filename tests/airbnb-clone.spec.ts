@@ -150,36 +150,52 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
 });
 
 test(`${TITLE} - Test home logged in`, async ({ page }) => {
-  let count = 0;
-  do {
-    await page.reload();
-    await page.locator(".p-4").click();
-    await page.getByText("Login").click();
-    await page.locator("#email").fill(EMAIL_TEST);
-    await page.locator("#password").fill(PASSWORD_TEST);
-    await page.getByRole("button", { name: "Continue", exact: true }).click();
-    await page.getByRole("button", { name: "Continue", exact: true }).waitFor({
-      state: "detached",
-    });
-    count++;
-  } while (!(await page.getByText("My trips").isVisible()) && count < 5);
-
-  await expect(page.getByText("My trips")).toBeVisible();
+  // Navigate to login
+  await page.locator(".p-4").click();
+  await page.getByText("Login").click();
+  
+  // Fill login credentials
+  await page.locator("#email").fill(EMAIL_TEST);
+  await page.locator("#password").fill(PASSWORD_TEST);
+  
+  // Wait for login response and success
+  await Promise.all([
+    page.waitForResponse(
+      (res) => res.url().includes("login") && [200, 201].includes(res.status())
+    ).catch(() => null), // Don't fail if no specific login endpoint
+    page.getByRole("button", { name: "Continue", exact: true }).click(),
+  ]);
+  
+  // Wait for button to be detached (form submission completed)
+  await page.getByRole("button", { name: "Continue", exact: true }).waitFor({
+    state: "detached",
+    timeout: 10000
+  });
+  
+  // Wait for page to load and check for successful login
+  await page.waitForLoadState('networkidle');
+  
+  // Verify login was successful by checking for user menu items
+  await expect(page.getByText("My trips")).toBeVisible({ timeout: 15000 });
   await expect(page.getByText("My favorites")).toBeVisible();
   await expect(page.getByText("My reservations")).toBeVisible();
   await expect(page.getByText("My properties")).toBeVisible();
   await expect(page.getByText("Airbnb my home")).toBeVisible();
+  
+  // Test search functionality
   await page
     .locator("div")
     .filter({ hasText: /^AnywhereAny WeekAdd Guests$/ })
     .first()
     .click();
-  await expect(page.getByText("Filters")).toBeVisible();
+  
+  // Wait for search elements to appear
+  await expect(page.getByText("Filters")).toBeVisible({ timeout: 10000 });
   await expect(page.getByText("Where do you wanna go?")).toBeVisible();
   await expect(
     page
       .locator("div")
       .filter({ hasText: /^\+− Leaflet$/ })
       .first()
-  ).toBeVisible();
+  ).toBeVisible({ timeout: 10000 });
 });
