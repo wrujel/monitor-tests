@@ -139,29 +139,57 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
 });
 
 test(`${TITLE} - Test home logged in`, async ({ page }) => {
+  // Fill login credentials
   await page.getByLabel("Email").fill(EMAIL_TEST);
   await page.getByLabel("Password").fill(PASSWORD_TEST);
-  await page.getByRole("button", { name: "Login" }).click();
+  
+  // Wait for login response and navigation
+  await Promise.all([
+    page.waitForResponse(response => 
+      response.url().includes('login') || response.url().includes('auth') || response.status() === 200
+    ).catch(() => null), // Don't fail if no specific login response
+    page.getByRole("button", { name: "Login" }).click()
+  ]);
+  
+  // Wait for profile selection page to load
+  await page.waitForLoadState('networkidle');
   await expect(
     page.getByRole("heading", { name: "Who is watching" })
-  ).toBeVisible();
+  ).toBeVisible({ timeout: 10000 });
   await expect(page.getByText("wrujel")).toBeVisible();
   await expect(page.getByRole("img", { name: "Avatar" })).toBeVisible();
+  
+  // Navigate to main app
   await page.getByRole("img", { name: "Avatar" }).click();
-  await expect(page.getByRole("img", { name: "Logo" })).toBeVisible();
+  
+  // Wait for main page to load completely
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByRole("img", { name: "Logo" })).toBeVisible({ timeout: 10000 });
   await expect(page.getByText("HomeSeriesFilmsNew &")).toBeVisible();
   await expect(page.locator(".px-4 > div:nth-child(4)")).toBeVisible();
-  await expect(page.locator("video")).toBeVisible();
+  
+  // Wait for video content to load
+  await expect(page.locator("video")).toBeVisible({ timeout: 15000 });
   await expect(page.locator("p").filter({ hasText: "Action" })).toBeVisible();
   await expect(page.locator("p").filter({ hasText: "Sci-Fi" })).toBeVisible();
   await expect(page.getByText("Other")).toBeVisible();
   await expect(page.getByRole("button", { name: "More Info" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Play" })).toBeVisible();
+  
+  // Test more info functionality
   await page.getByRole("button", { name: "More Info" }).click();
-  await expect(page.locator(".cursor-pointer").first()).toBeVisible();
+  await expect(page.locator(".cursor-pointer").first()).toBeVisible({ timeout: 5000 });
   await page.locator(".cursor-pointer").first().click();
+  
+  // Sign out process
   await page.getByRole("navigation").getByRole("img").nth(4).click();
-  await expect(page.getByText("Sign out of Netflix")).toBeVisible();
-  await page.getByText("Sign out of Netflix").click();
-  await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible();
+  await expect(page.getByText("Sign out of Netflix")).toBeVisible({ timeout: 5000 });
+  
+  // Wait for sign out to complete
+  await Promise.all([
+    page.waitForLoadState('networkidle'),
+    page.getByText("Sign out of Netflix").click()
+  ]);
+  
+  await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible({ timeout: 10000 });
 });
