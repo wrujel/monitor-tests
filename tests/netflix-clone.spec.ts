@@ -24,9 +24,7 @@ test(`${TITLE} - Test home without logging in`, async ({ page }) => {
   await expect(page.getByLabel("Password")).toBeVisible();
   await expect(page.getByRole("button", { name: "Login" })).toBeVisible();
   await expect(page.locator(".w-10").first()).toBeVisible();
-  await expect(
-    page.locator("div:nth-child(4) > div:nth-child(2)")
-  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Login" })).toBeVisible();
   await expect(page.getByText("Create an account")).toBeVisible();
 });
 
@@ -48,7 +46,7 @@ test(`${TITLE} - Test email register`, async ({ page }) => {
 });
 
 test(`${TITLE} - Test google login`, async ({ page }) => {
-  await page.locator(".w-10").first().click();
+  await page.locator("#google-login").first().click();
 
   //expect google form
   // await expect(page.getByLabel("Email or phone")).toBeVisible();
@@ -80,7 +78,7 @@ test(`${TITLE} - Test google login`, async ({ page }) => {
 });
 
 test(`${TITLE} - Test github login`, async ({ page }) => {
-  await page.locator("div:nth-child(4) > div:nth-child(2)").click();
+  await page.locator("#github-login").click();
   await page
     .locator("div:nth-child(4) > div:nth-child(2)")
     .waitFor({ state: "detached" });
@@ -142,55 +140,82 @@ test(`${TITLE} - Test home logged in`, async ({ page }) => {
   // Fill login credentials
   await page.getByLabel("Email").fill(EMAIL_TEST);
   await page.getByLabel("Password").fill(PASSWORD_TEST);
-  
+
   // Wait for login response and navigation with improved response detection
   await Promise.all([
-    page.waitForResponse(response => 
-      (response.url().includes('api') || response.url().includes('login') || response.url().includes('auth')) && 
-      [200, 201, 302].includes(response.status())
-    ).catch(() => null), // Don't fail if no specific login response
-    page.getByRole("button", { name: "Login" }).click()
+    page
+      .waitForResponse(
+        (response) =>
+          (response.url().includes("api") ||
+            response.url().includes("login") ||
+            response.url().includes("auth")) &&
+          [200, 201, 302].includes(response.status())
+      )
+      .catch(() => null), // Don't fail if no specific login response
+    page.getByRole("button", { name: "Login" }).click(),
   ]);
-  
+
   // Wait for profile selection page to load with increased timeout
-  await page.waitForLoadState('networkidle', { timeout: 20000 });
+  await page.waitForLoadState("networkidle", { timeout: 20000 });
   await expect(
     page.getByRole("heading", { name: "Who is watching" })
   ).toBeVisible({ timeout: 20000 });
   await expect(page.getByText("wrujel")).toBeVisible({ timeout: 10000 });
-  await expect(page.getByRole("img", { name: "Avatar" })).toBeVisible({ timeout: 10000 });
-  
+  await expect(page.getByRole("img", { name: "Avatar" })).toBeVisible({
+    timeout: 10000,
+  });
+
   // Navigate to main app
   await page.getByRole("img", { name: "Avatar" }).click();
-  
+
   // Wait for main page to load completely with increased timeout
-  await page.waitForLoadState('networkidle', { timeout: 20000 });
-  await expect(page.getByRole("img", { name: "Logo" })).toBeVisible({ timeout: 15000 });
-  await expect(page.getByText("HomeSeriesFilmsNew &")).toBeVisible({ timeout: 10000 });
-  await expect(page.locator(".px-4 > div:nth-child(4)")).toBeVisible({ timeout: 10000 });
-  
+  await page.waitForLoadState("networkidle", { timeout: 20000 });
+  await expect(page.getByRole("img", { name: "Logo" })).toBeVisible({
+    timeout: 15000,
+  });
+  await expect(page.getByText("HomeSeriesFilmsNew &")).toBeVisible({
+    timeout: 10000,
+  });
+  await expect(page.locator(".px-4 > div:nth-child(4)")).toBeVisible({
+    timeout: 10000,
+  });
+
   // Wait for video content to load with increased timeout
   await expect(page.locator("video")).toBeVisible({ timeout: 25000 });
-  await expect(page.locator("p").filter({ hasText: "Action" })).toBeVisible({ timeout: 10000 });
-  await expect(page.locator("p").filter({ hasText: "Sci-Fi" })).toBeVisible({ timeout: 10000 });
+  await expect(page.locator("p").filter({ hasText: "Action" })).toBeVisible({
+    timeout: 10000,
+  });
+  await expect(page.locator("p").filter({ hasText: "Sci-Fi" })).toBeVisible({
+    timeout: 10000,
+  });
   await expect(page.getByText("Other")).toBeVisible({ timeout: 10000 });
-  await expect(page.getByRole("button", { name: "More Info" })).toBeVisible({ timeout: 10000 });
-  await expect(page.getByRole("button", { name: "Play" })).toBeVisible({ timeout: 10000 });
-  
+  await expect(page.getByRole("button", { name: "More Info" })).toBeVisible({
+    timeout: 10000,
+  });
+  await expect(page.getByRole("button", { name: "Play" })).toBeVisible({
+    timeout: 10000,
+  });
+
   // Test more info functionality with increased timeout
   await page.getByRole("button", { name: "More Info" }).click();
-  await expect(page.locator(".cursor-pointer").first()).toBeVisible({ timeout: 10000 });
+  await expect(page.locator(".cursor-pointer").first()).toBeVisible({
+    timeout: 10000,
+  });
   await page.locator(".cursor-pointer").first().click();
-  
+
   // Sign out process with increased timeouts
   await page.getByRole("navigation").getByRole("img").nth(4).click();
-  await expect(page.getByText("Sign out of Netflix")).toBeVisible({ timeout: 10000 });
-  
+  await expect(page.getByText("Sign out of Netflix")).toBeVisible({
+    timeout: 10000,
+  });
+
   // Wait for sign out to complete with increased timeout
   await Promise.all([
-    page.waitForLoadState('networkidle', { timeout: 20000 }),
-    page.getByText("Sign out of Netflix").click()
+    page.waitForLoadState("networkidle", { timeout: 20000 }),
+    page.getByText("Sign out of Netflix").click(),
   ]);
-  
-  await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible({ timeout: 15000 });
+
+  await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible({
+    timeout: 15000,
+  });
 });
