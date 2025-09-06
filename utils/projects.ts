@@ -35,7 +35,7 @@ export const github_history = {
 };
 export const netflix_clone = {
   title: "Netflix Clone",
-  projectUrl: "https://movies-app-wrujel.vercel.app",
+  projectUrl: "https://movies-app-o2ff-git-main-wrujels-projects.vercel.app",
   repoUrl: "https://github.com/wrujel/netflix-clone",
 };
 export const rest_api_et = {
