@@ -8,11 +8,6 @@ export const movies_search = {
   projectUrl: "https://movies-search-five.vercel.app",
   repoUrl: "https://github.com/wrujel/movies-search",
 };
-export const portfolio_web = {
-  title: "Portfolio Web",
-  projectUrl: "https://portfolio-web-wrujel.vercel.app",
-  repoUrl: "https://github.com/wrujel/portfolio-web",
-};
 export const airbnb_clone = {
   title: "Airbnb Clone",
   projectUrl: "https://rental-app-delta.vercel.app",
@@ -67,4 +62,9 @@ export const portfolio_web_template = {
   title: "Portfolio Web Template",
   projectUrl: "https://portfolio-web-wrujel.vercel.app",
   repoUrl: "https://github.com/wrujel/portfolio-web-template",
+};
+export const portfolio_web = {
+  title: "Portfolio Web",
+  projectUrl: "https://portfolio-web-wrujel.vercel.app",
+  repoUrl: "https://github.com/wrujel/portfolio-web",
 };
