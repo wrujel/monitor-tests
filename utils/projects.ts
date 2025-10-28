@@ -63,8 +63,3 @@ export const portfolio_web_template = {
   projectUrl: "https://portfolio-web-wrujel.vercel.app",
   repoUrl: "https://github.com/wrujel/portfolio-web-template",
 };
-export const portfolio_web = {
-  title: "Portfolio Web",
-  projectUrl: "https://portfolio-web-wrujel.vercel.app",
-  repoUrl: "https://github.com/wrujel/portfolio-web",
-};
