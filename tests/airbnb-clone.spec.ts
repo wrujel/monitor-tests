@@ -17,7 +17,6 @@ test.beforeEach(async ({ page }) => {
 });
 
 test(`${TITLE} - Test home without logging in`, async ({ page }) => {
-  await page.goto("https://rental-app-delta.vercel.app/");
   await expect(page.getByRole("img", { name: "logo" })).toBeVisible();
   await expect(
     page
