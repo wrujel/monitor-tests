@@ -2,499 +2,6 @@
   {
     "summary": {
       "projects_count": 13,
-      "last_update": "Thu, 06 Nov 2025 02:49:47 GMT",
-      "passed": 12,
-      "failed": 1,
-      "duration": 406763
-    },
-    "projects": [
-      {
-        "name": "Admin Dashboard Next",
-        "status": "passed",
-        "startTime": "2025-11-06T02:34:21.217Z",
-        "passed": 4,
-        "failed": 0,
-        "duration": 6282,
-        "tests": [
-          {
-            "name": "Admin Dashboard Next - Test sidebar and search",
-            "status": "passed",
-            "duration": 1603,
-            "startTime": "2025-11-06T02:34:21.217Z"
-          },
-          {
-            "name": "Admin Dashboard Next - Test dashboard page",
-            "status": "passed",
-            "duration": 313,
-            "startTime": "2025-11-06T02:34:22.886Z"
-          },
-          {
-            "name": "Admin Dashboard Next - Test users page",
-            "status": "passed",
-            "duration": 2178,
-            "startTime": "2025-11-06T02:34:23.205Z"
-          },
-          {
-            "name": "Admin Dashboard Next - Test products page",
-            "status": "passed",
-            "duration": 2188,
-            "startTime": "2025-11-06T02:34:25.388Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "admin-dashboard-next"
-      },
-      {
-        "name": "Airbnb Clone",
-        "status": "failed",
-        "startTime": "2025-11-06T02:34:27.588Z",
-        "passed": 0,
-        "failed": 5,
-        "duration": 255325,
-        "tests": [
-          {
-            "name": "Airbnb Clone - Test home without logging in",
-            "status": "failed",
-            "duration": 5112,
-            "startTime": "2025-11-06T02:34:38.870Z"
-          },
-          {
-            "name": "Airbnb Clone - Test email register",
-            "status": "failed",
-            "duration": 5106,
-            "startTime": "2025-11-06T02:34:55.855Z"
-          },
-          {
-            "name": "Airbnb Clone - Test gmail login",
-            "status": "timedOut",
-            "duration": 120007,
-            "startTime": "2025-11-06T02:39:02.617Z"
-          },
-          {
-            "name": "Airbnb Clone - Test github login",
-            "status": "failed",
-            "duration": 5091,
-            "startTime": "2025-11-06T02:41:14.497Z"
-          },
-          {
-            "name": "Airbnb Clone - Test home logged in",
-            "status": "timedOut",
-            "duration": 120009,
-            "startTime": "2025-11-06T02:45:21.268Z"
-          }
-        ],
-        "color": "red",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "failed",
-          "color": "red",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "airbnb-clone"
-      },
-      {
-        "name": "Clock App",
-        "status": "passed",
-        "startTime": "2025-11-06T02:47:21.808Z",
-        "passed": 1,
-        "failed": 0,
-        "duration": 2824,
-        "tests": [
-          {
-            "name": "Clock App - Test home page",
-            "status": "passed",
-            "duration": 2824,
-            "startTime": "2025-11-06T02:47:21.808Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "clock-app"
-      },
-      {
-        "name": "Django Crud React",
-        "status": "passed",
-        "startTime": "2025-11-06T02:47:24.702Z",
-        "passed": 2,
-        "failed": 0,
-        "duration": 53980,
-        "tests": [
-          {
-            "name": "Django Crud React - Test home",
-            "status": "passed",
-            "duration": 52798,
-            "startTime": "2025-11-06T02:47:24.702Z"
-          },
-          {
-            "name": "Django Crud React - Test create new task",
-            "status": "passed",
-            "duration": 1182,
-            "startTime": "2025-11-06T02:48:17.507Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "django-crud-react"
-      },
-      {
-        "name": "Github History",
-        "status": "passed",
-        "startTime": "2025-11-06T02:48:18.697Z",
-        "passed": 2,
-        "failed": 0,
-        "duration": 1765,
-        "tests": [
-          {
-            "name": "Github History - Test home",
-            "status": "passed",
-            "duration": 831,
-            "startTime": "2025-11-06T02:48:18.697Z"
-          },
-          {
-            "name": "Github History - Test select a repo",
-            "status": "passed",
-            "duration": 934,
-            "startTime": "2025-11-06T02:48:19.535Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "github-history"
-      },
-      {
-        "name": "Movies Search",
-        "status": "passed",
-        "startTime": "2025-11-06T02:48:20.475Z",
-        "passed": 2,
-        "failed": 0,
-        "duration": 1845,
-        "tests": [
-          {
-            "name": "Movies Search - Test page",
-            "status": "passed",
-            "duration": 787,
-            "startTime": "2025-11-06T02:48:20.475Z"
-          },
-          {
-            "name": "Movies Search - Test search",
-            "status": "passed",
-            "duration": 1058,
-            "startTime": "2025-11-06T02:48:21.267Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "movies-search"
-      },
-      {
-        "name": "Netflix Clone",
-        "status": "passed",
-        "startTime": "2025-11-06T02:48:22.337Z",
-        "passed": 5,
-        "failed": 0,
-        "duration": 13803,
-        "tests": [
-          {
-            "name": "Netflix Clone - Test home without logging in",
-            "status": "passed",
-            "duration": 4132,
-            "startTime": "2025-11-06T02:48:22.337Z"
-          },
-          {
-            "name": "Netflix Clone - Test email register",
-            "status": "passed",
-            "duration": 3693,
-            "startTime": "2025-11-06T02:48:26.474Z"
-          },
-          {
-            "name": "Netflix Clone - Test google login",
-            "status": "passed",
-            "duration": 345,
-            "startTime": "2025-11-06T02:48:30.172Z"
-          },
-          {
-            "name": "Netflix Clone - Test github login",
-            "status": "passed",
-            "duration": 1440,
-            "startTime": "2025-11-06T02:48:30.522Z"
-          },
-          {
-            "name": "Netflix Clone - Test home logged in",
-            "status": "passed",
-            "duration": 4193,
-            "startTime": "2025-11-06T02:48:31.968Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "netflix-clone"
-      },
-      {
-        "name": "Portfolio Web Template",
-        "status": "passed",
-        "startTime": "2025-11-06T02:48:36.168Z",
-        "passed": 7,
-        "failed": 0,
-        "duration": 4566,
-        "tests": [
-          {
-            "name": "Portfolio Web Template - Home page",
-            "status": "passed",
-            "duration": 1233,
-            "startTime": "2025-11-06T02:48:36.168Z"
-          },
-          {
-            "name": "Portfolio Web Template - Sidebar",
-            "status": "passed",
-            "duration": 293,
-            "startTime": "2025-11-06T02:48:37.405Z"
-          },
-          {
-            "name": "Portfolio Web Template - About page",
-            "status": "passed",
-            "duration": 736,
-            "startTime": "2025-11-06T02:48:37.703Z"
-          },
-          {
-            "name": "Portfolio Web Template - Services page",
-            "status": "passed",
-            "duration": 410,
-            "startTime": "2025-11-06T02:48:38.443Z"
-          },
-          {
-            "name": "Portfolio Web Template - Projects page",
-            "status": "passed",
-            "duration": 735,
-            "startTime": "2025-11-06T02:48:38.857Z"
-          },
-          {
-            "name": "Portfolio Web Template - Costumers page",
-            "status": "passed",
-            "duration": 690,
-            "startTime": "2025-11-06T02:48:39.597Z"
-          },
-          {
-            "name": "Portfolio Web Template - Contact page",
-            "status": "passed",
-            "duration": 469,
-            "startTime": "2025-11-06T02:48:40.292Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "portfolio-web-template"
-      },
-      {
-        "name": "Rest Api Et",
-        "status": "passed",
-        "startTime": "2025-11-06T02:48:40.769Z",
-        "passed": 3,
-        "failed": 0,
-        "duration": 63248,
-        "tests": [
-          {
-            "name": "Rest Api Et - Test home without logging in",
-            "status": "passed",
-            "duration": 42991,
-            "startTime": "2025-11-06T02:48:40.769Z"
-          },
-          {
-            "name": "Rest Api Et - Test register and login",
-            "status": "passed",
-            "duration": 5069,
-            "startTime": "2025-11-06T02:49:23.765Z"
-          },
-          {
-            "name": "Rest Api Et - Test crud products",
-            "status": "passed",
-            "duration": 15188,
-            "startTime": "2025-11-06T02:49:28.838Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "rest-api-et"
-      },
-      {
-        "name": "Slider Static",
-        "status": "passed",
-        "startTime": "2025-11-06T02:49:44.032Z",
-        "passed": 1,
-        "failed": 0,
-        "duration": 760,
-        "tests": [
-          {
-            "name": "Slider Static - Test home",
-            "status": "passed",
-            "duration": 760,
-            "startTime": "2025-11-06T02:49:44.032Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "slider-static"
-      },
-      {
-        "name": "Tesla Landing",
-        "status": "passed",
-        "startTime": "2025-11-06T02:49:44.799Z",
-        "passed": 3,
-        "failed": 0,
-        "duration": 981,
-        "tests": [
-          {
-            "name": "Tesla Landing - Test home",
-            "status": "passed",
-            "duration": 485,
-            "startTime": "2025-11-06T02:49:44.799Z"
-          },
-          {
-            "name": "Tesla Landing - Test second section",
-            "status": "passed",
-            "duration": 263,
-            "startTime": "2025-11-06T02:49:45.288Z"
-          },
-          {
-            "name": "Tesla Landing - Test last section",
-            "status": "passed",
-            "duration": 233,
-            "startTime": "2025-11-06T02:49:45.556Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "tesla-landing"
-      },
-      {
-        "name": "Tetris Javascript",
-        "status": "passed",
-        "startTime": "2025-11-06T02:49:45.794Z",
-        "passed": 1,
-        "failed": 0,
-        "duration": 584,
-        "tests": [
-          {
-            "name": "Tetris Javascript - Test home",
-            "status": "passed",
-            "duration": 584,
-            "startTime": "2025-11-06T02:49:45.794Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "tetris-javascript"
-      },
-      {
-        "name": "Webpage Gpt",
-        "status": "passed",
-        "startTime": "2025-11-06T02:49:46.383Z",
-        "passed": 1,
-        "failed": 0,
-        "duration": 800,
-        "tests": [
-          {
-            "name": "Webpage Gpt - Test project",
-            "status": "passed",
-            "duration": 800,
-            "startTime": "2025-11-06T02:49:46.383Z"
-          }
-        ],
-        "color": "green",
-        "badge": {
-          "schemaVersion": 1,
-          "label": "tests",
-          "message": "passed",
-          "color": "green",
-          "style": "for-the-badge",
-          "namedLogo": "github"
-        },
-        "repo": "webpage-gpt"
-      }
-    ]
-  },
-  {
-    "summary": {
-      "projects_count": 13,
       "last_update": "Thu, 06 Nov 2025 03:40:39 GMT",
       "passed": 12,
       "failed": 1,
@@ -44847,6 +44354,499 @@
             "status": "passed",
             "duration": 370,
             "startTime": "2025-11-12T05:07:06.338Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "webpage-gpt"
+      }
+    ]
+  },
+  {
+    "summary": {
+      "projects_count": 13,
+      "last_update": "Wed, 12 Nov 2025 06:15:45 GMT",
+      "passed": 12,
+      "failed": 1,
+      "duration": 287721
+    },
+    "projects": [
+      {
+        "name": "Admin Dashboard Next",
+        "status": "passed",
+        "startTime": "2025-11-12T06:04:44.655Z",
+        "passed": 4,
+        "failed": 0,
+        "duration": 5471,
+        "tests": [
+          {
+            "name": "Admin Dashboard Next - Test sidebar and search",
+            "status": "passed",
+            "duration": 1233,
+            "startTime": "2025-11-12T06:04:44.655Z"
+          },
+          {
+            "name": "Admin Dashboard Next - Test dashboard page",
+            "status": "passed",
+            "duration": 399,
+            "startTime": "2025-11-12T06:04:45.958Z"
+          },
+          {
+            "name": "Admin Dashboard Next - Test users page",
+            "status": "passed",
+            "duration": 3138,
+            "startTime": "2025-11-12T06:04:46.367Z"
+          },
+          {
+            "name": "Admin Dashboard Next - Test products page",
+            "status": "passed",
+            "duration": 701,
+            "startTime": "2025-11-12T06:04:49.510Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "admin-dashboard-next"
+      },
+      {
+        "name": "Airbnb Clone",
+        "status": "passed",
+        "startTime": "2025-11-12T06:04:50.223Z",
+        "passed": 5,
+        "failed": 0,
+        "duration": 12762,
+        "tests": [
+          {
+            "name": "Airbnb Clone - Test home without logging in",
+            "status": "passed",
+            "duration": 904,
+            "startTime": "2025-11-12T06:04:53.033Z"
+          },
+          {
+            "name": "Airbnb Clone - Test email register",
+            "status": "passed",
+            "duration": 3098,
+            "startTime": "2025-11-12T06:04:54.222Z"
+          },
+          {
+            "name": "Airbnb Clone - Test gmail login",
+            "status": "passed",
+            "duration": 2520,
+            "startTime": "2025-11-12T06:04:57.326Z"
+          },
+          {
+            "name": "Airbnb Clone - Test github login",
+            "status": "passed",
+            "duration": 1692,
+            "startTime": "2025-11-12T06:04:59.851Z"
+          },
+          {
+            "name": "Airbnb Clone - Test home logged in",
+            "status": "passed",
+            "duration": 4548,
+            "startTime": "2025-11-12T06:05:01.549Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "airbnb-clone"
+      },
+      {
+        "name": "Clock App",
+        "status": "passed",
+        "startTime": "2025-11-12T06:05:06.105Z",
+        "passed": 1,
+        "failed": 0,
+        "duration": 2241,
+        "tests": [
+          {
+            "name": "Clock App - Test home page",
+            "status": "passed",
+            "duration": 2241,
+            "startTime": "2025-11-12T06:05:06.105Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "clock-app"
+      },
+      {
+        "name": "Django Crud React",
+        "status": "failed",
+        "startTime": "2025-11-12T06:05:08.354Z",
+        "passed": 0,
+        "failed": 2,
+        "duration": 181984,
+        "tests": [
+          {
+            "name": "Django Crud React - Test home",
+            "status": "failed",
+            "duration": 91241,
+            "startTime": "2025-11-12T06:08:12.618Z"
+          },
+          {
+            "name": "Django Crud React - Test create new task",
+            "status": "failed",
+            "duration": 90743,
+            "startTime": "2025-11-12T06:12:48.923Z"
+          }
+        ],
+        "color": "red",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "failed",
+          "color": "red",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "django-crud-react"
+      },
+      {
+        "name": "Github History",
+        "status": "passed",
+        "startTime": "2025-11-12T06:14:20.197Z",
+        "passed": 2,
+        "failed": 0,
+        "duration": 847,
+        "tests": [
+          {
+            "name": "Github History - Test home",
+            "status": "passed",
+            "duration": 454,
+            "startTime": "2025-11-12T06:14:20.197Z"
+          },
+          {
+            "name": "Github History - Test select a repo",
+            "status": "passed",
+            "duration": 393,
+            "startTime": "2025-11-12T06:14:20.718Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "github-history"
+      },
+      {
+        "name": "Movies Search",
+        "status": "passed",
+        "startTime": "2025-11-12T06:14:21.119Z",
+        "passed": 2,
+        "failed": 0,
+        "duration": 1365,
+        "tests": [
+          {
+            "name": "Movies Search - Test page",
+            "status": "passed",
+            "duration": 282,
+            "startTime": "2025-11-12T06:14:21.119Z"
+          },
+          {
+            "name": "Movies Search - Test search",
+            "status": "passed",
+            "duration": 1083,
+            "startTime": "2025-11-12T06:14:21.408Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "movies-search"
+      },
+      {
+        "name": "Netflix Clone",
+        "status": "passed",
+        "startTime": "2025-11-12T06:14:22.504Z",
+        "passed": 5,
+        "failed": 0,
+        "duration": 11001,
+        "tests": [
+          {
+            "name": "Netflix Clone - Test home without logging in",
+            "status": "passed",
+            "duration": 3369,
+            "startTime": "2025-11-12T06:14:22.504Z"
+          },
+          {
+            "name": "Netflix Clone - Test email register",
+            "status": "passed",
+            "duration": 2358,
+            "startTime": "2025-11-12T06:14:25.881Z"
+          },
+          {
+            "name": "Netflix Clone - Test google login",
+            "status": "passed",
+            "duration": 269,
+            "startTime": "2025-11-12T06:14:28.244Z"
+          },
+          {
+            "name": "Netflix Clone - Test github login",
+            "status": "passed",
+            "duration": 869,
+            "startTime": "2025-11-12T06:14:28.518Z"
+          },
+          {
+            "name": "Netflix Clone - Test home logged in",
+            "status": "passed",
+            "duration": 4136,
+            "startTime": "2025-11-12T06:14:29.392Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "netflix-clone"
+      },
+      {
+        "name": "Portfolio Web Template",
+        "status": "passed",
+        "startTime": "2025-11-12T06:14:33.535Z",
+        "passed": 7,
+        "failed": 0,
+        "duration": 2407,
+        "tests": [
+          {
+            "name": "Portfolio Web Template - Home page",
+            "status": "passed",
+            "duration": 406,
+            "startTime": "2025-11-12T06:14:33.535Z"
+          },
+          {
+            "name": "Portfolio Web Template - Sidebar",
+            "status": "passed",
+            "duration": 312,
+            "startTime": "2025-11-12T06:14:33.947Z"
+          },
+          {
+            "name": "Portfolio Web Template - About page",
+            "status": "passed",
+            "duration": 310,
+            "startTime": "2025-11-12T06:14:34.265Z"
+          },
+          {
+            "name": "Portfolio Web Template - Services page",
+            "status": "passed",
+            "duration": 322,
+            "startTime": "2025-11-12T06:14:34.580Z"
+          },
+          {
+            "name": "Portfolio Web Template - Projects page",
+            "status": "passed",
+            "duration": 426,
+            "startTime": "2025-11-12T06:14:34.907Z"
+          },
+          {
+            "name": "Portfolio Web Template - Costumers page",
+            "status": "passed",
+            "duration": 346,
+            "startTime": "2025-11-12T06:14:35.338Z"
+          },
+          {
+            "name": "Portfolio Web Template - Contact page",
+            "status": "passed",
+            "duration": 285,
+            "startTime": "2025-11-12T06:14:35.688Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "portfolio-web-template"
+      },
+      {
+        "name": "Rest Api Et",
+        "status": "passed",
+        "startTime": "2025-11-12T06:14:35.980Z",
+        "passed": 3,
+        "failed": 0,
+        "duration": 64399,
+        "tests": [
+          {
+            "name": "Rest Api Et - Test home without logging in",
+            "status": "passed",
+            "duration": 42846,
+            "startTime": "2025-11-12T06:14:35.980Z"
+          },
+          {
+            "name": "Rest Api Et - Test register and login",
+            "status": "passed",
+            "duration": 5235,
+            "startTime": "2025-11-12T06:15:18.830Z"
+          },
+          {
+            "name": "Rest Api Et - Test crud products",
+            "status": "passed",
+            "duration": 16318,
+            "startTime": "2025-11-12T06:15:24.072Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "rest-api-et"
+      },
+      {
+        "name": "Slider Static",
+        "status": "passed",
+        "startTime": "2025-11-12T06:15:40.396Z",
+        "passed": 1,
+        "failed": 0,
+        "duration": 2221,
+        "tests": [
+          {
+            "name": "Slider Static - Test home",
+            "status": "passed",
+            "duration": 2221,
+            "startTime": "2025-11-12T06:15:40.396Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "slider-static"
+      },
+      {
+        "name": "Tesla Landing",
+        "status": "passed",
+        "startTime": "2025-11-12T06:15:42.624Z",
+        "passed": 3,
+        "failed": 0,
+        "duration": 2360,
+        "tests": [
+          {
+            "name": "Tesla Landing - Test home",
+            "status": "passed",
+            "duration": 1288,
+            "startTime": "2025-11-12T06:15:42.624Z"
+          },
+          {
+            "name": "Tesla Landing - Test second section",
+            "status": "passed",
+            "duration": 804,
+            "startTime": "2025-11-12T06:15:43.917Z"
+          },
+          {
+            "name": "Tesla Landing - Test last section",
+            "status": "passed",
+            "duration": 268,
+            "startTime": "2025-11-12T06:15:44.726Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "tesla-landing"
+      },
+      {
+        "name": "Tetris Javascript",
+        "status": "passed",
+        "startTime": "2025-11-12T06:15:44.999Z",
+        "passed": 1,
+        "failed": 0,
+        "duration": 203,
+        "tests": [
+          {
+            "name": "Tetris Javascript - Test home",
+            "status": "passed",
+            "duration": 203,
+            "startTime": "2025-11-12T06:15:44.999Z"
+          }
+        ],
+        "color": "green",
+        "badge": {
+          "schemaVersion": 1,
+          "label": "tests",
+          "message": "passed",
+          "color": "green",
+          "style": "for-the-badge",
+          "namedLogo": "github"
+        },
+        "repo": "tetris-javascript"
+      },
+      {
+        "name": "Webpage Gpt",
+        "status": "passed",
+        "startTime": "2025-11-12T06:15:45.208Z",
+        "passed": 1,
+        "failed": 0,
+        "duration": 460,
+        "tests": [
+          {
+            "name": "Webpage Gpt - Test project",
+            "status": "passed",
+            "duration": 460,
+            "startTime": "2025-11-12T06:15:45.208Z"
           }
         ],
         "color": "green",
