@@ -10,7 +10,7 @@ export const movies_search = {
 };
 export const airbnb_clone = {
   title: "Airbnb Clone",
-  projectUrl: "https://demo-airbnb-clone-three-phi-45.vercel.app/",
+  projectUrl: "",
   repoUrl: "https://github.com/wrujel/airbnb-clone",
 };
 export const clock_app = {
