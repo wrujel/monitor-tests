@@ -55,7 +55,7 @@ export const tetris_javascript = {
 };
 export const webpage_gpt = {
   title: "Webpage Gpt",
-  projectUrl: "",
+  projectUrl: "https://webpage-gpt-wrujels-projects.vercel.app/",
   repoUrl: "https://github.com/wrujel/webpage-gpt",
 };
 export const portfolio_web_template = {
