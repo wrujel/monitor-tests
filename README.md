@@ -2,7 +2,7 @@
 ## Summary:
 <p><ul>
             <li><span>Total Projects: 13</span></li>
-            <li><span>Last Update: Wed, 04 Mar 2026 20:01:26 GMT</span></li>
+            <li><span>Last Update: Wed, 04 Mar 2026 20:17:39 GMT</span></li>
             <li><span>Passed: 0</span></li>
             <li><span>Failed: 13</span></li>
             <li><span>Duration: 
@@ -37,7 +37,7 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.34</td>
+                    <td align='right'>0.32</td>
                   </tr><tr>
                     <td><a href="">Clock App</a></td>
                     <td><a href="https://github.com/wrujel/clock-app">Link</a></td>
@@ -51,7 +51,7 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.13</td>
+                    <td align='right'>0.14</td>
                   </tr><tr>
                     <td><a href="">Github History</a></td>
                     <td><a href="https://github.com/wrujel/github-history">Link</a></td>
@@ -65,14 +65,14 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.13</td>
+                    <td align='right'>0.14</td>
                   </tr><tr>
                     <td><a href="">Netflix Clone</a></td>
                     <td><a href="https://github.com/wrujel/netflix-clone">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.33</td>
+                    <td align='right'>0.34</td>
                   </tr><tr>
                     <td><a href="">Portfolio Web Template</a></td>
                     <td><a href="https://github.com/wrujel/portfolio-web-template">Link</a></td>
@@ -140,12 +140,12 @@
                           <td>Admin Dashboard Next</td>
                           <td>Test dashboard page</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test users page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test products page</td>
@@ -160,17 +160,17 @@
                           <td>Airbnb Clone</td>
                           <td>Test email register</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test gmail login</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test github login</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test home logged in</td>
@@ -200,7 +200,7 @@
                           <td>Github History</td>
                           <td>Test select a repo</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Movies Search</td>
                           <td>Test page</td>
@@ -235,7 +235,7 @@
                           <td>Netflix Clone</td>
                           <td>Test home logged in</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Home page</td>
@@ -250,7 +250,7 @@
                           <td>Portfolio Web Template</td>
                           <td>About page</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Services page</td>
@@ -270,7 +270,7 @@
                           <td>Portfolio Web Template</td>
                           <td>Contact page</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test home without logging in</td>
@@ -295,7 +295,7 @@
                           <td>Tesla Landing</td>
                           <td>Test home</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test second section</td>
