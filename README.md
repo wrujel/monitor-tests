@@ -2,11 +2,11 @@
 ## Summary:
 <p><ul>
             <li><span>Total Projects: 13</span></li>
-            <li><span>Last Update: Wed, 04 Mar 2026 22:15:30 GMT</span></li>
+            <li><span>Last Update: Wed, 04 Mar 2026 23:00:54 GMT</span></li>
             <li><span>Passed: 0</span></li>
             <li><span>Failed: 13</span></li>
             <li><span>Duration: 
-              2.38 sec
+              2.48 sec
             </span></li>
           </ul></p>
   
@@ -37,21 +37,21 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.32</td>
+                    <td align='right'>0.31</td>
                   </tr><tr>
                     <td><a href="">Clock App</a></td>
                     <td><a href="https://github.com/wrujel/clock-app">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/1</td>
-                    <td align='right'>0.07</td>
+                    <td align='right'>0.06</td>
                   </tr><tr>
                     <td><a href="">Django Crud React</a></td>
                     <td><a href="https://github.com/wrujel/django-crud-react">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.12</td>
+                    <td align='right'>0.13</td>
                   </tr><tr>
                     <td><a href="">Github History</a></td>
                     <td><a href="https://github.com/wrujel/github-history">Link</a></td>
@@ -72,14 +72,14 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.32</td>
+                    <td align='right'>0.44</td>
                   </tr><tr>
                     <td><a href="">Portfolio Web Template</a></td>
                     <td><a href="https://github.com/wrujel/portfolio-web-template">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/7</td>
-                    <td align='right'>0.45</td>
+                    <td align='right'>0.44</td>
                   </tr><tr>
                     <td><a href="">Rest Api Et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
@@ -93,14 +93,14 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/1</td>
-                    <td align='right'>0.06</td>
+                    <td align='right'>0.07</td>
                   </tr><tr>
                     <td><a href="">Tesla Landing</a></td>
                     <td><a href="https://github.com/wrujel/tesla-landing">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/3</td>
-                    <td align='right'>0.20</td>
+                    <td align='right'>0.19</td>
                   </tr><tr>
                     <td><a href="">Tetris Javascript</a></td>
                     <td><a href="https://github.com/wrujel/tetris-javascript">Link</a></td>
@@ -145,7 +145,7 @@
                           <td>Admin Dashboard Next</td>
                           <td>Test users page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test products page</td>
@@ -155,22 +155,22 @@
                           <td>Airbnb Clone</td>
                           <td>Test home without logging in</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test email register</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test gmail login</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test github login</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test home logged in</td>
@@ -180,7 +180,7 @@
                           <td>Clock App</td>
                           <td>Test home page</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Django Crud React</td>
                           <td>Test home</td>
@@ -200,7 +200,7 @@
                           <td>Github History</td>
                           <td>Test select a repo</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Movies Search</td>
                           <td>Test page</td>
@@ -210,12 +210,12 @@
                           <td>Movies Search</td>
                           <td>Test search</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test home without logging in</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.19</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test email register</td>
@@ -230,12 +230,12 @@
                           <td>Netflix Clone</td>
                           <td>Test github login</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test home logged in</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Home page</td>
@@ -265,12 +265,12 @@
                           <td>Portfolio Web Template</td>
                           <td>Costumers page</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Contact page</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test home without logging in</td>
@@ -290,7 +290,7 @@
                           <td>Slider Static</td>
                           <td>Test home</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test home</td>
@@ -300,7 +300,7 @@
                           <td>Tesla Landing</td>
                           <td>Test second section</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test last section</td>
