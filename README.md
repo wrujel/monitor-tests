@@ -2,11 +2,11 @@
 ## Summary:
 <p><ul>
             <li><span>Total Projects: 13</span></li>
-            <li><span>Last Update: Wed, 04 Mar 2026 13:16:01 GMT</span></li>
+            <li><span>Last Update: Wed, 04 Mar 2026 14:07:18 GMT</span></li>
             <li><span>Passed: 0</span></li>
             <li><span>Failed: 13</span></li>
             <li><span>Duration: 
-              2.08 sec
+              2.28 sec
             </span></li>
           </ul></p>
   
@@ -30,14 +30,14 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/4</td>
-                    <td align='right'>0.24</td>
+                    <td align='right'>0.22</td>
                   </tr><tr>
                     <td><a href="">Airbnb Clone</a></td>
                     <td><a href="https://github.com/wrujel/airbnb-clone">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.27</td>
+                    <td align='right'>0.29</td>
                   </tr><tr>
                     <td><a href="">Clock App</a></td>
                     <td><a href="https://github.com/wrujel/clock-app">Link</a></td>
@@ -65,28 +65,28 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.14</td>
+                    <td align='right'>0.11</td>
                   </tr><tr>
                     <td><a href="">Netflix Clone</a></td>
                     <td><a href="https://github.com/wrujel/netflix-clone">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.27</td>
+                    <td align='right'>0.28</td>
                   </tr><tr>
                     <td><a href="">Portfolio Web Template</a></td>
                     <td><a href="https://github.com/wrujel/portfolio-web-template">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/7</td>
-                    <td align='right'>0.39</td>
+                    <td align='right'>0.59</td>
                   </tr><tr>
                     <td><a href="">Rest Api Et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/3</td>
-                    <td align='right'>0.16</td>
+                    <td align='right'>0.17</td>
                   </tr><tr>
                     <td><a href="">Slider Static</a></td>
                     <td><a href="https://github.com/wrujel/slider-static">Link</a></td>
@@ -100,21 +100,21 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/3</td>
-                    <td align='right'>0.16</td>
+                    <td align='right'>0.17</td>
                   </tr><tr>
                     <td><a href="">Tetris Javascript</a></td>
                     <td><a href="https://github.com/wrujel/tetris-javascript">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/1</td>
-                    <td align='right'>0.05</td>
+                    <td align='right'>0.06</td>
                   </tr><tr>
                     <td><a href="">Webpage Gpt</a></td>
                     <td><a href="https://github.com/wrujel/webpage-gpt">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/1</td>
-                    <td align='right'>0.05</td>
+                    <td align='right'>0.06</td>
                   </tr>
             </tbody>
           </table>
@@ -135,7 +135,7 @@
                           <td>Admin Dashboard Next</td>
                           <td>Test sidebar and search</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.05</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test dashboard page</td>
@@ -155,7 +155,7 @@
                           <td>Airbnb Clone</td>
                           <td>Test home without logging in</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test email register</td>
@@ -165,7 +165,7 @@
                           <td>Airbnb Clone</td>
                           <td>Test gmail login</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test github login</td>
@@ -210,7 +210,7 @@
                           <td>Movies Search</td>
                           <td>Test search</td>
                           <td>❌</td>
-                          <td align='right'>0.09</td>
+                          <td align='right'>0.05</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test home without logging in</td>
@@ -220,7 +220,7 @@
                           <td>Netflix Clone</td>
                           <td>Test email register</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test google login</td>
@@ -235,17 +235,17 @@
                           <td>Netflix Clone</td>
                           <td>Test home logged in</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Home page</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Sidebar</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.25</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>About page</td>
@@ -265,7 +265,7 @@
                           <td>Portfolio Web Template</td>
                           <td>Costumers page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.05</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Contact page</td>
@@ -280,7 +280,7 @@
                           <td>Rest Api Et</td>
                           <td>Test register and login</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test crud products</td>
@@ -305,17 +305,17 @@
                           <td>Tesla Landing</td>
                           <td>Test last section</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Tetris Javascript</td>
                           <td>Test home</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Webpage Gpt</td>
                           <td>Test project</td>
                           <td>❌</td>
-                          <td align='right'>0.05</td>
+                          <td align='right'>0.06</td>
                         </tr>
             </tbody>
           </table>
