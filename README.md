@@ -2,11 +2,11 @@
 ## Summary:
 <p><ul>
             <li><span>Total Projects: 13</span></li>
-            <li><span>Last Update: Wed, 04 Mar 2026 23:57:53 GMT</span></li>
+            <li><span>Last Update: Thu, 05 Mar 2026 00:15:57 GMT</span></li>
             <li><span>Passed: 0</span></li>
             <li><span>Failed: 13</span></li>
             <li><span>Duration: 
-              2.62 sec
+              2.66 sec
             </span></li>
           </ul></p>
   
@@ -30,7 +30,7 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/4</td>
-                    <td align='right'>0.26</td>
+                    <td align='right'>0.27</td>
                   </tr><tr>
                     <td><a href="">Airbnb Clone</a></td>
                     <td><a href="https://github.com/wrujel/airbnb-clone">Link</a></td>
@@ -51,35 +51,35 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.35</td>
+                    <td align='right'>0.13</td>
                   </tr><tr>
                     <td><a href="">Github History</a></td>
                     <td><a href="https://github.com/wrujel/github-history">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.14</td>
+                    <td align='right'>0.34</td>
                   </tr><tr>
                     <td><a href="">Movies Search</a></td>
                     <td><a href="https://github.com/wrujel/movies-search">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>0.12</td>
+                    <td align='right'>0.13</td>
                   </tr><tr>
                     <td><a href="">Netflix Clone</a></td>
                     <td><a href="https://github.com/wrujel/netflix-clone">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/5</td>
-                    <td align='right'>0.32</td>
+                    <td align='right'>0.34</td>
                   </tr><tr>
                     <td><a href="">Portfolio Web Template</a></td>
                     <td><a href="https://github.com/wrujel/portfolio-web-template">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/7</td>
-                    <td align='right'>0.45</td>
+                    <td align='right'>0.46</td>
                   </tr><tr>
                     <td><a href="">Rest Api Et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
@@ -93,14 +93,14 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/1</td>
-                    <td align='right'>0.06</td>
+                    <td align='right'>0.07</td>
                   </tr><tr>
                     <td><a href="">Tesla Landing</a></td>
                     <td><a href="https://github.com/wrujel/tesla-landing">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/3</td>
-                    <td align='right'>0.19</td>
+                    <td align='right'>0.20</td>
                   </tr><tr>
                     <td><a href="">Tetris Javascript</a></td>
                     <td><a href="https://github.com/wrujel/tetris-javascript">Link</a></td>
@@ -114,7 +114,7 @@
                     <td><img src="" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/1</td>
-                    <td align='right'>0.06</td>
+                    <td align='right'>0.07</td>
                   </tr>
             </tbody>
           </table>
@@ -140,7 +140,7 @@
                           <td>Admin Dashboard Next</td>
                           <td>Test dashboard page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Admin Dashboard Next</td>
                           <td>Test users page</td>
@@ -155,7 +155,7 @@
                           <td>Airbnb Clone</td>
                           <td>Test home without logging in</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test email register</td>
@@ -170,7 +170,7 @@
                           <td>Airbnb Clone</td>
                           <td>Test github login</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Airbnb Clone</td>
                           <td>Test home logged in</td>
@@ -190,7 +190,7 @@
                           <td>Django Crud React</td>
                           <td>Test create new task</td>
                           <td>❌</td>
-                          <td align='right'>0.28</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Github History</td>
                           <td>Test home</td>
@@ -200,22 +200,22 @@
                           <td>Github History</td>
                           <td>Test select a repo</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.28</td>
                         </tr><tr>
                           <td>Movies Search</td>
                           <td>Test page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Movies Search</td>
                           <td>Test search</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test home without logging in</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.09</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test email register</td>
@@ -225,7 +225,7 @@
                           <td>Netflix Clone</td>
                           <td>Test google login</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Netflix Clone</td>
                           <td>Test github login</td>
@@ -240,7 +240,7 @@
                           <td>Portfolio Web Template</td>
                           <td>Home page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Sidebar</td>
@@ -260,7 +260,7 @@
                           <td>Portfolio Web Template</td>
                           <td>Projects page</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Portfolio Web Template</td>
                           <td>Costumers page</td>
@@ -275,22 +275,22 @@
                           <td>Rest Api Et</td>
                           <td>Test home without logging in</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test register and login</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Rest Api Et</td>
                           <td>Test crud products</td>
                           <td>❌</td>
-                          <td align='right'>0.07</td>
+                          <td align='right'>0.06</td>
                         </tr><tr>
                           <td>Slider Static</td>
                           <td>Test home</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test home</td>
@@ -300,7 +300,7 @@
                           <td>Tesla Landing</td>
                           <td>Test second section</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr><tr>
                           <td>Tesla Landing</td>
                           <td>Test last section</td>
@@ -315,7 +315,7 @@
                           <td>Webpage Gpt</td>
                           <td>Test project</td>
                           <td>❌</td>
-                          <td align='right'>0.06</td>
+                          <td align='right'>0.07</td>
                         </tr>
             </tbody>
           </table>
