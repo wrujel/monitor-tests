@@ -18,7 +18,21 @@ class ProjectsReporter implements Reporter {
   }
 
   onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
+    console.log("=".repeat(60));
     console.log("Test run started at: " + new Date().toUTCString());
+    console.log("Workers: " + config.workers);
+    console.log("Retries: " + (config.projects[0]?.retries ?? 0));
+    const allTests = suite.allTests();
+    console.log("Total tests to run: " + allTests.length);
+    const files = [...new Set(allTests.map((t) => t.location.file))];
+    console.log("Test files (" + files.length + "):");
+    files.forEach((f) => console.log("  - " + f));
+    console.log("=".repeat(60));
+  }
+
+  onTestBegin(test: TestCase): void {
+    console.log("\n>>> START: " + test.title);
+    console.log("    file: " + test.location.file + ":" + test.location.line);
   }
 
   onTestEnd(test: TestCase, result: TestResult): void {
@@ -30,7 +44,48 @@ class ProjectsReporter implements Reporter {
     const duration = result.duration;
     const startTime = result.startTime;
 
-    console.log(testName + " - " + status);
+    const durationSec = (duration / 1000).toFixed(2) + "s";
+    const retryLabel = result.retry > 0 ? ` (retry ${result.retry})` : "";
+    console.log(
+      `<<< END:   ${testName} — ${status.toUpperCase()}${retryLabel} [${durationSec}]`,
+    );
+
+    if (status !== "passed") {
+      console.log("--- FAILURE DETAILS ---");
+      for (const error of result.errors) {
+        if (error.message) {
+          // Strip ANSI colour codes for cleaner GitHub logs
+          console.log(
+            "  message: " +
+              error.message.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, ""),
+          );
+        }
+        if (error.snippet) {
+          console.log(
+            "  snippet: " +
+              error.snippet.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, ""),
+          );
+        }
+        if (error.stack) {
+          // Print only the first 10 stack frames to avoid noise
+          const stackLines = error.stack
+            .replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, "")
+            .split("\n")
+            .slice(0, 10)
+            .join("\n");
+          console.log("  stack:\n" + stackLines);
+        }
+      }
+      if (result.attachments.length > 0) {
+        console.log("  attachments:");
+        for (const att of result.attachments) {
+          console.log(
+            `    [${att.contentType}] ${att.name}: ${att.path ?? att.body ?? ""}`,
+          );
+        }
+      }
+      console.log("-".repeat(40));
+    }
 
     for (const project of this.projects) {
       if (project.name === projectName) {
@@ -113,37 +168,82 @@ class ProjectsReporter implements Reporter {
       duration,
     };
 
+    console.log("\n" + "=".repeat(60));
     console.log("Test run finished at: " + new Date().toUTCString());
-    console.log("Results: " + JSON.stringify(result));
+    console.log(
+      `Overall: ${passed} passed, ${failed} failed — ${(duration / 1000).toFixed(1)}s`,
+    );
+    console.log("\nPer-project summary:");
+    for (const project of this.projects) {
+      const icon =
+        project.status === "passed"
+          ? "✓"
+          : project.status === "warning"
+            ? "~"
+            : "✗";
+      console.log(
+        `  ${icon} ${project.name}: ${project.passed} passed, ${project.failed} failed — ${(project.duration / 1000).toFixed(1)}s`,
+      );
+      for (const t of project.tests) {
+        if (t.status !== "passed") {
+          console.log(`      ✗ ${t.name} [${t.status}]`);
+        }
+      }
+    }
+    console.log("=".repeat(60));
   }
 
   onExit(): Promise<void> {
-    console.log("Saving report to file");
+    console.log("\nSaving report to file...");
     return new Promise(async (resolve) => {
-      const [raw_data, projects_data] = await Promise.all([
-        fs.readFile("./data/report.json", { encoding: "utf-8" }),
-        fs.readFile("./data/projects.json", { encoding: "utf-8" }),
-      ]);
-      const { projects } = (await JSON.parse(projects_data)).pop();
-      const json = await JSON.parse(raw_data);
+      try {
+        const [raw_data, projects_data] = await Promise.all([
+          fs.readFile("./data/report.json", { encoding: "utf-8" }),
+          fs.readFile("./data/projects.json", { encoding: "utf-8" }),
+        ]);
+        console.log("  Read data/report.json and data/projects.json");
 
-      for (const project of this.projects) {
-        project.repo = projects.find((p) => p.title === project.name).repo;
+        const { projects } = (await JSON.parse(projects_data)).pop();
+        console.log(
+          "  projects.json contains " + projects.length + " projects",
+        );
+        const json = await JSON.parse(raw_data);
+        console.log("  report.json contains " + json.length + " entries");
+
+        for (const project of this.projects) {
+          const match = projects.find((p) => p.title === project.name);
+          if (!match) {
+            console.error(
+              `  ERROR: no matching project found for "${project.name}" — skipping badge write`,
+            );
+            continue;
+          }
+          project.repo = match.repo;
+          await fs.writeFile(
+            `./data/${project.repo}.json`,
+            JSON.stringify(project.badge, null, 2),
+            { encoding: "utf-8" },
+          );
+          console.log(`  Wrote data/${project.repo}.json (${project.status})`);
+        }
+
+        if (json.length > 90) {
+          console.log("  Trimming oldest entry from report (limit 90)");
+          json.shift();
+        }
+        json.push({ summary: this.summary, projects: this.projects });
+
         await fs.writeFile(
-          `./data/${project.repo}.json`,
-          JSON.stringify(project.badge, null, 2),
+          "./data/report.json",
+          JSON.stringify(json, null, 2),
           {
             encoding: "utf-8",
-          }
+          },
         );
+        console.log("  Wrote data/report.json (" + json.length + " entries)");
+      } catch (err) {
+        console.error("  ERROR during onExit file writes: " + err);
       }
-
-      if (json.length > 90) json.shift();
-      json.push({ summary: this.summary, projects: this.projects });
-
-      await fs.writeFile("./data/report.json", JSON.stringify(json, null, 2), {
-        encoding: "utf-8",
-      });
 
       resolve();
     });
