@@ -41,13 +41,13 @@ test(`${TITLE} - Test register and login`, async ({ page }) => {
   await page.getByRole("link", { name: "Register" }).click();
   await expect(page.locator("mat-card-title")).toBeVisible();
   await expect(
-    page.locator("div").filter({ hasText: "Username" }).nth(1)
+    page.locator("div").filter({ hasText: "Username" }).nth(1),
   ).toBeVisible();
   await expect(
-    page.locator("div").filter({ hasText: "Email" }).nth(1)
+    page.locator("div").filter({ hasText: "Email" }).nth(1),
   ).toBeVisible();
   await expect(
-    page.locator("div").filter({ hasText: "Enter your password" }).nth(1)
+    page.locator("div").filter({ hasText: "Enter your password" }).nth(1),
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "Register" })).toBeVisible();
   await page.locator("div").filter({ hasText: "Username" }).nth(1).click();
@@ -71,12 +71,15 @@ test(`${TITLE} - Test register and login`, async ({ page }) => {
   await page.getByLabel("Enter your password").fill(PASSWORD_TEST);
   await page.getByRole("button", { name: "Log in" }).click();
   await expect(
-    page.locator("h1").filter({ hasText: "Products" })
+    page.locator("h1").filter({ hasText: "Products" }),
   ).toBeVisible();
 });
 
 test(`${TITLE} - Test crud products`, async ({ page }) => {
-  await expect(page.getByRole("button", { name: "Log in" })).toBeVisible();
+  await page.waitForLoadState("networkidle");
+  await expect(page.getByRole("button", { name: "Log in" })).toBeVisible({
+    timeout: 90000,
+  });
   await page.locator("div").filter({ hasText: "Email" }).nth(1).click();
   await page.getByLabel("Email").fill(EMAIL_TEST);
   await page
@@ -87,7 +90,7 @@ test(`${TITLE} - Test crud products`, async ({ page }) => {
   await page.getByLabel("Enter your password").fill(PASSWORD_TEST);
   await page.getByRole("button", { name: "Log in" }).click();
   await expect(
-    page.locator("h1").filter({ hasText: "Products" })
+    page.locator("h1").filter({ hasText: "Products" }),
   ).toBeVisible();
 
   //get all
@@ -98,7 +101,7 @@ test(`${TITLE} - Test crud products`, async ({ page }) => {
   await expect(page.getByRole("button", { name: "Refresh" })).toBeVisible();
   await expect(page.getByRole("columnheader", { name: "Name" })).toBeVisible();
   await expect(
-    page.getByRole("columnheader", { name: "Description" })
+    page.getByRole("columnheader", { name: "Description" }),
   ).toBeVisible();
   await expect(page.getByRole("columnheader", { name: "User" })).toBeVisible();
   await expect(page.getByRole("columnheader", { name: "Email" })).toBeVisible();
@@ -124,58 +127,58 @@ test(`${TITLE} - Test crud products`, async ({ page }) => {
   await page.getByRole("button", { name: "Create" }).click();
   await expect(
     page.locator(
-      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]"
-    )
+      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]",
+    ),
   ).toHaveText("Created");
   await expect(
     page.locator(
-      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]"
-    )
+      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]",
+    ),
   ).toBeHidden();
 
   //update
   await expect(
-    page.getByText("Update a Product", { exact: true })
+    page.getByText("Update a Product", { exact: true }),
   ).toBeVisible();
   await page
     .locator(
-      ".mat-mdc-card-header > .mat-mdc-form-field > .mat-mdc-text-field-wrapper"
+      ".mat-mdc-card-header > .mat-mdc-form-field > .mat-mdc-text-field-wrapper",
     )
     .first()
     .click();
   await page.getByRole("option", { name: product.name }).click();
   await page
     .locator(
-      "app-api-card:nth-child(5) > .card-wrapper > .mat-mdc-card > .mat-mdc-card-content > div > .form > mat-form-field:nth-child(3) > .mat-mdc-text-field-wrapper"
+      "app-api-card:nth-child(5) > .card-wrapper > .mat-mdc-card > .mat-mdc-card-content > div > .form > mat-form-field:nth-child(3) > .mat-mdc-text-field-wrapper",
     )
     .click();
   await page.locator("#mat-input-7").fill(product.name);
   await page.getByRole("button", { name: "Update" }).click();
   await expect(
     page.locator(
-      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]"
-    )
+      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]",
+    ),
   ).toHaveText("Updated");
   await expect(
     page.locator(
-      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]"
-    )
+      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]",
+    ),
   ).toBeHidden();
 
   //delete
   await expect(
-    page.getByText("Delete a Product", { exact: true })
+    page.getByText("Delete a Product", { exact: true }),
   ).toBeVisible();
   await page
     .locator(
-      "app-api-card:nth-child(6) > .card-wrapper > .mat-mdc-card > .mat-mdc-card-header > .mat-mdc-form-field > .mat-mdc-text-field-wrapper"
+      "app-api-card:nth-child(6) > .card-wrapper > .mat-mdc-card > .mat-mdc-card-header > .mat-mdc-form-field > .mat-mdc-text-field-wrapper",
     )
     .click();
   await page.getByRole("option", { name: product.name }).click();
   await page.getByRole("button", { name: "Delete" }).click();
   await expect(
     page.locator(
-      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]"
-    )
+      "//div[contains(@class,'mat-mdc-snack-bar-label mdc-snackbar__label')]",
+    ),
   ).toHaveText("Deleted");
 });

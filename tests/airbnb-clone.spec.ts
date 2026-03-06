@@ -22,14 +22,14 @@ test(`${TITLE} - Test home without logging in`, async ({ page }) => {
     page
       .locator("div")
       .filter({ hasText: /^AnywhereAny WeekAdd Guests$/ })
-      .first()
+      .first(),
   ).toBeVisible();
   await expect(page.getByText("Airbnb your home")).toBeVisible();
   await expect(page.locator(".p-4")).toBeVisible();
   await expect(
     page.getByText(
-      "BeachWindmillsModernCountrysidePoolsIslandsLakeSkiingCastlesCavesCampingArcticDe"
-    )
+      "BeachWindmillsModernCountrysidePoolsIslandsLakeSkiingCastlesCavesCampingArcticDe",
+    ),
   ).toBeVisible();
   const count = await page.locator("//img[contains(@alt,'Listing')]").count();
   expect(count).toBeGreaterThan(10);
@@ -51,11 +51,11 @@ test(`${TITLE} - Test email register`, async ({ page }) => {
   await page.locator("#password").click();
   await page.locator("#password").fill(PASSWORD_TEST);
   await expect(
-    page.getByRole("button", { name: "Continue", exact: true })
+    page.getByRole("button", { name: "Continue", exact: true }),
   ).toBeVisible();
   await Promise.all([
     page.waitForResponse(
-      (res) => res.url().includes("register") && res.status() === 200
+      (res) => res.url().includes("register") && res.status() === 200,
     ),
     page.getByRole("button", { name: "Continue", exact: true }).click(),
   ]);
@@ -66,7 +66,7 @@ test(`${TITLE} - Test gmail login`, async ({ page }) => {
   await page.locator(".p-4").click();
   await page.getByText("Login").click();
   await expect(
-    page.getByRole("button", { name: "Continue with Google" })
+    page.getByRole("button", { name: "Continue with Google" }),
   ).toBeVisible();
   await expect(page.getByText("Login").first()).toBeVisible();
   await page.getByRole("button", { name: "Continue with Google" }).click();
@@ -101,7 +101,7 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   await expect(page.getByText("Login")).toBeVisible();
   await page.getByText("Login").click();
   await expect(
-    page.getByRole("button", { name: "Continue with Github" })
+    page.getByRole("button", { name: "Continue with Github" }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Continue with Github" }).click();
   await page.getByRole("button", { name: "Continue with Github" }).waitFor({
@@ -113,7 +113,7 @@ test(`${TITLE} - Test github login`, async ({ page }) => {
   await expect(page.getByLabel("Username or email address")).toBeVisible();
   await expect(page.getByLabel("Password")).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "Sign in", exact: true })
+    page.getByRole("button", { name: "Sign in", exact: true }),
   ).toBeVisible();
   // if (
   //   await page.getByRole("button", { name: "Sign in", exact: true }).isVisible()
@@ -152,50 +152,65 @@ test(`${TITLE} - Test home logged in`, async ({ page }) => {
   // Navigate to login
   await page.locator(".p-4").click();
   await page.getByText("Login").click();
-  
+
+  // Wait for login modal to appear
+  await expect(page.locator("#email")).toBeVisible();
+  await expect(page.locator("#password")).toBeVisible();
+
   // Fill login credentials
   await page.locator("#email").fill(EMAIL_TEST);
   await page.locator("#password").fill(PASSWORD_TEST);
-  
+
   // Wait for login response and success with improved response detection
   await Promise.all([
-    page.waitForResponse(
-      (res) => (res.url().includes("api") || res.url().includes("login") || res.url().includes("auth")) && 
-      [200, 201, 302].includes(res.status())
-    ).catch(() => null), // Don't fail if no specific login endpoint
+    page
+      .waitForResponse(
+        (res) =>
+          (res.url().includes("api") ||
+            res.url().includes("login") ||
+            res.url().includes("auth")) &&
+          [200, 201, 302].includes(res.status()),
+      )
+      .catch(() => null), // Don't fail if no specific login endpoint
     page.getByRole("button", { name: "Continue", exact: true }).click(),
   ]);
-  
+
   // Wait for button to be detached (form submission completed) with increased timeout
   await page.getByRole("button", { name: "Continue", exact: true }).waitFor({
     state: "detached",
-    timeout: 15000
+    timeout: 15000,
   });
-  
+
   // Wait for page to load and check for successful login with increased timeout
-  await page.waitForLoadState('networkidle', { timeout: 20000 });
-  
+  await page.waitForLoadState("networkidle", { timeout: 20000 });
+
   // Verify login was successful by checking for user menu items with increased timeouts
   await expect(page.getByText("My trips")).toBeVisible({ timeout: 20000 });
   await expect(page.getByText("My favorites")).toBeVisible({ timeout: 10000 });
-  await expect(page.getByText("My reservations")).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText("My reservations")).toBeVisible({
+    timeout: 10000,
+  });
   await expect(page.getByText("My properties")).toBeVisible({ timeout: 10000 });
-  await expect(page.getByText("Airbnb my home")).toBeVisible({ timeout: 10000 });
-  
+  await expect(page.getByText("Airbnb my home")).toBeVisible({
+    timeout: 10000,
+  });
+
   // Test search functionality
   await page
     .locator("div")
     .filter({ hasText: /^AnywhereAny WeekAdd Guests$/ })
     .first()
     .click();
-  
+
   // Wait for search elements to appear with increased timeouts
   await expect(page.getByText("Filters")).toBeVisible({ timeout: 15000 });
-  await expect(page.getByText("Where do you wanna go?")).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText("Where do you wanna go?")).toBeVisible({
+    timeout: 10000,
+  });
   await expect(
     page
       .locator("div")
       .filter({ hasText: /^\+− Leaflet$/ })
-      .first()
+      .first(),
   ).toBeVisible({ timeout: 15000 });
 });

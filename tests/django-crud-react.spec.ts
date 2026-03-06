@@ -5,8 +5,21 @@ const TITLE = project.title;
 const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(URL_PATH, { waitUntil: "networkidle" });
-  // Ensure the page is fully loaded before each test
+  // Handle Render free tier cold starts by retrying until the app is ready
+  await page.goto(URL_PATH);
+  for (let attempt = 0; attempt < 10; attempt++) {
+    try {
+      await page.waitForLoadState("networkidle", { timeout: 15000 });
+      const hasContent = await page
+        .getByRole("link", { name: "Task App" })
+        .isVisible({ timeout: 5000 });
+      if (hasContent) break;
+    } catch {
+      // Page not ready yet (likely Render cold start 503)
+    }
+    await page.waitForTimeout(5000);
+    await page.reload();
+  }
   await page.waitForLoadState("domcontentloaded");
 });
 
@@ -64,20 +77,26 @@ test(`${TITLE} - Test create new task`, async ({ page }) => {
   const startTime = Date.now();
   const maxWaitTime = 20000; // 20 seconds max
 
-  while (!taskCreated && (Date.now() - startTime) < maxWaitTime) {
+  while (!taskCreated && Date.now() - startTime < maxWaitTime) {
     try {
       // Check if we're back to the main page (Add Task button visible)
-      const addTaskVisible = await page.getByRole("button", { name: "Add Task" }).isVisible();
+      const addTaskVisible = await page
+        .getByRole("button", { name: "Add Task" })
+        .isVisible();
       if (addTaskVisible) {
         taskCreated = true;
         break;
       }
 
       // Check if form fields are gone (modal closed)
-      const titleFieldVisible = await page.getByPlaceholder("Title").isVisible();
+      const titleFieldVisible = await page
+        .getByPlaceholder("Title")
+        .isVisible();
       if (!titleFieldVisible) {
         // Form has closed, wait for Add Task button to appear
-        await expect(page.getByRole("button", { name: "Add Task" })).toBeVisible({
+        await expect(
+          page.getByRole("button", { name: "Add Task" }),
+        ).toBeVisible({
           timeout: 5000,
         });
         taskCreated = true;
