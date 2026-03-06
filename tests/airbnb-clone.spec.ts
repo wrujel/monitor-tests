@@ -13,7 +13,7 @@ const EMAIL_TEST = process.env.EMAIL_TEST;
 const credentials = generateCredentials();
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(URL_PATH);
+  await page.goto(URL_PATH, { waitUntil: "networkidle", timeout: 60000 });
 });
 
 test(`${TITLE} - Test home without logging in`, async ({ page }) => {
