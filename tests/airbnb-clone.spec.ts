@@ -13,11 +13,15 @@ const EMAIL_TEST = process.env.EMAIL_TEST;
 const credentials = generateCredentials();
 
 test.beforeEach(async ({ page }) => {
+  console.log("[nav] URL_PATH constant = " + URL_PATH);
   await page.goto(URL_PATH, { waitUntil: "domcontentloaded", timeout: 60000 });
+  console.log("[nav] page.url() after goto = " + page.url());
+  console.log("[nav] page.title() = " + (await page.title()));
   // Wait for the app to fully hydrate before each test.
   // .p-4 is the navbar menu button rendered by React — its presence confirms
   // client-side hydration is complete.
   await page.locator(".p-4").waitFor({ state: "visible", timeout: 60000 });
+  console.log("[nav] .p-4 is visible, page ready");
 });
 
 test(`${TITLE} - Test home without logging in`, async ({ page }) => {

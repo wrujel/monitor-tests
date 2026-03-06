@@ -35,6 +35,16 @@ class ProjectsReporter implements Reporter {
     console.log("    file: " + test.location.file + ":" + test.location.line);
   }
 
+  onStdOut(chunk: string | Buffer, test: TestCase | undefined): void {
+    const text = chunk.toString().trimEnd();
+    console.log("[stdout] " + text);
+  }
+
+  onStdErr(chunk: string | Buffer, test: TestCase | undefined): void {
+    const text = chunk.toString().trimEnd();
+    console.log("[stderr] " + text);
+  }
+
   onTestEnd(test: TestCase, result: TestResult): void {
     let skipProject,
       skipTest = false;
