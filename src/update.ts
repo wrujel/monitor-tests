@@ -26,11 +26,12 @@ const generateMessage = (repos: string[], type: string) => {
   };
 };
 
-const generateNewProject = (template: any, project: Project) => {
+const generateNewProject = (template: any, project: Project, fallbackUrl: string = "") => {
+  const url = project.url || fallbackUrl;
   return template
     .replace(PLACEHOLDER_REPO, project.repo.replaceAll("-", "_"))
     .replace(PLACEHOLDER_TITLE, project.title)
-    .replace(PLACEHOLDER_PROJECT_URL, project.url)
+    .replace(PLACEHOLDER_PROJECT_URL, url)
     .replace(PLACEHOLDER_REPO_URL, project.repoUrl);
 };
 
@@ -75,11 +76,33 @@ const sendEmail = async (repos: string[], type: string) => {
   ]);
   const projects: Project[] = (await JSON.parse(data1)).pop().projects;
 
+  // Read existing utils/projects.ts to preserve URLs when new URL is empty
+  // Note: [^}]* matches any character except '}', including newlines, so this
+  // correctly handles multi-line project definitions.
+  const existingUrls: Record<string, string> = {};
+  try {
+    const existingContent = await fs.readFile("./utils/projects.ts", {
+      encoding: "utf-8",
+    });
+    const matches = existingContent.matchAll(
+      /export const (\w+)\s*=\s*\{[^}]*projectUrl:\s*"([^"]*)"/g
+    );
+    for (const match of matches) {
+      existingUrls[match[1]] = match[2];
+    }
+  } catch (error: any) {
+    if (error.code !== "ENOENT") {
+      console.error("Warning: could not read existing utils/projects.ts:", error.message);
+    }
+  }
+
   let newProjects = "";
   let newTests = [];
   let emptyTest = [];
   for (const project of projects) {
-    newProjects += generateNewProject(projectsTemplate, project);
+    const repoKey = project.repo.replaceAll("-", "_");
+    const fallbackUrl = existingUrls[repoKey] || "";
+    newProjects += generateNewProject(projectsTemplate, project, fallbackUrl);
 
     const newTestTemplate = generateNewTest(
       testTemplate,
