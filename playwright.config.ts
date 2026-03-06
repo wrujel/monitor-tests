@@ -19,6 +19,14 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+
+    /* Limit how long each action (click, fill, etc.) can take. */
+    actionTimeout: 30000,
+  },
+  expect: {
+    /* Increase assertion timeout from the default 5s so Vercel cold-starts
+       don't cause false negatives. */
+    timeout: 15000,
   },
   timeout: 120000,
 

@@ -70,9 +70,12 @@ test(`${TITLE} - Test gmail login`, async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByText("Login").first()).toBeVisible();
   await page.getByRole("button", { name: "Continue with Google" }).click();
+  // Wait for the modal/button to detach (OAuth redirect starts), but don't
+  // block the full 120s test timeout if it doesn't happen.
   await page
     .getByRole("button", { name: "Continue with Google" })
-    .waitFor({ state: "detached" });
+    .waitFor({ state: "detached", timeout: 15000 })
+    .catch(() => null);
 
   //expect google form
   await expect(page.getByLabel("Email or phone")).toBeVisible();
