@@ -11,7 +11,7 @@ const generateSummaryHTML = (summary: Summary) => {
   return `<p><ul>
             <li><span>Total Projects: ${summary.projects_count}</span></li>
             <li><span>Last Update: ${new Date(
-              summary.last_update
+              summary.last_update,
             ).toUTCString()}</span></li>
             <li><span>Passed: ${summary.passed}</span></li>
             <li><span>Failed: ${summary.failed}</span></li>
@@ -24,7 +24,7 @@ const generateSummaryHTML = (summary: Summary) => {
 
 const generateTableHTML = (
   projectsStatus: ProjectStatus[],
-  projects: Project[]
+  projects: Project[],
 ) => {
   return `<table>
             <thead>
@@ -63,14 +63,14 @@ const generateTableHTML = (
                       project.status === "passed"
                         ? "✅"
                         : project.status === "warning"
-                        ? "⚠️"
-                        : "❌"
+                          ? "⚠️"
+                          : "❌"
                     }</td>
                     <td>${project.passed}/${
-                    project.passed + project.failed
-                  }</td>
+                      project.passed + project.failed
+                    }</td>
                     <td align='right'>${(project.duration / 1000).toFixed(
-                      2
+                      2,
                     )}</td>
                   </tr>`;
                 })
@@ -101,9 +101,9 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
                           <td>${test.name.split(" - ")[1]}</td>
                           <td>${test.status === "passed" ? "✅" : "❌"}</td>
                           <td align='right'>${(test.duration / 1000).toFixed(
-                            2
+                            2,
                           )}</td>
-                        </tr>`
+                        </tr>`,
                     )
                     .join("");
                 })
@@ -121,7 +121,7 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
   ]);
 
   const report: Report = (await JSON.parse(raw_data)).pop();
-  const projects: Project[] = (await JSON.parse(data_projects)).pop().projects;
+  const projects: Project[] = await JSON.parse(data_projects);
 
   const newReadme = template
     .replace(PLACEHOLDER_SUMMARY, generateSummaryHTML(report.summary))
