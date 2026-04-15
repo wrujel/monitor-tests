@@ -26,7 +26,11 @@ const generateMessage = (repos: string[], type: string) => {
   };
 };
 
-const generateNewProject = (template: any, project: Project, fallbackUrl: string = "") => {
+const generateNewProject = (
+  template: any,
+  project: Project,
+  fallbackUrl: string = "",
+) => {
   const url = project.url || fallbackUrl;
   return template
     .replace(PLACEHOLDER_REPO, project.repo.replaceAll("-", "_"))
@@ -43,7 +47,7 @@ const generateNewTest = (template: any, repo: string, title: string) => {
 
 const verifyEmptyTest = async (
   project: Project,
-  template: any
+  template: any,
 ): Promise<boolean> => {
   const data = await fs.readFile(`./tests/${project.repo}.spec.ts`, {
     encoding: "utf-8",
@@ -74,7 +78,7 @@ const sendEmail = async (repos: string[], type: string) => {
     fs.readFile("./templates/test.spec.tpl", { encoding: "utf-8" }),
     fs.readFile("./templates/projects.ts.tpl", { encoding: "utf-8" }),
   ]);
-  const projects: Project[] = (await JSON.parse(data1)).pop().projects;
+  const projects: Project[] = await JSON.parse(data1);
 
   // Read existing utils/projects.ts to preserve URLs when new URL is empty
   // Note: [^}]* matches any character except '}', including newlines, so this
@@ -85,14 +89,17 @@ const sendEmail = async (repos: string[], type: string) => {
       encoding: "utf-8",
     });
     const matches = existingContent.matchAll(
-      /export const (\w+)\s*=\s*\{[^}]*projectUrl:\s*"([^"]*)"/g
+      /export const (\w+)\s*=\s*\{[^}]*projectUrl:\s*"([^"]*)"/g,
     );
     for (const match of matches) {
       existingUrls[match[1]] = match[2];
     }
   } catch (error: any) {
     if (error.code !== "ENOENT") {
-      console.error("Warning: could not read existing utils/projects.ts:", error.message);
+      console.error(
+        "Warning: could not read existing utils/projects.ts:",
+        error.message,
+      );
     }
   }
 
@@ -107,7 +114,7 @@ const sendEmail = async (repos: string[], type: string) => {
     const newTestTemplate = generateNewTest(
       testTemplate,
       project.repo,
-      project.title
+      project.title,
     );
     if (!tests.includes(project.repo)) {
       newTests.push(project.repo);
