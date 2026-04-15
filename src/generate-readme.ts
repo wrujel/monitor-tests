@@ -45,7 +45,7 @@ const generateTableHTML = (
                     if (
                       projects
                         .find((p) => p.title === project.name)
-                        .url.includes(badge.name)
+                        ?.url.includes(badge.name)
                     ) {
                       badge_url = badge.badge;
                     }
@@ -53,10 +53,10 @@ const generateTableHTML = (
 
                   return `<tr>
                     <td><a href="${
-                      projects.find((p) => p.title === project.name).url
+                      projects.find((p) => p.title === project.name)?.url ?? ''
                     }">${project.name}</a></td>
                     <td><a href="${
-                      projects.find((p) => p.title === project.name).repoUrl
+                      projects.find((p) => p.title === project.name)?.repoUrl ?? ''
                     }">Link</a></td>
                     <td><img src="${badge_url}" alt="cloud"/></td>
                     <td>${

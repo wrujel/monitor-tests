@@ -19,15 +19,6 @@ jobs:
           touch .env
           echo "${{ secrets.ENV_FILE }}" > .env
           cat .env
-      - name: Clone Monitor Repositories
-        uses: actions/checkout@main
-        with:
-          repository: "wrujel/monitor-repos"
-          path: "./monitor-repos"
-      - name: Copy projects and remove monitor-repos
-        run: |
-          cp -r ./monitor-repos/data/projects.json ./data
-          rm -rf ./monitor-repos
       - name: Update Projects
         run: npm run update
       - name: Install Playwright Browsers

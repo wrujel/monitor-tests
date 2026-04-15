@@ -73,12 +73,19 @@ const sendEmail = async (repos: string[], type: string) => {
     .filter((file) => file.endsWith(".spec.ts"))
     .map((file) => file.split(".")[0]);
 
-  const [data1, testTemplate, projectsTemplate] = await Promise.all([
-    fs.readFile("./data/projects.json", { encoding: "utf-8" }),
+  const PROJECTS_URL =
+    "https://raw.githubusercontent.com/wrujel/monitor-repos/main/data/projects.json";
+
+  const [projectsResponse, testTemplate, projectsTemplate] = await Promise.all([
+    fetch(PROJECTS_URL).then((res) => {
+      if (!res.ok)
+        throw new Error(`Failed to fetch projects.json: ${res.status}`);
+      return res.json() as Promise<Project[]>;
+    }),
     fs.readFile("./templates/test.spec.tpl", { encoding: "utf-8" }),
     fs.readFile("./templates/projects.ts.tpl", { encoding: "utf-8" }),
   ]);
-  const projects: Project[] = await JSON.parse(data1);
+  const projects: Project[] = projectsResponse;
 
   // Read existing utils/projects.ts to preserve URLs when new URL is empty
   // Note: [^}]* matches any character except '}', including newlines, so this
