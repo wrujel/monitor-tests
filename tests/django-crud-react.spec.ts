@@ -1,25 +1,12 @@
 import { test, expect } from "@playwright/test";
 import { django_crud_react as project } from "../utils/projects";
+import { navigateWithRetry } from "../utils/nav";
 
 const TITLE = project.title;
 const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
-  // Handle Render free tier cold starts by retrying until the app is ready
-  await page.goto(URL_PATH);
-  for (let attempt = 0; attempt < 10; attempt++) {
-    try {
-      await page.waitForLoadState("networkidle", { timeout: 15000 });
-      const hasContent = await page
-        .getByRole("link", { name: "Task App" })
-        .isVisible({ timeout: 5000 });
-      if (hasContent) break;
-    } catch {
-      // Page not ready yet (likely Render cold start 503)
-    }
-    await page.waitForTimeout(5000);
-    await page.reload();
-  }
+  await navigateWithRetry(page, URL_PATH);
   await page.waitForLoadState("domcontentloaded");
 });
 

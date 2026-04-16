@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { rest_api_et as project } from "../utils/projects";
 import { generateCredentials, generateProduct } from "../utils/random";
+import { navigateWithRetry } from "../utils/nav";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -12,8 +13,7 @@ const credentials = generateCredentials();
 const product = generateProduct();
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(URL_PATH, { waitUntil: "networkidle" });
-  // Ensure the page is fully loaded before each test
+  await navigateWithRetry(page, URL_PATH);
   await page.waitForLoadState("domcontentloaded");
 });
 
