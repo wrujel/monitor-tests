@@ -13,20 +13,26 @@ test(`${TITLE} - Hero section`, async ({ page }) => {
     page.getByRole("heading", { name: "Software Engineer based in Latam" }),
   ).toBeVisible();
   await expect(page.getByText("Hi! I'm Wilfredo Rujel")).toBeVisible();
-  await expect(
-    page.getByRole("button", { name: /Contact/i }),
-  ).toBeVisible();
+  await expect(page.getByRole("button", { name: /Contact/i })).toBeVisible();
   await expect(page.getByText("Resume", { exact: true }).first()).toBeVisible();
 });
 
 test(`${TITLE} - Navbar links`, async ({ page }) => {
-  await expect(page.locator("nav").getByRole("menuitem", { name: "About" }).first()).toBeVisible();
+  await expect(
+    page.locator("nav").getByRole("menuitem", { name: "About" }).first(),
+  ).toBeVisible();
   await expect(
     page.locator("nav").getByRole("menuitem", { name: "Projects" }).first(),
   ).toBeVisible();
-  await expect(page.locator("nav").getByRole("menuitem", { name: "Skills" }).first()).toBeVisible();
-  await expect(page.locator("nav").getByRole("menuitem", { name: "LeetCode" }).first()).toBeVisible();
-  await expect(page.locator("nav").getByRole("menuitem", { name: "Services" }).first()).toBeVisible();
+  await expect(
+    page.locator("nav").getByRole("menuitem", { name: "Skills" }).first(),
+  ).toBeVisible();
+  await expect(
+    page.locator("nav").getByRole("menuitem", { name: "LeetCode" }).first(),
+  ).toBeVisible();
+  await expect(
+    page.locator("nav").getByRole("menuitem", { name: "Services" }).first(),
+  ).toBeVisible();
 });
 
 test(`${TITLE} - About section`, async ({ page }) => {
@@ -42,7 +48,9 @@ test(`${TITLE} - Projects section`, async ({ page }) => {
     page.getByRole("heading", { name: "My top projects" }),
   ).toBeVisible();
   await expect(page.getByText("My Portfolio")).toBeVisible();
-  await expect(page.getByRole("link", { name: /View more projects/i })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /View more projects/i }),
+  ).toBeVisible();
 });
 
 test(`${TITLE} - Skills section`, async ({ page }) => {
@@ -91,7 +99,9 @@ test(`${TITLE} - Projects page`, async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "My Projects" }),
   ).toBeVisible();
-  await expect(page.getByRole("link", { name: /Back to home/i }).last()).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Back to home/i }).last(),
+  ).toBeVisible();
 });
 
 test(`${TITLE} - Locale - Spanish`, async ({ page }) => {
