@@ -8,9 +8,11 @@ const TITLE = project.title;
 const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
-  await page.setExtraHTTPHeaders({
-    [process.env.HTTP_HEADER ?? ""]: process.env.HTTP_HEADER_VALUE ?? "",
-  });
+  if (process.env.HTTP_HEADER && process.env.HTTP_HEADER_VALUE) {
+    await page.setExtraHTTPHeaders({
+      [process.env.HTTP_HEADER]: process.env.HTTP_HEADER_VALUE,
+    });
+  }
   await page.goto(URL_PATH);
 });
 
