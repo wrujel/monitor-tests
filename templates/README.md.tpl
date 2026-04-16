@@ -10,3 +10,6 @@
 
 ## &#x1F3AF; Tests:
 %{{tests}}%
+
+## &#x1F4C8; Projects Trends (Last 90 Days):
+%{{chart_projects}}%

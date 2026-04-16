@@ -4,6 +4,7 @@ import {
   PLACEHOLDER_TABLE,
   PLACEHOLDER_TABLE_TESTS,
   PLACEHOLDER_CHART,
+  PLACEHOLDER_LINE_CHART,
 } from "../utils/constants";
 import { Project, ProjectStatus, Report, Summary } from "../utils/types";
 import { cloud_badges } from "../utils/badges.data";
@@ -195,6 +196,114 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
     </svg>`;
 };
 
+const generatePerProjectCharts = async (
+  reportEntries: Report[],
+  projects: Project[],
+): Promise<string> => {
+  const lookup = buildProjectLookup(projects);
+  const maxSlots = 90;
+  const chartW = 380;
+  const chartH = 110;
+  const paddingLeft = 30;
+  const paddingTop = 22;
+  const paddingBottom = 20;
+  const paddingRight = 6;
+  const plotW = chartW - paddingLeft - paddingRight;
+  const plotH = chartH - paddingTop - paddingBottom;
+  const slotWidth = plotW / maxSlots;
+
+  const entries = reportEntries.slice(-maxSlots);
+  if (entries.length === 0) return "";
+
+  const latestEntry = entries[entries.length - 1];
+  const startSlot = maxSlots - entries.length;
+  const baseline = paddingTop + plotH;
+
+  const cells: string[] = [];
+
+  for (const proj of latestEntry.projects) {
+    const matched = lookup.get(proj.name.toLowerCase());
+    const repo = matched?.repo ?? proj.name.toLowerCase().replace(/\s+/g, "-");
+
+    const maxTests = Math.max(
+      ...entries.map((e) => {
+        const p = e.projects.find((p) => p.name === proj.name);
+        return p ? p.passed + p.failed : 0;
+      }),
+      1,
+    );
+
+    const passedPts: string[] = [];
+    const failedPts: string[] = [];
+
+    entries.forEach((entry, i) => {
+      const p = entry.projects.find((p) => p.name === proj.name);
+      if (!p) return;
+      const x = paddingLeft + (startSlot + i + 0.5) * slotWidth;
+      passedPts.push(
+        `${x.toFixed(1)},${(paddingTop + plotH * (1 - p.passed / maxTests)).toFixed(1)}`,
+      );
+      if (p.failed > 0) {
+        failedPts.push(
+          `${x.toFixed(1)},${(paddingTop + plotH * (1 - p.failed / maxTests)).toFixed(1)}`,
+        );
+      }
+    });
+
+    let passedArea = "";
+    if (passedPts.length >= 2) {
+      const [fx] = passedPts[0].split(",");
+      const [lx] = passedPts[passedPts.length - 1].split(",");
+      passedArea = `<polygon points="${passedPts.join(" ")} ${lx},${baseline} ${fx},${baseline}" fill="#43a047" opacity="0.15"/>`;
+    }
+
+    const passedLine =
+      passedPts.length >= 2
+        ? `<polyline points="${passedPts.join(" ")}" fill="none" stroke="#43a047" stroke-width="1.5" stroke-linejoin="round"/>`
+        : passedPts.length === 1
+          ? `<circle cx="${passedPts[0].split(",")[0]}" cy="${passedPts[0].split(",")[1]}" r="2" fill="#43a047"/>`
+          : "";
+
+    const failedLine =
+      failedPts.length >= 2
+        ? `<polyline points="${failedPts.join(" ")}" fill="none" stroke="#e53935" stroke-width="1.5" stroke-linejoin="round"/>`
+        : failedPts.length === 1
+          ? `<circle cx="${failedPts[0].split(",")[0]}" cy="${failedPts[0].split(",")[1]}" r="2" fill="#e53935"/>`
+          : "";
+
+    const yLabels = [0, maxTests]
+      .map((v) => {
+        const y = paddingTop + plotH * (1 - v / maxTests);
+        return `<text x="${paddingLeft - 3}" y="${y + 4}" text-anchor="end" font-size="8" fill="#888">${v}</text>`;
+      })
+      .join("");
+
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${chartW}" height="${chartH}" viewBox="0 0 ${chartW} ${chartH}">
+      <rect width="${chartW}" height="${chartH}" fill="#fafafa" rx="4"/>
+      <text x="${chartW / 2}" y="13" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">${repo}</text>
+      <line x1="${paddingLeft}" y1="${paddingTop}" x2="${paddingLeft}" y2="${baseline}" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="${paddingLeft}" y1="${baseline}" x2="${paddingLeft + plotW}" y2="${baseline}" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="${paddingLeft}" y1="${paddingTop}" x2="${paddingLeft + plotW}" y2="${paddingTop}" stroke="#f0f0f0" stroke-width="1"/>
+      ${yLabels}
+      ${passedArea}
+      ${passedLine}
+      ${failedLine}
+    </svg>`;
+
+    await fs.writeFile(`./data/chart-${repo}.svg`, svg);
+    cells.push(`<td><img src="./data/chart-${repo}.svg" alt="${repo}"/></td>`);
+  }
+
+  if (cells.length === 0) return "";
+
+  const cols = 2;
+  const rows: string[] = [];
+  for (let i = 0; i < cells.length; i += cols) {
+    rows.push(`<tr>${cells.slice(i, i + cols).join("")}</tr>`);
+  }
+  return `<table>${rows.join("")}</table>`;
+};
+
 (async () => {
   const [template, raw_data, data_projects] = await Promise.all([
     fs.readFile("./templates/README.md.tpl", { encoding: "utf-8" }),
@@ -219,9 +328,12 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
     ? `<img src="./data/chart.svg" alt="Last 90 days chart"/>`
     : "";
 
+  const lineChartHTML = await generatePerProjectCharts(reportEntries, projects);
+
   const newReadme = template
     .replace(PLACEHOLDER_SUMMARY, generateSummaryHTML(report.summary))
     .replace(PLACEHOLDER_CHART, chartImg)
+    .replace(PLACEHOLDER_LINE_CHART, lineChartHTML)
     .replace(PLACEHOLDER_TABLE, generateTableHTML(report.projects, projects))
     .replace(PLACEHOLDER_TABLE_TESTS, generateTestsTableHTML(report.projects));
 
