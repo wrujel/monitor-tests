@@ -9,7 +9,7 @@ const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
   await page.setExtraHTTPHeaders({
-    "X-Request-E2E-Testing": process.env["X-Request-E2E-Testing"] ?? "",
+    [process.env.HTTP_HEADER ?? ""]: process.env.HTTP_HEADER_VALUE ?? "",
   });
   await page.goto(URL_PATH);
 });
