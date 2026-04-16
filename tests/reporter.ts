@@ -213,7 +213,7 @@ class ProjectsReporter implements Reporter {
         ]);
         console.log("  Read data/report.json and data/projects.json");
 
-        const { projects } = (await JSON.parse(projects_data)).pop();
+        const projects = JSON.parse(projects_data);
         console.log(
           "  projects.json contains " + projects.length + " projects",
         );

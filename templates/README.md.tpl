@@ -1,9 +1,12 @@
 
-## Summary:
+## &#x1F4CA; Summary:
 %{{summary}}%
 
-## 📝 Projects:
+## &#x1F4C5; Last 90 Days:
+%{{chart}}%
+
+## &#x1F4DD; Projects:
 %{{projects}}%
 
-## 🎯 Tests:
+## &#x1F3AF; Tests:
 %{{tests}}%
