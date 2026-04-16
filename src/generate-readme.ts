@@ -41,22 +41,21 @@ const generateTableHTML = (
               ${projectsStatus
                 .map((project) => {
                   let badge_url = "";
+                  const matchProject = (p: Project) =>
+                    p.title.replace(/-/g, " ").toLowerCase() ===
+                    project.name.toLowerCase();
                   cloud_badges.forEach((badge) => {
-                    if (
-                      projects
-                        .find((p) => p.title === project.name)
-                        ?.url.includes(badge.name)
-                    ) {
+                    if (projects.find(matchProject)?.url.includes(badge.name)) {
                       badge_url = badge.badge;
                     }
                   });
 
                   return `<tr>
                     <td><a href="${
-                      projects.find((p) => p.title === project.name)?.url ?? ''
+                      projects.find(matchProject)?.url ?? ""
                     }">${project.name}</a></td>
                     <td><a href="${
-                      projects.find((p) => p.title === project.name)?.repoUrl ?? ''
+                      projects.find(matchProject)?.repoUrl ?? ""
                     }">Link</a></td>
                     <td><img src="${badge_url}" alt="cloud"/></td>
                     <td>${
