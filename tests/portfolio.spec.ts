@@ -1,10 +1,16 @@
 import { test, expect } from "@playwright/test";
+import dotenv from "dotenv";
 import { portfolio as project } from "../utils/projects";
+
+dotenv.config();
 
 const TITLE = project.title;
 const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
+  await page.setExtraHTTPHeaders({
+    "X-Request-E2E-Testing": process.env["X-Request-E2E-Testing"] ?? "",
+  });
   await page.goto(URL_PATH);
 });
 
