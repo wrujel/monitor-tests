@@ -52,7 +52,9 @@ const generateTableHTML = (
             <tbody>
               ${projectsStatus
                 .map((project) => {
-                  const matched = lookup.get(project.name.replace(/-/g, " ").toLowerCase());
+                  const matched = lookup.get(
+                    project.name.replace(/-/g, " ").toLowerCase(),
+                  );
                   let badge_url = "";
                   if (matched) {
                     for (const badge of cloud_badges) {
@@ -175,17 +177,20 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
     })
     .join("");
 
-  // Legend
-  const legend = `
-    <rect x="${paddingLeft}" y="2" width="10" height="10" fill="#43a047" rx="2"/>
-    <text x="${paddingLeft + 14}" y="11" font-size="10" fill="#666">Passed</text>
-    <rect x="${paddingLeft + 60}" y="2" width="10" height="10" fill="#fdd835" rx="2"/>
-    <text x="${paddingLeft + 74}" y="11" font-size="10" fill="#666">Warning</text>
-    <rect x="${paddingLeft + 140}" y="2" width="10" height="10" fill="#e53935" rx="2"/>
-    <text x="${paddingLeft + 154}" y="11" font-size="10" fill="#666">Failed</text>
-  `;
-
   const totalWidth = paddingLeft + maxSlots * barWidth + 10;
+
+  // Legend at bottom right
+  const legendRectY = chartHeight - paddingBottom + 10;
+  const legendTextY = legendRectY + 9;
+  const legendStartX = totalWidth - 210;
+  const legend = `
+    <rect x="${legendStartX}" y="${legendRectY}" width="10" height="10" fill="#43a047" rx="2"/>
+    <text x="${legendStartX + 14}" y="${legendTextY}" font-size="10" fill="#666">Passed</text>
+    <rect x="${legendStartX + 60}" y="${legendRectY}" width="10" height="10" fill="#fdd835" rx="2"/>
+    <text x="${legendStartX + 74}" y="${legendTextY}" font-size="10" fill="#666">Warning</text>
+    <rect x="${legendStartX + 140}" y="${legendRectY}" width="10" height="10" fill="#e53935" rx="2"/>
+    <text x="${legendStartX + 154}" y="${legendTextY}" font-size="10" fill="#666">Failed</text>
+  `;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${chartHeight}" viewBox="0 0 ${totalWidth} ${chartHeight}">
       <rect width="${totalWidth}" height="${chartHeight}" fill="#fff" rx="6"/>
