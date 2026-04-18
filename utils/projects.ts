@@ -63,6 +63,11 @@ export const webpage_gpt = {
   projectUrl: "https://webpage-gpt-wrujels-projects.vercel.app/",
   repoUrl: "https://github.com/wrujel/webpage-gpt",
 };
+export const blog = {
+  title: "blog",
+  projectUrl: "https://blog.wrujel.com",
+  repoUrl: "",
+};
 export const portfolio = {
   title: "portfolio",
   projectUrl: "https://wrujel.com",
