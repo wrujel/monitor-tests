@@ -87,6 +87,8 @@ const sendEmail = async (repos: string[], type: string) => {
   ]);
   const projects: Project[] = projectsResponse;
 
+  await fs.writeFile("./data/projects.json", JSON.stringify(projects, null, 2));
+
   // Read existing utils/projects.ts to preserve URLs when new URL is empty
   // Note: [^}]* matches any character except '}', including newlines, so this
   // correctly handles multi-line project definitions.

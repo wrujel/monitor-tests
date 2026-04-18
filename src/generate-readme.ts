@@ -57,8 +57,15 @@ const generateTableHTML = (
                   );
                   let badge_url = "";
                   if (matched) {
+                    const serviceKey = matched.service ?? "";
                     for (const badge of cloud_badges) {
-                      if (matched.url.includes(badge.name)) {
+                      const badgeName = badge.name.toLowerCase();
+                      if (
+                        (serviceKey &&
+                          serviceKey.toLowerCase().includes(badgeName)) ||
+                        (!serviceKey &&
+                          matched.url.toLowerCase().includes(badgeName))
+                      ) {
                         badge_url = badge.badge;
                         break;
                       }
@@ -66,8 +73,8 @@ const generateTableHTML = (
                   }
 
                   return `<tr>
-                    <td><a href="${matched?.url ?? ""}">${project.name}</a></td>
-                    <td><a href="${matched?.repoUrl ?? ""}">Link</a></td>
+                    <td>${matched?.url ? `<a href="${matched.url}">${project.name}</a>` : project.name}</td>
+                    <td>${matched?.repoUrl ? `<a href="${matched.repoUrl}">Link</a>` : "-"}</td>
                     <td><img src="${badge_url}" alt="cloud"/></td>
                     <td>${
                       project.status === "passed"

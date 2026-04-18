@@ -44,6 +44,7 @@ export type Project = {
   title: string;
   repoUrl: string;
   url: string;
+  service?: string;
 };
 
 export type Report = {
