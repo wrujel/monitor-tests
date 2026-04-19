@@ -68,6 +68,11 @@ export const blog = {
   projectUrl: "https://blog.wrujel.com",
   repoUrl: "",
 };
+export const leetcode_ui = {
+  title: "leetcode-ui",
+  projectUrl: "https://leetcode-tracker-qvf.pages.dev",
+  repoUrl: "",
+};
 export const portfolio = {
   title: "portfolio",
   projectUrl: "https://wrujel.com",
