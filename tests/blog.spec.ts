@@ -8,12 +8,26 @@ const TITLE = project.title;
 const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
+  // Mask automation fingerprints before any navigation so Vercel WAF
+  // bot detection doesn't flag the headless browser.
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+    // @ts-ignore
+    delete window.cdc_adoQpoasnfa76pfcZLmcfl_Array;
+    // @ts-ignore
+    delete window.cdc_adoQpoasnfa76pfcZLmcfl_Promise;
+    // @ts-ignore
+    delete window.cdc_adoQpoasnfa76pfcZLmcfl_Symbol;
+  });
+
   const hasBypass = !!(
     process.env.HTTP_HEADER && process.env.HTTP_HEADER_VALUE
   );
   console.log(`[blog] bypass header configured: ${hasBypass}`);
   if (hasBypass) {
-    console.log(`[blog] setting header`);
+    console.log(
+      `[blog] setting header: ${process.env.HTTP_HEADER?.substring(0, 4)}...`,
+    );
     await page.setExtraHTTPHeaders({
       [process.env.HTTP_HEADER!]: process.env.HTTP_HEADER_VALUE!,
       "x-vercel-set-bypass-cookie": "samesitenone",
@@ -24,6 +38,10 @@ test.beforeEach(async ({ page }) => {
   console.log(
     `[blog] goto ${URL_PATH} — status: ${response?.status()}, url: ${response?.url()}`,
   );
+
+  if (response?.status() === 429) {
+    console.log("[blog] 429 received — response headers:", response.headers());
+  }
 
   await page.waitForLoadState("networkidle");
 

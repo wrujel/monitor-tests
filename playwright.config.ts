@@ -29,9 +29,16 @@ export default defineConfig({
     userAgent:
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
 
-    /* Launch options to handle COOP/COEP headers that break navigation detection */
+    /* Launch options to reduce automation fingerprinting detected by Vercel WAF */
     launchOptions: {
-      args: ["--disable-features=BlockInsecurePrivateNetworkRequests"],
+      args: [
+        "--disable-features=BlockInsecurePrivateNetworkRequests",
+        /* Remove the AutomationControlled flag exposed to JS */
+        "--disable-blink-features=AutomationControlled",
+        /* Prevent navigator.webdriver from being set by Chrome */
+        "--no-default-browser-check",
+        "--no-first-run",
+      ],
     },
   },
   expect: {
