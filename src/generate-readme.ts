@@ -133,10 +133,10 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
 const generateChartSVGContent = (reportEntries: Report[]) => {
   const maxSlots = 90;
   const chartWidth = 800;
-  const chartHeight = 200;
+  const chartHeight = 230;
   const barWidth = Math.max(4, Math.floor((chartWidth - 60) / maxSlots));
   const paddingLeft = 40;
-  const paddingBottom = 30;
+  const paddingBottom = 50;
   const plotHeight = chartHeight - paddingBottom - 10;
 
   const entries = reportEntries.slice(-maxSlots);
@@ -152,8 +152,14 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
   let bars = "";
   entries.forEach((entry, i) => {
     const x = paddingLeft + (startSlot + i) * barWidth;
-    const { passed = 0, failed = 0 } = entry.summary;
-    const warning = entry.summary.projects_count - passed - failed;
+    let passed = 0,
+      warning = 0,
+      failed = 0;
+    for (const proj of entry.projects) {
+      if (proj.status === "passed") passed++;
+      else if (proj.status === "warning") warning++;
+      else failed++;
+    }
 
     // Stacked bars (bottom to top): failed (red), warning (yellow), passed (green)
     const failedH = (failed / maxProjects) * plotHeight;
@@ -187,7 +193,7 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
   const totalWidth = paddingLeft + maxSlots * barWidth + 10;
 
   // Legend at bottom right
-  const legendRectY = chartHeight - paddingBottom + 10;
+  const legendRectY = chartHeight - paddingBottom + 38;
   const legendTextY = legendRectY + 9;
   const legendStartX = totalWidth - 210;
   const legend = `
@@ -199,12 +205,33 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
     <text x="${legendStartX + 154}" y="${legendTextY}" font-size="10" fill="#666">Failed</text>
   `;
 
+  // X-axis date labels: one every ~15 slots
+  const baselineY = chartHeight - paddingBottom;
+  const dateLabelY = baselineY + 14;
+  const dateStep = 15;
+  const xAxisDates = entries
+    .reduce<string[]>((acc, entry, i) => {
+      if (i % dateStep !== 0) return acc;
+      const x = paddingLeft + (startSlot + i + 0.5) * barWidth;
+      const dateStr = new Date(entry.summary.last_update).toLocaleDateString(
+        "en-US",
+        { month: "short", day: "numeric" },
+      );
+      acc.push(
+        `<line x1="${x.toFixed(1)}" y1="${baselineY}" x2="${x.toFixed(1)}" y2="${baselineY + 4}" stroke="#bbb" stroke-width="1"/>` +
+          `<text x="${x.toFixed(1)}" y="${dateLabelY}" text-anchor="middle" font-size="9" fill="#888">${dateStr}</text>`,
+      );
+      return acc;
+    }, [])
+    .join("");
+
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${chartHeight}" viewBox="0 0 ${totalWidth} ${chartHeight}">
       <rect width="${totalWidth}" height="${chartHeight}" fill="#fff" rx="6"/>
       ${legend}
       ${yAxisLabels}
-      <line x1="${paddingLeft}" y1="${chartHeight - paddingBottom}" x2="${totalWidth}" y2="${chartHeight - paddingBottom}" stroke="#ccc" stroke-width="1"/>
+      <line x1="${paddingLeft}" y1="${baselineY}" x2="${totalWidth}" y2="${baselineY}" stroke="#ccc" stroke-width="1"/>
       ${bars}
+      ${xAxisDates}
     </svg>`;
 };
 
