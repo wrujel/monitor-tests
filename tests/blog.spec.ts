@@ -25,9 +25,6 @@ test.beforeEach(async ({ page }) => {
   );
   console.log(`[blog] bypass header configured: ${hasBypass}`);
   if (hasBypass) {
-    console.log(
-      `[blog] setting header: ${process.env.HTTP_HEADER?.substring(0, 4)}...`,
-    );
     await page.setExtraHTTPHeaders({
       [process.env.HTTP_HEADER!]: process.env.HTTP_HEADER_VALUE!,
       "x-vercel-set-bypass-cookie": "samesitenone",
@@ -35,26 +32,11 @@ test.beforeEach(async ({ page }) => {
   }
 
   const response = await page.goto(URL_PATH, { waitUntil: "domcontentloaded" });
-  console.log(
-    `[blog] goto ${URL_PATH} — status: ${response?.status()}, url: ${response?.url()}`,
-  );
-
   if (response?.status() === 429) {
     console.log("[blog] 429 received — response headers:", response.headers());
   }
 
   await page.waitForLoadState("networkidle");
-
-  const title = await page.title();
-  const bodyText = await page
-    .locator("body")
-    .innerText()
-    .catch(() => "(empty)");
-  console.log(`[blog] page title: "${title}"`);
-  console.log(
-    `[blog] body length: ${bodyText.length}, preview: ${bodyText.slice(0, 200)}`,
-  );
-  console.log(`[blog] nav found: ${await page.locator("nav").count()}`);
 });
 
 test(`${TITLE} - Navbar`, async ({ page }) => {
