@@ -8,12 +8,35 @@ const TITLE = project.title;
 const URL_PATH = project.projectUrl;
 
 test.beforeEach(async ({ page }) => {
-  if (process.env.HTTP_HEADER && process.env.HTTP_HEADER_VALUE) {
+  const hasBypass = !!(
+    process.env.HTTP_HEADER && process.env.HTTP_HEADER_VALUE
+  );
+  console.log(`[blog] bypass header configured: ${hasBypass}`);
+  if (hasBypass) {
+    console.log(`[blog] setting header`);
     await page.setExtraHTTPHeaders({
-      [process.env.HTTP_HEADER]: process.env.HTTP_HEADER_VALUE,
+      [process.env.HTTP_HEADER!]: process.env.HTTP_HEADER_VALUE!,
+      "x-vercel-set-bypass-cookie": "samesitenone",
     });
   }
-  await page.goto(URL_PATH);
+
+  const response = await page.goto(URL_PATH, { waitUntil: "domcontentloaded" });
+  console.log(
+    `[blog] goto ${URL_PATH} — status: ${response?.status()}, url: ${response?.url()}`,
+  );
+
+  await page.waitForLoadState("networkidle");
+
+  const title = await page.title();
+  const bodyText = await page
+    .locator("body")
+    .innerText()
+    .catch(() => "(empty)");
+  console.log(`[blog] page title: "${title}"`);
+  console.log(
+    `[blog] body length: ${bodyText.length}, preview: ${bodyText.slice(0, 200)}`,
+  );
+  console.log(`[blog] nav found: ${await page.locator("nav").count()}`);
 });
 
 test(`${TITLE} - Navbar`, async ({ page }) => {
