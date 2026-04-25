@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { rest_api_et as project } from "../utils/projects";
 import { generateCredentials, generateProduct } from "../utils/random";
-import { navigateWithRetry } from "../utils/nav";
+import { navigateWithRetry, waitForRenderInterstitial } from "../utils/nav";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,6 +14,7 @@ const product = generateProduct();
 
 test.beforeEach(async ({ page }) => {
   await navigateWithRetry(page, URL_PATH);
+  await waitForRenderInterstitial(page);
   await page.waitForLoadState("domcontentloaded");
 });
 

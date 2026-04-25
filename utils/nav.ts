@@ -9,6 +9,31 @@ const DEFAULT_TIMEOUT = 30 * 1000; // 30 seconds
 const SLOW_HOST_RETRIES = 3;
 const RETRY_BASE_BACKOFF_MS = 10 * 1000; // 10s, 20s, 40s...
 
+// Selector that uniquely identifies the Render free-tier interstitial page
+const RENDER_INTERSTITIAL_SELECTOR =
+  'a[href*="render.com/?utm_source=free_interstitial"]';
+
+/**
+ * If the Render "Application loading" interstitial is present, wait until it
+ * navigates away (i.e. the real app has booted). No-ops on non-Render pages.
+ */
+export const waitForRenderInterstitial = async (page: Page): Promise<void> => {
+  const isInterstitial = await page
+    .locator(RENDER_INTERSTITIAL_SELECTOR)
+    .isVisible({ timeout: 5_000 })
+    .catch(() => false);
+
+  if (!isInterstitial) return;
+
+  console.log("[nav] Render interstitial detected — waiting for app to load...");
+  await page.waitForFunction(
+    (sel) => !document.querySelector(sel),
+    RENDER_INTERSTITIAL_SELECTOR,
+    { timeout: SLOW_HOST_TIMEOUT },
+  );
+  console.log("[nav] Render interstitial cleared — app is ready");
+};
+
 const exponentialBackoffMs = (attempt: number): number =>
   RETRY_BASE_BACKOFF_MS * (1 << (attempt - 1));
 
@@ -36,6 +61,7 @@ export const navigateWithRetry = async (
       const response = await page.goto(url, { timeout, waitUntil: "load" });
       if (response?.ok()) {
         console.log(`[nav] PASSED (status: ${response.status()})`);
+        await waitForRenderInterstitial(page);
         return;
       }
       throw new Error(`HTTP ${response?.status()}`);
