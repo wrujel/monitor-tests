@@ -118,7 +118,7 @@ export async function processVideo(
     const detected = findContentStart(rawPath);
     const offset = override?.cutAtAuto ?? 0;
     cutAt = Math.min(detected + offset, raw * 0.4);
-    cutSource = `detected: ${detected.toFixed(2)}s${offset !== 0 ? `${offset > 0 ? "+" : "-"} ${offset.toFixed(2)}s` : ""}`;
+    cutSource = `detected: ${detected.toFixed(2)}s ${offset !== 0 ? `${offset.toFixed(2)}s` : ""}`;
   }
   console.log(
     `[${title}] raw: ${raw.toFixed(2)}s | ${cutSource} | cut at: ${cutAt.toFixed(2)}s`,
