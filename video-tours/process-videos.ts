@@ -97,6 +97,7 @@ export interface Result {
   raw: number;
   cutAt: number;
   final: number;
+  speed: number;
   ok: boolean;
 }
 
@@ -154,33 +155,34 @@ export async function processVideo(
     { stdio: "inherit" },
   );
 
+  const speed = override?.speed ?? 1.5;
   if (result.status === 0) {
     await unlink(rawPath);
     const final = getDuration(destPath);
     console.log(`[${title}] final: ${final.toFixed(2)}s\n`);
-    return { title, raw, cutAt, final, ok: true };
+    return { title, raw, cutAt, final, speed, ok: true };
   } else {
     await rename(rawPath, destPath).catch(() => {});
     console.log(`[${title}] ffmpeg failed, kept raw\n`);
-    return { title, raw, cutAt, final: raw, ok: false };
+    return { title, raw, cutAt, final: raw, speed, ok: false };
   }
 }
 
 export function printSummary(results: Result[]): void {
   const w = Math.max(...results.map((r) => r.title.length));
   const ok = results.filter((r) => r.ok).length;
-  console.log("─".repeat(w + 42));
+  console.log("─".repeat(w + 49));
   console.log(
-    `${"project".padEnd(w)}  ${"raw".padStart(6)}  ${"cut at".padStart(6)}  ${"final".padStart(6)}  status`,
+    `${"project".padEnd(w)}  ${"raw".padStart(6)}  ${"cut at".padStart(6)}  ${"final".padStart(6)}  ${"speed".padStart(5)}  status`,
   );
-  console.log("─".repeat(w + 42));
+  console.log("─".repeat(w + 49));
   for (const r of results) {
     const status = r.ok ? "ok" : "FAILED";
     console.log(
-      `${r.title.padEnd(w)}  ${(r.raw.toFixed(2) + "s").padStart(6)}  ${(r.cutAt.toFixed(2) + "s").padStart(6)}  ${(r.final.toFixed(2) + "s").padStart(6)}  ${status}`,
+      `${r.title.padEnd(w)}  ${(r.raw.toFixed(2) + "s").padStart(6)}  ${(r.cutAt.toFixed(2) + "s").padStart(6)}  ${(r.final.toFixed(2) + "s").padStart(6)}  ${(r.speed.toFixed(1) + "x").padStart(5)}  ${status}`,
     );
   }
-  console.log("─".repeat(w + 42));
+  console.log("─".repeat(w + 49));
   console.log(`${ok}/${results.length} processed successfully`);
 }
 
