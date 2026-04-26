@@ -9,11 +9,13 @@ export const generateCredentials = () => {
   };
 };
 
+let _productSeq = 0;
+
 export const generateProduct = () => {
-  const product = `p${new Date()
-    .toISOString()
-    .split("T")[0]
-    .replaceAll("-", "")}${Math.floor(Math.random() * 100)}`;
+  // Use millisecond timestamp + sequential counter so names are unique across
+  // runs AND within the same run. This prevents leftover DB products from a
+  // previous failed run creating substring collisions in dropdown selectors.
+  const product = `p${Date.now()}${++_productSeq}`;
   return {
     name: product,
     price: Math.floor(Math.random() * 1000).toString(),
