@@ -26,7 +26,7 @@ export async function humanScroll(
 ): Promise<void> {
   const absDelta = Math.abs(deltaY);
   const steps = options?.steps ?? clamp(Math.round(absDelta / 25), 8, 40);
-  const duration = options?.duration ?? clamp(absDelta * 0.9, 350, 1400);
+  const duration = options?.duration ?? clamp(absDelta * 0.6, 233, 933);
   const stepDelay = duration / steps;
   const sign = deltaY > 0 ? 1 : -1;
 
