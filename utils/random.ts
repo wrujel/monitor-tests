@@ -9,16 +9,38 @@ export const generateCredentials = () => {
   };
 };
 
+const ADJECTIVES = [
+  "Premium", "Portable", "Wireless", "Smart", "Pro", "Compact",
+  "Ultra", "Classic", "Deluxe", "Modern", "Eco", "Advanced",
+];
+
+const PRODUCT_TYPES = [
+  "Headphones", "Keyboard", "Monitor", "Mouse", "Speaker",
+  "Laptop", "Tablet", "Camera", "Charger", "Webcam",
+  "Microphone", "Controller", "Hub", "Stand", "Backpack",
+];
+
+const DESCRIPTIONS = [
+  "High-quality build with exceptional performance and durability.",
+  "Designed for everyday use with a sleek, modern aesthetic.",
+  "Engineered for professionals who demand the best.",
+  "Lightweight and portable without compromising on features.",
+  "Delivers outstanding value for home and office use.",
+  "Built to last with premium materials and precise craftsmanship.",
+];
+
+const pick = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+
+// Base-36 run ID keeps names short while ensuring cross-run uniqueness,
+// preventing leftover DB products from causing dropdown selector collisions.
+const RUN_ID = Date.now().toString(36);
 let _productSeq = 0;
 
 export const generateProduct = () => {
-  // Use millisecond timestamp + sequential counter so names are unique across
-  // runs AND within the same run. This prevents leftover DB products from a
-  // previous failed run creating substring collisions in dropdown selectors.
-  const product = `p${Date.now()}${++_productSeq}`;
+  const seq = ++_productSeq;
   return {
-    name: product,
+    name: `${pick(ADJECTIVES)} ${pick(PRODUCT_TYPES)} ${RUN_ID}${seq}`,
     price: Math.floor(Math.random() * 1000).toString(),
-    description: "description",
+    description: pick(DESCRIPTIONS),
   };
 };
