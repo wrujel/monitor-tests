@@ -24,7 +24,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
-        run: npx playwright test --reporter="./tests/reporter.ts"
+        run: npx playwright test --project=chromium --reporter="./tests/reporter.ts"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -77,3 +77,49 @@ jobs:
         with:
           github_token: ${{ secrets.PUSH_TOKEN }}
           branch: main
+  generate-videos:
+    if: github.event.schedule == '0 0 1 * *' && needs.run-tests.result == 'success'
+    needs: run-tests
+    timeout-minutes: 90
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Create env file
+        run: |
+          touch .env
+          echo "${{ secrets.ENV_FILE }}" > .env
+      - uses: actions/download-artifact@v4
+        with:
+          name: data
+          path: .
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+      - name: Build passed-project grep pattern
+        id: grep
+        run: |
+          PASSED=$(node -e "
+            const r=require('./data/report.json');
+            const last=r[r.length-1];
+            const titles=last.projects
+              .filter(p=>p.status==='passed')
+              .map(p=>p.name)
+              .join('|');
+            process.stdout.write(titles);
+          ")
+          echo "pattern=$PASSED" >> $GITHUB_OUTPUT
+      - name: Run video tours for passed projects
+        env:
+          VIDEO_TOUR: "true"
+          VIDEO_GREP: "${{ steps.grep.outputs.pattern }}"
+        run: npm run video-tours
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: videos
+          path: videos/
+          retention-days: 30

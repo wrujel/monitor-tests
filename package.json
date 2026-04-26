@@ -7,14 +7,17 @@
     "build": "npx tsc",
     "generate-readme": "ts-node ./src/generate-readme.ts",
     "update": "ts-node ./src/update.ts",
-    "update-cron": "ts-node ./src/update-cron.ts"
+    "update-cron": "ts-node ./src/update-cron.ts",
+    "video-tours": "ts-node ./video-tours/run.ts"
   },
   "keywords": [],
   "author": "wrujel",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.50.1",
+    "@types/mailgun-js": "^0.22.19",
     "@types/node": "^22.13.9",
+    "ffmpeg-static": "^5.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
