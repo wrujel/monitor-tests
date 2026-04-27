@@ -30,7 +30,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
 
   // ── Home page ──────────────────────────────────────────────────────────────
   await page.goto(project.projectUrl, { waitUntil: "domcontentloaded" });
-  await page.waitForLoadState("networkidle");
+  await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   await pause(page, 1000);
 
   const themeBtn = page
@@ -54,7 +54,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
   await page.goto(`${project.projectUrl}/explore`, {
     waitUntil: "domcontentloaded",
   });
-  await page.waitForLoadState("networkidle");
+  await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   await pause(page, 1000);
 
   await humanScrollToBottom(page);
@@ -70,7 +70,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
     .catch(() => false);
   if (hasPagination) {
     await humanClick(page, paginationLink);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
     await pause(page, 1500);
   } else {
     await pause(page, 1000);
@@ -85,7 +85,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
     )
     .first();
   await humanClick(page, categoryLink);
-  await page.waitForLoadState("networkidle");
+  await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   await pause(page, 1500);
 
   // ── Detail / post page ─────────────────────────────────────────────────────
@@ -97,7 +97,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
     .first();
   await humanClick(page, firstPost);
   await page.waitForLoadState("load");
-  await page.waitForLoadState("networkidle");
+  await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   await pause(page, 1500);
 
   await humanScrollToBottom(page);
@@ -108,7 +108,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
   await pause(page, 1200);
 
   await page.goto(project.projectUrl, { waitUntil: "domcontentloaded" });
-  await page.waitForLoadState("networkidle");
+  await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
   await pause(page, 1500);
 
   await closeTour(context, page, TITLE);
