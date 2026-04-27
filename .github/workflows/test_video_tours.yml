@@ -28,7 +28,7 @@ jobs:
           VIDEO_TOUR: "true"
         run: npm run video-tours
       - name: Upload videos to Cloudinary
-        run: npm run upload-videos
+        run: npm run upload-videos -- --force
         env:
           CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
       - name: Commit cloudinary assets
