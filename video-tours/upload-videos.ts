@@ -17,6 +17,9 @@ const FOLDER = "monitor-tests";
 
 const args = process.argv.slice(2);
 const force = args.includes("--force");
+const projectFilter = new Set(
+  args.filter((a) => !a.startsWith("--")).map((a) => a.replace(/\.webm$/, "")),
+);
 
 if (!process.env.CLOUDINARY_URL) {
   console.error(
@@ -32,7 +35,12 @@ const apiKey = decodeURIComponent(parsedUrl.username);
 const apiSecret = decodeURIComponent(parsedUrl.password);
 const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${cloudName}/video/upload`;
 
-console.log(`[upload] cloud: ${cloudName}  force: ${force}`);
+console.log(
+  `[upload] cloud: ${cloudName}  force: ${force}` +
+    (projectFilter.size > 0
+      ? `  projects: ${[...projectFilter].join(", ")}`
+      : ""),
+);
 
 function signParams(params: Record<string, string>): string {
   const sorted = Object.keys(params)
@@ -87,6 +95,18 @@ async function main() {
       (f) => f.endsWith(".webm") && !f.endsWith(".raw.webm"),
     );
   } catch {}
+
+  if (projectFilter.size > 0) {
+    const before = videos.length;
+    videos = videos.filter((f) => projectFilter.has(f.replace(/\.webm$/, "")));
+    const missing = [...projectFilter].filter(
+      (p) => !videos.includes(`${p}.webm`),
+    );
+    if (missing.length > 0) {
+      console.warn(`[upload] not found in ${VIDEOS_DIR}/: ${missing.join(", ")}`);
+    }
+    console.log(`[upload] filtered: ${videos.length}/${before} videos`);
+  }
 
   if (videos.length === 0) {
     console.log("[upload] no processed videos found.");
