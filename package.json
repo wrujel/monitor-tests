@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "generate-readme": "ts-node ./src/generate-readme.ts",
-    "update": "ts-node ./src/update.ts",
-    "update-cron": "ts-node ./src/update-cron.ts",
-    "video-tours": "ts-node ./video-tours/run.ts",
-    "upload-videos": "ts-node ./video-tours/upload-videos.ts"
+    "build": "bunx tsc",
+    "generate-readme": "bun ./src/generate-readme.ts",
+    "update": "bun ./src/update.ts",
+    "update-cron": "bun ./src/update-cron.ts",
+    "video-tours": "bun ./video-tours/run.ts",
+    "upload-videos": "bun ./video-tours/upload-videos.ts"
   },
   "keywords": [],
   "author": "wrujel",
@@ -19,7 +19,6 @@
     "@types/mailgun-js": "^0.22.19",
     "@types/node": "^22.13.9",
     "ffmpeg-static": "^5.3.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "dependencies": {

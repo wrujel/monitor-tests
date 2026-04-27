@@ -12,11 +12,11 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
+          bun-version: latest
       - name: Install dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
       - name: Create env file
         run: |
           touch .env
@@ -26,9 +26,9 @@ jobs:
       - name: Run video tours
         env:
           VIDEO_TOUR: "true"
-        run: npm run video-tours
+        run: bun run video-tours
       - name: Upload videos to Cloudinary
-        run: npm run upload-videos -- --force
+        run: bun run upload-videos -- --force
         env:
           CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
       - name: Commit cloudinary assets
