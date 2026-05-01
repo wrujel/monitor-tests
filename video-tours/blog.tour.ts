@@ -5,6 +5,7 @@ import {
   closeTour,
   humanScroll,
   humanScrollToBottom,
+  humanScrollToElement,
   humanClick,
 } from "./_tour-utils";
 import dotenv from "dotenv";
@@ -45,11 +46,17 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
   await humanClick(page, themeBtn);
   await pause(page, 1500);
 
-  await humanScrollToBottom(page);
-  await pause(page, 1000);
-
-  await scrollToTop(page);
+  const latestArticles = page
+    .locator(
+      "h1, h2, h3, h4, [class*='heading'], [class*='title']",
+    )
+    .filter({ hasText: /latest articles/i })
+    .first();
+  await humanScrollToElement(page, latestArticles);
   await pause(page, 500);
+
+  // await scrollToTop(page);
+  // await pause(page, 500);
 
   // ── Explore page ───────────────────────────────────────────────────────────
   await page.goto(`${project.projectUrl}/explore`, {
@@ -71,7 +78,9 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
     .catch(() => false);
   if (hasPagination) {
     await humanClick(page, paginationLink);
-    await page.waitForLoadState("networkidle", { timeout: 6000 }).catch(() => {});
+    await page
+      .waitForLoadState("networkidle", { timeout: 6000 })
+      .catch(() => {});
     await pause(page, 1500);
   } else {
     await pause(page, 1000);
