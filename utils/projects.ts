@@ -78,3 +78,31 @@ export const portfolio = {
   projectUrl: "https://wrujel.com",
   repoUrl: "",
 };
+
+// When LOCAL_PROJECT + LOCAL_URL are set, override the matching project's URL
+// so the same spec/tour can run against a local dev server.
+const _localProject = process.env.LOCAL_PROJECT;
+const _localUrl = process.env.LOCAL_URL;
+if (_localProject && _localUrl) {
+  const all = [
+    admin_dashboard_next,
+    airbnb_clone,
+    clock_app,
+    django_crud_react,
+    github_history,
+    movies_search,
+    netflix_clone,
+    portfolio_web_template,
+    rest_api_et,
+    slider_static,
+    tesla_landing,
+    tetris_javascript,
+    webpage_gpt,
+    blog,
+    leetcode_ui,
+    portfolio,
+  ];
+  for (const p of all) {
+    if (p.title === _localProject) p.projectUrl = _localUrl;
+  }
+}

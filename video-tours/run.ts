@@ -29,7 +29,7 @@ function isPlaywrightTempFile(title: string): boolean {
   return /^[a-f0-9]{20,}$/.test(title);
 }
 
-function backupVideos(): Map<string, string> {
+function backupVideos(filterTitles?: Set<string>): Map<string, string> {
   const map = new Map<string, string>();
   mkdirSync(BACKUP_DIR, { recursive: true });
   let files: string[] = [];
@@ -40,6 +40,7 @@ function backupVideos(): Map<string, string> {
     if (f.endsWith(".webm") && !f.endsWith(".raw.webm")) {
       const title = f.replace(/\.webm$/, "");
       if (isPlaywrightTempFile(title)) continue;
+      if (filterTitles && !filterTitles.has(title)) continue;
       const src = `${VIDEOS_DIR}/${f}`;
       const dst = `${BACKUP_DIR}/${f}`;
       try {
@@ -67,17 +68,21 @@ function cleanTempFiles(): void {
   }
 }
 
-function cleanVideos(): void {
+function cleanVideos(filterTitles?: Set<string>): void {
   let files: string[] = [];
   try {
     files = readdirSync(VIDEOS_DIR);
   } catch {}
   for (const f of files) {
-    if (f.endsWith(".webm")) {
-      try {
-        unlinkSync(`${VIDEOS_DIR}/${f}`);
-      } catch {}
+    if (!f.endsWith(".webm")) continue;
+    if (filterTitles) {
+      const title = f.replace(/\.raw\.webm$/, "").replace(/\.webm$/, "");
+      if (isPlaywrightTempFile(title)) continue;
+      if (!filterTitles.has(title)) continue;
     }
+    try {
+      unlinkSync(`${VIDEOS_DIR}/${f}`);
+    } catch {}
   }
 }
 
@@ -169,21 +174,26 @@ async function main(): Promise<void> {
   const cliTours = process.argv.slice(2);
   const grep = buildGrep(cliTours);
   const isFiltered = !!grep;
+  const filterTitles =
+    cliTours.length > 0 ? new Set(cliTours) : undefined;
   if (cliTours.length > 0) {
     console.log(`Running only: ${cliTours.join(", ")}`);
   }
 
   // 1. Backup existing processed videos before touching anything
+  //    When a subset of tours is requested, only back up those — leave the
+  //    other project videos in place untouched.
   console.log("Backing up existing videos...");
-  const backupMap = backupVideos();
+  const backupMap = backupVideos(filterTitles);
   const backedUp = [...backupMap.keys()];
   console.log(
     `Backed up ${backedUp.length} video(s)${backedUp.length ? ": " + backedUp.join(", ") : ""}`,
   );
 
-  // 2. Clear old .webm files so playwright writes fresh raw videos
+  // 2. Clear old .webm files so playwright writes fresh raw videos.
+  //    With a filter, only remove the targeted titles so unrelated videos stay.
   mkdirSync(VIDEOS_DIR, { recursive: true });
-  cleanVideos();
+  cleanVideos(filterTitles);
 
   // 3. Run playwright — continue even if some tests fail
   console.log("\nRunning playwright video tours...");

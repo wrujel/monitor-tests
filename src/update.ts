@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import { Project } from "../utils/types";
 import {
+  PLACEHOLDER_PROJECT_LIST,
   PLACEHOLDER_PROJECT_URL,
   PLACEHOLDER_REPO,
   PLACEHOLDER_REPO_URL,
@@ -76,7 +77,12 @@ const sendEmail = async (repos: string[], type: string) => {
   const PROJECTS_URL =
     "https://raw.githubusercontent.com/wrujel/monitor-repos/main/data/projects.json";
 
-  const [projectsResponse, testTemplate, projectsTemplate] = await Promise.all([
+  const [
+    projectsResponse,
+    testTemplate,
+    projectsTemplate,
+    localOverrideTemplate,
+  ] = await Promise.all([
     fetch(PROJECTS_URL).then((res) => {
       if (!res.ok)
         throw new Error(`Failed to fetch projects.json: ${res.status}`);
@@ -84,6 +90,9 @@ const sendEmail = async (repos: string[], type: string) => {
     }),
     fs.readFile("./templates/test.spec.tpl", { encoding: "utf-8" }),
     fs.readFile("./templates/projects.ts.tpl", { encoding: "utf-8" }),
+    fs.readFile("./templates/projects.local-override.ts.tpl", {
+      encoding: "utf-8",
+    }),
   ]);
   const projects: Project[] = projectsResponse;
 
@@ -136,5 +145,13 @@ const sendEmail = async (repos: string[], type: string) => {
   if (newTests.length > 0) sendEmail(newTests, "new");
   if (emptyTest.length > 0) sendEmail(emptyTest, "empty");
 
-  await fs.writeFile("./utils/projects.ts", newProjects);
+  const projectList = projects
+    .map((p) => `    ${p.repo.replaceAll("-", "_")},`)
+    .join("\n");
+  const localOverride = localOverrideTemplate.replace(
+    PLACEHOLDER_PROJECT_LIST,
+    projectList,
+  );
+
+  await fs.writeFile("./utils/projects.ts", newProjects + localOverride);
 })();
