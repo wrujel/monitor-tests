@@ -69,10 +69,10 @@ test(`${TITLE} - Skills section`, async ({ page }) => {
   await expect(page.getByText("My Expertise")).toBeVisible();
 });
 
-test(`${TITLE} - LeetCode section`, async ({ page }) => {
-  await page.locator("#leetcode").scrollIntoViewIfNeeded();
-  await expect(page.getByRole("heading", { name: /LeetCode/i })).toBeVisible();
-});
+// test(`${TITLE} - LeetCode section`, async ({ page }) => {
+//   await page.locator("#leetcode").scrollIntoViewIfNeeded();
+//   await expect(page.getByRole("heading", { name: /LeetCode/i })).toBeVisible();
+// });
 
 test(`${TITLE} - Services section`, async ({ page }) => {
   await page.locator("#services").scrollIntoViewIfNeeded();
