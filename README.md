@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 5</span></li>
-            <li><span>Last Update: Thu, 02 Jul 2026 03:51:49 GMT</span></li>
+            <li><span>Last Update: Thu, 02 Jul 2026 05:33:24 GMT</span></li>
             <li><span>Passed: 3</span></li>
             <li><span>Failed: 2</span></li>
             <li><span>Duration: 
-              257.12 sec
+              250.41 sec
             </span></li>
           </ul></p>
   
@@ -33,35 +33,35 @@
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="cloud"/></td>
                     <td>⚠️</td>
                     <td>3/4</td>
-                    <td align='right'>20.18</td>
+                    <td align='right'>20.23</td>
                   </tr><tr>
                     <td><a href="https://demo-airbnb-clone-three-phi-45.vercel.app/">airbnb-clone</a></td>
                     <td><a href="https://github.com/wrujel/airbnb-clone">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="cloud"/></td>
                     <td>✅</td>
                     <td>5/5</td>
-                    <td align='right'>13.81</td>
+                    <td align='right'>13.64</td>
                   </tr><tr>
                     <td><a href="https://blog.wrujel.com">blog</a></td>
                     <td>-</td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="cloud"/></td>
                     <td>✅</td>
                     <td>10/10</td>
-                    <td align='right'>38.24</td>
+                    <td align='right'>32.56</td>
                   </tr><tr>
                     <td><a href="https://clock-app-wrujel.vercel.app">clock-app</a></td>
                     <td><a href="https://github.com/wrujel/clock-app">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="cloud"/></td>
                     <td>✅</td>
                     <td>1/1</td>
-                    <td align='right'>2.89</td>
+                    <td align='right'>2.22</td>
                   </tr><tr>
                     <td><a href="https://django-crud-react.onrender.com">django-crud-react</a></td>
                     <td><a href="https://github.com/wrujel/django-crud-react">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="cloud"/></td>
                     <td>❌</td>
                     <td>0/2</td>
-                    <td align='right'>182.01</td>
+                    <td align='right'>181.76</td>
                   </tr>
             </tbody>
           </table>
@@ -82,112 +82,112 @@
                           <td>admin-dashboard-next</td>
                           <td>Test sidebar and search</td>
                           <td>✅</td>
-                          <td align='right'>2.04</td>
+                          <td align='right'>1.97</td>
                         </tr><tr>
                           <td>admin-dashboard-next</td>
                           <td>Test dashboard page</td>
                           <td>✅</td>
-                          <td align='right'>0.41</td>
+                          <td align='right'>0.46</td>
                         </tr><tr>
                           <td>admin-dashboard-next</td>
                           <td>Test users page</td>
                           <td>✅</td>
-                          <td align='right'>2.25</td>
+                          <td align='right'>2.29</td>
                         </tr><tr>
                           <td>admin-dashboard-next</td>
                           <td>Test products page</td>
                           <td>❌</td>
-                          <td align='right'>15.47</td>
+                          <td align='right'>15.52</td>
                         </tr><tr>
                           <td>airbnb-clone</td>
                           <td>Test home without logging in</td>
                           <td>✅</td>
-                          <td align='right'>1.54</td>
+                          <td align='right'>1.04</td>
                         </tr><tr>
                           <td>airbnb-clone</td>
                           <td>Test email register</td>
                           <td>✅</td>
-                          <td align='right'>2.92</td>
+                          <td align='right'>2.96</td>
                         </tr><tr>
                           <td>airbnb-clone</td>
                           <td>Test gmail login</td>
                           <td>✅</td>
-                          <td align='right'>3.19</td>
+                          <td align='right'>3.07</td>
                         </tr><tr>
                           <td>airbnb-clone</td>
                           <td>Test github login</td>
                           <td>✅</td>
-                          <td align='right'>1.33</td>
+                          <td align='right'>1.83</td>
                         </tr><tr>
                           <td>airbnb-clone</td>
                           <td>Test home logged in</td>
                           <td>✅</td>
-                          <td align='right'>4.81</td>
+                          <td align='right'>4.73</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Navbar</td>
                           <td>✅</td>
-                          <td align='right'>4.62</td>
+                          <td align='right'>2.61</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Hero section</td>
                           <td>✅</td>
-                          <td align='right'>3.05</td>
+                          <td align='right'>1.68</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Category showcase</td>
                           <td>✅</td>
-                          <td align='right'>1.53</td>
+                          <td align='right'>1.64</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Latest articles</td>
                           <td>✅</td>
-                          <td align='right'>1.50</td>
+                          <td align='right'>1.62</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Subscribe section</td>
                           <td>✅</td>
-                          <td align='right'>4.45</td>
+                          <td align='right'>4.53</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Footer</td>
                           <td>✅</td>
-                          <td align='right'>3.47</td>
+                          <td align='right'>1.80</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Explore page</td>
                           <td>✅</td>
-                          <td align='right'>4.38</td>
+                          <td align='right'>7.36</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Blog post page</td>
                           <td>✅</td>
-                          <td align='right'>6.18</td>
+                          <td align='right'>4.84</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Locale</td>
                           <td>✅</td>
-                          <td align='right'>5.32</td>
+                          <td align='right'>4.36</td>
                         </tr><tr>
                           <td>blog</td>
                           <td>Theme toggle</td>
                           <td>✅</td>
-                          <td align='right'>3.74</td>
+                          <td align='right'>2.12</td>
                         </tr><tr>
                           <td>clock-app</td>
                           <td>Test home page</td>
                           <td>✅</td>
-                          <td align='right'>2.89</td>
+                          <td align='right'>2.22</td>
                         </tr><tr>
                           <td>django-crud-react</td>
                           <td>Test home</td>
                           <td>❌</td>
-                          <td align='right'>91.33</td>
+                          <td align='right'>91.13</td>
                         </tr><tr>
                           <td>django-crud-react</td>
                           <td>Test create new task</td>
                           <td>❌</td>
-                          <td align='right'>90.68</td>
+                          <td align='right'>90.63</td>
                         </tr>
             </tbody>
           </table>
