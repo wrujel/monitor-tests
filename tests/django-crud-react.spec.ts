@@ -12,14 +12,17 @@ test.beforeEach(async ({ page }) => {
 });
 
 test(`${TITLE} - Test home`, async ({ page }) => {
-  // Wait for the page to fully load
   await page.waitForLoadState("networkidle");
 
-  // Check for main elements with extended timeouts
-  await expect(page.getByRole("link", { name: "Task App" })).toBeVisible({
+  // Brand link + primary action (Render free tier may cold-start, hence the
+  // generous first timeout).
+  await expect(page.getByRole("link", { name: "Task Manager" })).toBeVisible({
     timeout: 90000,
   });
-  await expect(page.getByRole("button", { name: "Add Task" })).toBeVisible({
+  await expect(
+    page.getByRole("button", { name: "New", exact: true }),
+  ).toBeVisible({ timeout: 8000 });
+  await expect(page.getByRole("heading", { name: "Your tasks" })).toBeVisible({
     timeout: 8000,
   });
 
@@ -27,84 +30,35 @@ test(`${TITLE} - Test home`, async ({ page }) => {
   await expect(page).toHaveURL(new RegExp(URL_PATH));
 });
 
-test(`${TITLE} - Test create new task`, async ({ page }) => {
-  // Wait for Add Task button to be ready and click it
-  await expect(page.getByRole("button", { name: "Add Task" })).toBeVisible({
-    timeout: 90000,
-  });
-  await page.getByRole("button", { name: "Add Task" }).click();
+test(`${TITLE} - Test create and delete task`, async ({ page }) => {
+  // Unique title so re-runs never collide with leftovers from earlier runs.
+  const taskTitle = `Monitor check ${Date.now()}`;
 
-  // Wait for form elements to appear with timeouts
-  await expect(page.getByPlaceholder("Title")).toBeVisible({ timeout: 8000 });
-  await expect(page.getByRole("button", { name: "Save" })).toBeVisible({
-    timeout: 5000,
-  });
+  const newButton = page.getByRole("button", { name: "New", exact: true });
+  await expect(newButton).toBeVisible({ timeout: 90000 });
+  await newButton.click();
 
-  // Fill form fields with proper waits
-  await page.getByPlaceholder("Title").click();
-  await page.getByPlaceholder("Title").fill("Test Task");
-
-  // Wait for description field to be ready
-  await expect(page.getByPlaceholder("Description")).toBeVisible({
-    timeout: 5000,
-  });
-  await page.getByPlaceholder("Description").click();
-  await page
+  // The task form opens in a modal
+  const dialog = page.getByRole("dialog", { name: "New task" });
+  await expect(dialog).toBeVisible({ timeout: 8000 });
+  await dialog.getByPlaceholder("Title").fill(taskTitle);
+  await dialog
     .getByPlaceholder("Description")
-    .fill("This is a test task description");
+    .fill("Automated end-to-end monitor check.");
+  await dialog.getByRole("button", { name: "Save" }).click();
 
-  // Save the task and wait for the operation to complete
-  await page.getByRole("button", { name: "Save" }).click();
-
-  // Wait for network activity to settle after form submission
-  await page.waitForLoadState("networkidle", { timeout: 30000 });
-
-  // Robust verification strategy for task creation success
-  // The application may redirect back to main page or show form disappearance
-  let taskCreated = false;
-  const startTime = Date.now();
-  const maxWaitTime = 20000; // 20 seconds max
-
-  while (!taskCreated && Date.now() - startTime < maxWaitTime) {
-    try {
-      // Check if we're back to the main page (Add Task button visible)
-      const addTaskVisible = await page
-        .getByRole("button", { name: "Add Task" })
-        .isVisible();
-      if (addTaskVisible) {
-        taskCreated = true;
-        break;
-      }
-
-      // Check if form fields are gone (modal closed)
-      const titleFieldVisible = await page
-        .getByPlaceholder("Title")
-        .isVisible();
-      if (!titleFieldVisible) {
-        // Form has closed, wait for Add Task button to appear
-        await expect(
-          page.getByRole("button", { name: "Add Task" }),
-        ).toBeVisible({
-          timeout: 5000,
-        });
-        taskCreated = true;
-        break;
-      }
-
-      // Wait a bit before retrying
-      await page.waitForTimeout(1000);
-    } catch (error) {
-      // Continue trying
-    }
-  }
-
-  if (!taskCreated) {
-    // Final attempt with explicit wait
-    await expect(page.getByRole("button", { name: "Add Task" })).toBeVisible({
-      timeout: 10000,
-    });
-  }
-
-  // Final verification: Ensure we're on the correct page
+  // Modal closes and the created task appears in the grid
+  await expect(dialog).toBeHidden({ timeout: 20000 });
+  const heading = page.getByRole("heading", { name: taskTitle });
+  await expect(heading).toBeVisible({ timeout: 20000 });
   await expect(page).toHaveURL(new RegExp(URL_PATH));
+
+  // Clean up: delete the task we just created so the demo data stays tidy
+  const card = page.getByRole("article").filter({ hasText: taskTitle });
+  await card.getByRole("button", { name: "Delete task" }).click();
+  await expect(page.getByRole("heading", { name: "Delete task?" })).toBeVisible(
+    { timeout: 8000 },
+  );
+  await page.getByRole("button", { name: "Delete", exact: true }).click();
+  await expect(heading).toBeHidden({ timeout: 20000 });
 });

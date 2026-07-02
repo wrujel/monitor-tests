@@ -4,6 +4,7 @@ import { navigateWithRetry } from "../utils/nav";
 import { pause, closeTour, humanType, humanClick } from "./_tour-utils";
 
 const TITLE = project.title;
+const TASK_TITLE = "Plan the product launch";
 
 // Render free tier can take up to 5 min to spin up
 test.setTimeout(10 * 60 * 1000);
@@ -13,63 +14,94 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
   await page.waitForLoadState("networkidle");
   await pause(page, 2000);
 
-  await page.getByRole("button", { name: "Add Task" }).waitFor({
-    state: "visible",
-    timeout: 90000,
-  });
-  await pause(page, 1000);
-
-  // Add first task
-  await humanClick(page, page.getByRole("button", { name: "Add Task" }));
-  await page.getByPlaceholder("Title").waitFor({ state: "visible" });
-  await humanType(page, page.getByPlaceholder("Title"), "Buy groceries for the week");
-  await humanType(page, page.getByPlaceholder("Description"), "Pick up vegetables, fruits, milk, and bread from the supermarket before Friday.");
+  const newButton = page.getByRole("button", { name: "New", exact: true });
+  await newButton.waitFor({ state: "visible", timeout: 90000 });
   await pause(page, 1500);
-  await humanClick(page, page.getByRole("button", { name: "Save" }));
-  await page.waitForLoadState("networkidle", { timeout: 30000 });
-  await page.getByRole("button", { name: "Add Task" }).waitFor({
-    state: "visible",
-    timeout: 20000,
-  });
-  await pause(page, 2000);
 
-  // Add second task
-  await humanClick(page, page.getByRole("button", { name: "Add Task" }));
-  await page.getByPlaceholder("Title").waitFor({ state: "visible" });
-  await humanType(page, page.getByPlaceholder("Title"), "Schedule dentist appointment");
-  await humanType(page, page.getByPlaceholder("Description"), "Call the clinic to book a check-up for next week. Remember to ask about the cleaning.");
-  await pause(page, 1500);
-  await humanClick(page, page.getByRole("button", { name: "Save" }));
-  await page.waitForLoadState("networkidle", { timeout: 30000 });
-  await page.getByRole("button", { name: "Add Task" }).waitFor({
-    state: "visible",
-    timeout: 20000,
-  });
-  await pause(page, 2000);
+  // Create a task with a priority and a due date
+  await humanClick(page, newButton);
+  const dialog = page.getByRole("dialog", { name: "New task" });
+  await dialog.waitFor({ state: "visible" });
+  await humanType(page, dialog.getByPlaceholder("Title"), TASK_TITLE);
+  await humanType(
+    page,
+    dialog.getByPlaceholder("Description"),
+    "Draft the announcement, brief the team, and schedule the social posts.",
+  );
+  await pause(page, 600);
 
-  // Update the first task
-  await humanClick(page, page.getByText("Buy groceries for the week").first());
-  await page.waitForLoadState("networkidle");
-  await page.waitForFunction(() => {
-    const input = document.querySelector('input[placeholder="Title"]') as HTMLInputElement;
-    return input && input.value.length > 0;
-  });
-  await page.getByPlaceholder("Title").waitFor({ state: "visible" });
-  await page.getByPlaceholder("Title").click({ clickCount: 3 });
+  // Pick High priority from the custom dropdown
+  await humanClick(page, dialog.getByRole("button", { name: "Priority" }));
+  await page
+    .getByRole("listbox", { name: "Priority" })
+    .waitFor({ state: "visible" });
+  await pause(page, 700);
+  await humanClick(
+    page,
+    page.getByRole("option", { name: "High" }).locator("button"),
+  );
+  await pause(page, 500);
+
+  // Pick today's date from the calendar
+  await humanClick(page, dialog.getByRole("button", { name: "Due date" }));
+  await page
+    .getByRole("dialog", { name: "Due date" })
+    .waitFor({ state: "visible" });
+  await pause(page, 900);
+  await humanClick(page, page.getByRole("button", { name: "Today" }));
+  await pause(page, 700);
+
+  await humanClick(page, dialog.getByRole("button", { name: "Save" }));
+  await dialog.waitFor({ state: "hidden", timeout: 20000 });
+  await pause(page, 1800);
+
+  // Toggle it complete (stats animate), then back to active
+  const card = page
+    .getByRole("article")
+    .filter({ hasText: TASK_TITLE })
+    .first();
+  await humanClick(page, card.getByRole("checkbox"));
+  await pause(page, 2000);
+  await humanClick(page, card.getByRole("checkbox"));
+  await pause(page, 1200);
+
+  // Live search
+  const search = page.getByPlaceholder("Search tasks…");
+  await humanType(page, search, "launch");
+  await pause(page, 2200);
+  await search.click({ clickCount: 3 });
   await page.keyboard.press("Control+A");
   await page.keyboard.press("Delete");
-  await humanType(page, page.getByPlaceholder("Title"), "Buy groceries and cook dinner");
-  await page.getByPlaceholder("Description").click({ clickCount: 3 });
-  await page.keyboard.press("Control+A");
-  await page.keyboard.press("Delete");
-  await humanType(page, page.getByPlaceholder("Description"), "Get groceries from the store and prepare a pasta dish for the family tonight.");
-  await pause(page, 1500);
-  await humanClick(page, page.getByRole("button", { name: "Save" }));
-  await page.waitForLoadState("networkidle", { timeout: 30000 });
-  await page.getByRole("button", { name: "Add Task" }).waitFor({
-    state: "visible",
-    timeout: 20000,
-  });
+  await pause(page, 1400);
+
+  // Switch to the list view and nudge a row with the reorder arrows
+  await humanClick(page, page.getByRole("button", { name: "List view" }));
+  await pause(page, 1600);
+  const moveDown = page.getByRole("button", { name: "Move down" }).first();
+  if (await moveDown.isEnabled()) {
+    await humanClick(page, moveDown);
+    await pause(page, 1600);
+  }
+
+  // Back to the grid, then tidy up: delete the task we created
+  await humanClick(page, page.getByRole("button", { name: "Grid view" }));
+  await pause(page, 1400);
+  const createdCard = page
+    .getByRole("article")
+    .filter({ hasText: TASK_TITLE })
+    .first();
+  await humanClick(
+    page,
+    createdCard.getByRole("button", { name: "Delete task" }),
+  );
+  await page
+    .getByRole("heading", { name: "Delete task?" })
+    .waitFor({ state: "visible" });
+  await pause(page, 900);
+  await humanClick(
+    page,
+    page.getByRole("button", { name: "Delete", exact: true }),
+  );
   await pause(page, 2000);
 
   await closeTour(context, page, TITLE);
