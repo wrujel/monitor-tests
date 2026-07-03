@@ -1,6 +1,6 @@
 import { test, Page } from "@playwright/test";
 import { admin_dashboard_next as project } from "../utils/projects";
-import { pause, humanScroll, closeTour } from "./_tour-utils";
+import { pause, humanScroll, humanClick, closeTour } from "./_tour-utils";
 
 const TITLE = project.title;
 const BASE = project.projectUrl;
@@ -23,16 +23,25 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
   await page.waitForLoadState("networkidle");
   await pause(page, 2500);
 
-  // Dashboard overview — KPIs, charts, live transactions & activity
+  // Dashboard overview — the whole board updates live every second
   await page.goto(`${BASE}/dashboard`, { waitUntil: "load" });
   await page.waitForLoadState("networkidle");
-  await pause(page, 1800);
+  await pause(page, 2500);
+
+  // Crank the simulation speed (1x -> 2x -> 4x) so the live updates pop
+  const speed = page.getByRole("button", { name: /Simulation speed/ });
+  await humanClick(page, speed);
+  await pause(page, 800);
+  await humanClick(page, speed);
+  await pause(page, 2500);
   await revealContent(page, 3);
 
-  // Revenue analytics — range filter, channel/category/region breakdowns
+  // Revenue analytics — flip the range filter
   await page.goto(`${BASE}/dashboard/analytics/revenue`, { waitUntil: "load" });
   await page.waitForLoadState("networkidle");
   await pause(page, 1500);
+  await humanClick(page, page.getByRole("button", { name: "Year" }));
+  await pause(page, 1800);
   await revealContent(page, 2);
 
   // Users — generic data table
@@ -45,7 +54,7 @@ test(`tour: ${TITLE}`, async ({ page, context }) => {
   await page.waitForLoadState("networkidle");
   await pause(page, 2200);
 
-  // Activity — live feed ticking (pause to capture the simulator)
+  // Activity — live event feed streaming in
   await page.goto(`${BASE}/dashboard/activity`, { waitUntil: "load" });
   await page.waitForLoadState("networkidle");
   await pause(page, 4000);

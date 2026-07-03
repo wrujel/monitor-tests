@@ -5,10 +5,10 @@ import { navigateWithRetry } from "../utils/nav";
 const TITLE = project.title;
 const URL = project.projectUrl;
 
-// The redesigned "Nexus" dashboard. These assertions target the app in its
-// default demo mode (open dashboard). If real auth is enabled on the deployment
-// (MONGO_URI + BETTER_AUTH_SECRET), the dashboard routes redirect to /login and
-// a sign-in step would be needed first.
+// The redesigned "Nexus" dashboard with a live, client-side data simulation.
+// Assertions target the app in its default demo mode (open dashboard). If real
+// auth is enabled on the deployment (MONGO_URI + BETTER_AUTH_SECRET), the
+// dashboard routes redirect to /login and a sign-in step would be needed first.
 
 test(`${TITLE} - Login page`, async ({ page }) => {
   await navigateWithRetry(page, `${URL}/login`);
@@ -29,6 +29,21 @@ test(`${TITLE} - Dashboard overview`, async ({ page }) => {
   await expect(page.getByText("Total Revenue")).toBeVisible();
   await expect(page.getByText("Revenue & profit")).toBeVisible();
   await expect(page.getByText("Recent transactions")).toBeVisible();
+});
+
+test(`${TITLE} - Live simulation controls`, async ({ page }) => {
+  await navigateWithRetry(page, `${URL}/dashboard`);
+  // The topbar exposes the live data simulation: a start/pause chip and a
+  // speed cycle (1x -> 2x -> 4x).
+  await expect(
+    page.getByRole("button", { name: "Pause live simulation" }),
+  ).toBeVisible();
+  const speed = page.getByRole("button", { name: /Simulation speed/ });
+  await expect(speed).toHaveText("1×");
+  await speed.click();
+  await expect(speed).toHaveText("2×");
+  await speed.click();
+  await expect(speed).toHaveText("4×");
 });
 
 test(`${TITLE} - Users table`, async ({ page }) => {
