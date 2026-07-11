@@ -107,9 +107,10 @@ test(`${TITLE} - Projects page`, async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "My Projects" }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: /Back to home/i }).last(),
-  ).toBeVisible();
+  // Breadcrumb replaced the old "Back to home" button: Home › Projects
+  const breadcrumb = page.getByRole("navigation", { name: "Breadcrumb" });
+  await expect(breadcrumb.getByRole("link", { name: "Home" })).toBeVisible();
+  await expect(breadcrumb.getByText("Projects", { exact: true })).toBeVisible();
 });
 
 test(`${TITLE} - Locale - Spanish`, async ({ page }) => {
