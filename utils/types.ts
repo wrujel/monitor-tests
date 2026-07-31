@@ -8,18 +8,24 @@ export type Summary = {
 
 export type ProjectStatus = {
   name: string;
-  repo?: string;
+  repo: string;
+  /** the deployed URL and the GitHub repo. Written by the scheduler container
+   *  from its own registry — which is why data/projects.json is gone. Optional
+   *  because the 90 entries already in report.json predate them. */
+  url?: string;
+  repoUrl?: string;
   status: string;
   color?: string;
-  startTime: Date;
+  startTime?: string | null;
   passed: number;
   failed: number;
   duration: number;
   tests: TestStatus[];
-  badge?: ProjectBadge;
 };
 
-type ProjectBadge = {
+/** A shields.io endpoint payload — written to data/<repo>.json for the status
+ *  badge every project README embeds. */
+export type ProjectBadge = {
   schemaVersion: 1;
   label: string;
   message: string;
@@ -36,15 +42,7 @@ type TestStatus = {
   name: string;
   status: string;
   duration: number;
-  startTime: Date;
-};
-
-export type Project = {
-  repo: string;
-  title: string;
-  repoUrl: string;
-  url: string;
-  service?: string;
+  startTime?: string;
 };
 
 export type Report = {

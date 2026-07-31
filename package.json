@@ -1,29 +1,17 @@
 {
   "name": "monitor-projects",
-  "version": "1.1.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Renders the monitoring README from data/report.json",
   "main": "index.js",
   "scripts": {
     "build": "bunx tsc",
-    "generate-readme": "bun ./src/generate-readme.ts",
-    "update": "bun ./src/update.ts",
-    "update-cron": "bun ./src/update-cron.ts",
-    "video-tours": "bun ./video-tours/run.ts",
-    "upload-videos": "bun ./video-tours/upload-videos.ts",
-    "project": "bun ./src/run-project.ts"
+    "generate-readme": "bun ./src/generate-readme.ts"
   },
   "keywords": [],
   "author": "wrujel",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.50.1",
-    "@types/mailgun-js": "^0.22.19",
     "@types/node": "^22.13.9",
-    "ffmpeg-static": "^5.3.0",
     "typescript": "^5.8.2"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.7",
-    "mailgun-js": "^0.22.0"
   }
 }

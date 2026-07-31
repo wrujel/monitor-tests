@@ -1,42 +1,23 @@
-name: Monitor Tests
+# Render the README from data/report.json.
+#
+# The e2e suite no longer runs here. Tests execute in an isolated Docker
+# container (the `scheduler` service in the platform-content workspace), which
+# owns the schedule, runs Playwright per project, and PUSHES the run summary to
+# data/report.json in this repo. That push is this workflow's only trigger —
+# this repo is a renderer now, not a runner.
+#
+# No trigger loop: the path filter is data/report.json, and this job only ever
+# writes README.md, data/chart*.svg and the per-project badge JSONs.
+name: Generate README
 on:
-  schedule:
-    - cron: "0 */1 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "data/report.json"
   workflow_dispatch:
 jobs:
-  run-tests:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-      - name: Create env file
-        run: |
-          touch .env
-          echo "${{ secrets.ENV_FILE }}" > .env
-          cat .env
-      - name: Update Projects
-        run: bun run update
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
-      - name: Run Playwright tests
-        run: npx playwright test --project=chromium --reporter="./tests/reporter.ts"
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: data
-          path: |
-            data
-            tests
-            utils
   generate-report:
-    if: always()
-    needs: run-tests
-    timeout-minutes: 60
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -50,25 +31,16 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
-      - uses: actions/download-artifact@v4
-        with:
-          name: data
-          path: .
       - name: Generate new readme
         run: bun run generate-readme
-      - name: Update cron
-        run: bun run update-cron
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config --local user.email "$USER_EMAIL"
           git config --local user.name "$USER_NAME"
           git pull
           git add README.md
           git add data
-          git add tests
-          git add utils
-          git add .github/workflows
-          git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update report"
+          git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update readme"
         env:
           USER_EMAIL: ${{ vars.USER_EMAIL }}
           USER_NAME: ${{ vars.USER_NAME }}
@@ -77,73 +49,3 @@ jobs:
         with:
           github_token: ${{ secrets.PUSH_TOKEN }}
           branch: main
-  generate-videos:
-    if: github.event.schedule == '0 0 1 * *' && needs.run-tests.result == 'success'
-    needs: run-tests
-    timeout-minutes: 90
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-      - name: Create env file
-        run: |
-          touch .env
-          echo "${{ secrets.ENV_FILE }}" > .env
-      - uses: actions/download-artifact@v4
-        with:
-          name: data
-          path: .
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
-      - name: Build passed-project grep pattern
-        id: grep
-        run: |
-          PASSED=$(bun -e "
-            const r = JSON.parse(await Bun.file('./data/report.json').text());
-            const last = r[r.length - 1];
-            const titles = last.projects
-              .filter(p => p.status === 'passed')
-              .map(p => p.name)
-              .join('|');
-            process.stdout.write(titles);
-          ")
-          echo "pattern=$PASSED" >> $GITHUB_OUTPUT
-      - name: Run video tours for passed projects
-        env:
-          VIDEO_TOUR: "true"
-          VIDEO_GREP: "${{ steps.grep.outputs.pattern }}"
-        run: bun run video-tours
-      - name: Upload videos to Cloudinary
-        run: bun run upload-videos -- --force
-        env:
-          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
-      - name: Commit cloudinary assets
-        run: |
-          git config --local user.email "$USER_EMAIL"
-          git config --local user.name "$USER_NAME"
-          git pull
-          git add data/cloudinary_assets.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update cloudinary assets"
-        env:
-          USER_EMAIL: ${{ vars.USER_EMAIL }}
-          USER_NAME: ${{ vars.USER_NAME }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PUSH_TOKEN }}
-          branch: main
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: videos
-          path: videos/
-          retention-days: 30

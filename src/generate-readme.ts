@@ -6,8 +6,19 @@ import {
   PLACEHOLDER_CHART,
   PLACEHOLDER_LINE_CHART,
 } from "../utils/constants";
-import { Project, ProjectStatus, Report, Summary } from "../utils/types";
+import { ProjectBadge, ProjectStatus, Report, Summary } from "../utils/types";
 import { cloud_badges } from "../utils/badges.data";
+
+/**
+ * Render README.md (+ the charts and the shields badge endpoints) from
+ * data/report.json.
+ *
+ * data/report.json is the ONLY input now. The tests that produce it run in the
+ * scheduler container over in the platform-content workspace, which pushes each
+ * settled run here — that push is what triggers this script's workflow. It also
+ * writes the deployed/repo URLs onto every project entry, so the old
+ * data/projects.json join is gone.
+ */
 
 const generateSummaryHTML = (summary: Summary) => {
   return `<p><ul>
@@ -24,20 +35,17 @@ const generateSummaryHTML = (summary: Summary) => {
   `;
 };
 
-const buildProjectLookup = (projects: Project[]): Map<string, Project> => {
-  const map = new Map<string, Project>();
-  for (const p of projects) {
-    map.set(p.title.replace(/-/g, " ").toLowerCase(), p);
+/** The cloud provider a deployment URL belongs to, as a shields badge. */
+const cloudBadgeFor = (url: string): string => {
+  const target = url.toLowerCase();
+  if (!target) return "";
+  for (const badge of cloud_badges) {
+    if (target.includes(badge.name.toLowerCase())) return badge.badge;
   }
-  return map;
+  return "";
 };
 
-const generateTableHTML = (
-  projectsStatus: ProjectStatus[],
-  projects: Project[],
-) => {
-  const lookup = buildProjectLookup(projects);
-
+const generateTableHTML = (projectsStatus: ProjectStatus[]) => {
   return `<table>
             <thead>
               <tr>
@@ -52,29 +60,11 @@ const generateTableHTML = (
             <tbody>
               ${projectsStatus
                 .map((project) => {
-                  const matched = lookup.get(
-                    project.name.replace(/-/g, " ").toLowerCase(),
-                  );
-                  let badge_url = "";
-                  if (matched) {
-                    const serviceKey = matched.service ?? "";
-                    for (const badge of cloud_badges) {
-                      const badgeName = badge.name.toLowerCase();
-                      if (
-                        (serviceKey &&
-                          serviceKey.toLowerCase().includes(badgeName)) ||
-                        (!serviceKey &&
-                          matched.url.toLowerCase().includes(badgeName))
-                      ) {
-                        badge_url = badge.badge;
-                        break;
-                      }
-                    }
-                  }
+                  const badge_url = cloudBadgeFor(project.url ?? "");
 
                   return `<tr>
-                    <td>${matched?.url ? `<a href="${matched.url}">${project.name}</a>` : project.name}</td>
-                    <td>${matched?.repoUrl ? `<a href="${matched.repoUrl}">Link</a>` : "-"}</td>
+                    <td>${project.url ? `<a href="${project.url}">${project.name}</a>` : project.name}</td>
+                    <td>${project.repoUrl ? `<a href="${project.repoUrl}">Link</a>` : "-"}</td>
                     <td><img src="${badge_url}" alt="cloud"/></td>
                     <td>${
                       project.status === "passed"
@@ -237,9 +227,7 @@ const generateChartSVGContent = (reportEntries: Report[]) => {
 
 const generatePerProjectCharts = async (
   reportEntries: Report[],
-  projects: Project[],
 ): Promise<string> => {
-  const lookup = buildProjectLookup(projects);
   const maxSlots = 90;
   const chartW = 380;
   const chartH = 110;
@@ -261,8 +249,7 @@ const generatePerProjectCharts = async (
   const cells: string[] = [];
 
   for (const proj of latestEntry.projects) {
-    const matched = lookup.get(proj.name.toLowerCase());
-    const repo = matched?.repo ?? proj.name.toLowerCase().replace(/\s+/g, "-");
+    const repo = proj.repo ?? proj.name.toLowerCase().replace(/\s+/g, "-");
 
     const maxTests = Math.max(
       ...entries.map((e) => {
@@ -343,21 +330,56 @@ const generatePerProjectCharts = async (
   return `<table>${rows.join("")}</table>`;
 };
 
+const BADGE_COLORS: Record<string, string> = {
+  passed: "green",
+  warning: "yellow",
+  failed: "red",
+};
+
+/**
+ * The shields.io endpoint badges every project README embeds
+ * (img.shields.io/endpoint?url=…/monitor-tests/main/data/<repo>.json). The
+ * scheduler container deliberately does not write these — it publishes only
+ * report.json — so they are derived here from the newest entry.
+ */
+const writeBadges = async (report: Report): Promise<void> => {
+  for (const project of report.projects) {
+    const repo = project.repo;
+    if (!repo) {
+      console.error(`  ERROR: no repo for "${project.name}" — skipping badge`);
+      continue;
+    }
+    const badge: ProjectBadge = {
+      schemaVersion: 1,
+      label: "tests",
+      message: project.status,
+      color: project.color ?? BADGE_COLORS[project.status] ?? "lightgrey",
+      style: "for-the-badge",
+      namedLogo: "github",
+    };
+    await fs.writeFile(`./data/${repo}.json`, JSON.stringify(badge, null, 2), {
+      encoding: "utf-8",
+    });
+    console.log(`  Wrote data/${repo}.json (${project.status})`);
+  }
+};
+
 (async () => {
-  const [template, raw_data, data_projects] = await Promise.all([
+  const [template, raw_data] = await Promise.all([
     fs.readFile("./templates/README.md.tpl", { encoding: "utf-8" }),
     fs.readFile("./data/report.json", { encoding: "utf-8" }),
-    fs.readFile("./data/projects.json", { encoding: "utf-8" }),
   ]);
 
   const reportEntries: Report[] = JSON.parse(raw_data);
-  const projects: Project[] = JSON.parse(data_projects);
 
   const report = reportEntries[reportEntries.length - 1];
   if (!report) {
     console.log("No report entries found, skipping README generation");
     return;
   }
+  console.log(
+    `Rendering from ${reportEntries.length} entries, newest ${report.summary.last_update}`,
+  );
 
   const svgContent = generateChartSVGContent(reportEntries);
   if (svgContent) {
@@ -367,15 +389,17 @@ const generatePerProjectCharts = async (
     ? `<img src="./data/chart.svg" alt="Last 90 days chart"/>`
     : "";
 
-  const lineChartHTML = await generatePerProjectCharts(reportEntries, projects);
+  const lineChartHTML = await generatePerProjectCharts(reportEntries);
 
   const newReadme = template
     .replace(PLACEHOLDER_SUMMARY, generateSummaryHTML(report.summary))
     .replace(PLACEHOLDER_CHART, chartImg)
     .replace(PLACEHOLDER_LINE_CHART, lineChartHTML)
-    .replace(PLACEHOLDER_TABLE, generateTableHTML(report.projects, projects))
+    .replace(PLACEHOLDER_TABLE, generateTableHTML(report.projects))
     .replace(PLACEHOLDER_TABLE_TESTS, generateTestsTableHTML(report.projects));
 
   await fs.writeFile("./README.md", newReadme);
   console.log("README.md generated");
+
+  await writeBadges(report);
 })();
