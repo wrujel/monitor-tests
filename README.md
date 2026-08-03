@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 17</span></li>
-            <li><span>Last Update: Mon, 03 Aug 2026 00:09:09 GMT</span></li>
-            <li><span>Passed: 14</span></li>
-            <li><span>Failed: 3</span></li>
+            <li><span>Last Update: Mon, 03 Aug 2026 00:12:51 GMT</span></li>
+            <li><span>Passed: 15</span></li>
+            <li><span>Failed: 2</span></li>
             <li><span>Duration: 
-              579.92 sec
+              554.05 sec
             </span></li>
           </ul></p>
   
@@ -101,9 +101,9 @@
                     <td><a href="https://wrujel.com">portfolio</a></td>
                     <td><a href="https://github.com/wrujel/portfolio">Link</a></td>
                     <td><img src="" alt="cloud"/></td>
-                    <td>⚠️</td>
-                    <td>21/22</td>
-                    <td align='right'>141.74</td>
+                    <td>✅</td>
+                    <td>22/22</td>
+                    <td align='right'>115.87</td>
                   </tr><tr>
                     <td><a href="https://portfolio-web-wrujel.vercel.app">portfolio-web-template</a></td>
                     <td><a href="https://github.com/wrujel/portfolio-web-template">Link</a></td>
@@ -389,114 +389,114 @@
                           <td align='right'>12.70</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>Case studies section</td>
-                          <td>✅</td>
-                          <td align='right'>2.93</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>About section</td>
-                          <td>✅</td>
-                          <td align='right'>3.29</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>Services section</td>
-                          <td>✅</td>
-                          <td align='right'>3.82</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>Navbar links</td>
-                          <td>✅</td>
-                          <td align='right'>3.48</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>Contact section</td>
-                          <td>✅</td>
-                          <td align='right'>3.98</td>
-                        </tr><tr>
-                          <td>portfolio</td>
                           <td>Skills section</td>
                           <td>✅</td>
-                          <td align='right'>3.75</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>Section rail</td>
-                          <td>✅</td>
-                          <td align='right'>3.56</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>Case study dialog</td>
-                          <td>✅</td>
-                          <td align='right'>4.76</td>
+                          <td align='right'>3.01</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>Projects section</td>
                           <td>✅</td>
-                          <td align='right'>4.31</td>
+                          <td align='right'>3.21</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>Footer</td>
+                          <td>About section</td>
                           <td>✅</td>
-                          <td align='right'>4.67</td>
+                          <td align='right'>3.51</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Section rail</td>
+                          <td>✅</td>
+                          <td align='right'>3.47</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Case studies section</td>
+                          <td>✅</td>
+                          <td align='right'>3.80</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>Hero section</td>
                           <td>✅</td>
-                          <td align='right'>4.78</td>
+                          <td align='right'>4.20</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>AI chat assistant</td>
+                          <td>Navbar links</td>
                           <td>✅</td>
-                          <td align='right'>5.26</td>
+                          <td align='right'>3.89</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>Theme toggle</td>
+                          <td>Services section</td>
+                          <td>✅</td>
+                          <td align='right'>3.71</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Case study dialog</td>
+                          <td>✅</td>
+                          <td align='right'>4.60</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Footer</td>
+                          <td>✅</td>
+                          <td align='right'>5.19</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Contact section</td>
                           <td>✅</td>
                           <td align='right'>5.50</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>Project detail page</td>
+                          <td>Theme toggle</td>
                           <td>✅</td>
-                          <td align='right'>6.18</td>
+                          <td align='right'>5.68</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>Projects page</td>
+                          <td>LeetCode section</td>
                           <td>✅</td>
-                          <td align='right'>8.65</td>
+                          <td align='right'>6.41</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>AI chat assistant</td>
+                          <td>✅</td>
+                          <td align='right'>7.02</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Project detail page</td>
+                          <td>✅</td>
+                          <td align='right'>5.28</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>Not found page</td>
                           <td>✅</td>
-                          <td align='right'>5.16</td>
+                          <td align='right'>5.07</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>About page</td>
                           <td>✅</td>
-                          <td align='right'>5.83</td>
+                          <td align='right'>5.96</td>
+                        </tr><tr>
+                          <td>portfolio</td>
+                          <td>Projects page</td>
+                          <td>✅</td>
+                          <td align='right'>8.75</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>Contact page</td>
                           <td>✅</td>
-                          <td align='right'>5.88</td>
+                          <td align='right'>5.77</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>Projects page language filter</td>
                           <td>✅</td>
-                          <td align='right'>9.39</td>
-                        </tr><tr>
-                          <td>portfolio</td>
-                          <td>Locale</td>
-                          <td>✅</td>
-                          <td align='right'>6.02</td>
+                          <td align='right'>8.87</td>
                         </tr><tr>
                           <td>portfolio</td>
                           <td>Location page</td>
                           <td>✅</td>
-                          <td align='right'>6.38</td>
+                          <td align='right'>6.47</td>
                         </tr><tr>
                           <td>portfolio</td>
-                          <td>LeetCode section</td>
-                          <td>❌</td>
-                          <td align='right'>34.16</td>
+                          <td>Locale</td>
+                          <td>✅</td>
+                          <td align='right'>6.50</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Home page</td>
