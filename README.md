@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 17</span></li>
-            <li><span>Last Update: Tue, 04 Aug 2026 02:59:10 GMT</span></li>
+            <li><span>Last Update: Tue, 04 Aug 2026 03:20:10 GMT</span></li>
             <li><span>Passed: 16</span></li>
             <li><span>Failed: 1</span></li>
             <li><span>Duration: 
-              260.10 sec
+              265.04 sec
             </span></li>
           </ul></p>
   
@@ -68,7 +68,7 @@
                     <td><img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="cloud"/></td>
                     <td>✅</td>
                     <td>2/2</td>
-                    <td align='right'>4.50</td>
+                    <td align='right'>9.44</td>
                   </tr><tr>
                     <td><a href="https://github-history.vercel.app">github-history</a></td>
                     <td><a href="https://github.com/wrujel/github-history">Link</a></td>
@@ -256,12 +256,12 @@
                           <td>django-crud-react</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td align='right'>1.44</td>
+                          <td align='right'>4.27</td>
                         </tr><tr>
                           <td>django-crud-react</td>
                           <td>Test create and delete task</td>
                           <td>✅</td>
-                          <td align='right'>3.06</td>
+                          <td align='right'>5.17</td>
                         </tr><tr>
                           <td>github-history</td>
                           <td>Test home</td>
