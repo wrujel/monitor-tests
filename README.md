@@ -1,10 +1,10 @@
 
 ## &#x1F4CA; Summary:
 <p><ul>
-            <li><span>Total Projects: 17</span></li>
+            <li><span>Total Projects: 16</span></li>
             <li><span>Last Update: Sun, 09 Aug 2026 20:43:10 GMT</span></li>
             <li><span>Passed: 16</span></li>
-            <li><span>Failed: 1</span></li>
+            <li><span>Failed: 0</span></li>
             <li><span>Duration: 
               346.37 sec
             </span></li>
@@ -28,13 +28,6 @@
             </thead>
             <tbody>
               <tr>
-                    <td>a.b+c</td>
-                    <td>-</td>
-                    <td><img src="" alt="cloud"/></td>
-                    <td>❌</td>
-                    <td>0/0</td>
-                    <td align='right'>0.00</td>
-                  </tr><tr>
                     <td><a href="https://admin-dashboard-next-roan.vercel.app/">admin-dashboard-next</a></td>
                     <td><a href="https://github.com/wrujel/admin-dashboard-next">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="cloud"/></td>
@@ -613,4 +606,4 @@
   
 
 ## &#x1F4C8; Projects Trends (Last 90 Days):
-<table><tr><td><img src="./data/chart-a.b+c.svg" alt="a.b+c"/></td><td><img src="./data/chart-admin-dashboard-next.svg" alt="admin-dashboard-next"/></td></tr><tr><td><img src="./data/chart-airbnb-clone.svg" alt="airbnb-clone"/></td><td><img src="./data/chart-blog.svg" alt="blog"/></td></tr><tr><td><img src="./data/chart-clock-app.svg" alt="clock-app"/></td><td><img src="./data/chart-django-crud-react.svg" alt="django-crud-react"/></td></tr><tr><td><img src="./data/chart-github-history.svg" alt="github-history"/></td><td><img src="./data/chart-leetcode-ui.svg" alt="leetcode-ui"/></td></tr><tr><td><img src="./data/chart-movies-search.svg" alt="movies-search"/></td><td><img src="./data/chart-netflix-clone.svg" alt="netflix-clone"/></td></tr><tr><td><img src="./data/chart-portfolio.svg" alt="portfolio"/></td><td><img src="./data/chart-portfolio-web-template.svg" alt="portfolio-web-template"/></td></tr><tr><td><img src="./data/chart-rest-api-et.svg" alt="rest-api-et"/></td><td><img src="./data/chart-slider-static.svg" alt="slider-static"/></td></tr><tr><td><img src="./data/chart-tesla-landing.svg" alt="tesla-landing"/></td><td><img src="./data/chart-tetris-javascript.svg" alt="tetris-javascript"/></td></tr><tr><td><img src="./data/chart-webpage-gpt.svg" alt="webpage-gpt"/></td></tr></table>
+<table><tr><td><img src="./data/chart-admin-dashboard-next.svg" alt="admin-dashboard-next"/></td><td><img src="./data/chart-airbnb-clone.svg" alt="airbnb-clone"/></td></tr><tr><td><img src="./data/chart-blog.svg" alt="blog"/></td><td><img src="./data/chart-clock-app.svg" alt="clock-app"/></td></tr><tr><td><img src="./data/chart-django-crud-react.svg" alt="django-crud-react"/></td><td><img src="./data/chart-github-history.svg" alt="github-history"/></td></tr><tr><td><img src="./data/chart-leetcode-ui.svg" alt="leetcode-ui"/></td><td><img src="./data/chart-movies-search.svg" alt="movies-search"/></td></tr><tr><td><img src="./data/chart-netflix-clone.svg" alt="netflix-clone"/></td><td><img src="./data/chart-portfolio.svg" alt="portfolio"/></td></tr><tr><td><img src="./data/chart-portfolio-web-template.svg" alt="portfolio-web-template"/></td><td><img src="./data/chart-rest-api-et.svg" alt="rest-api-et"/></td></tr><tr><td><img src="./data/chart-slider-static.svg" alt="slider-static"/></td><td><img src="./data/chart-tesla-landing.svg" alt="tesla-landing"/></td></tr><tr><td><img src="./data/chart-tetris-javascript.svg" alt="tetris-javascript"/></td><td><img src="./data/chart-webpage-gpt.svg" alt="webpage-gpt"/></td></tr></table>
