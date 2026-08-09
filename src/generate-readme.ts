@@ -35,15 +35,49 @@ const generateSummaryHTML = (summary: Summary) => {
   `;
 };
 
-/** The cloud provider a deployment URL belongs to, as a shields badge. */
-const cloudBadgeFor = (url: string): string => {
-  const target = url.toLowerCase();
-  if (!target) return "";
-  for (const badge of cloud_badges) {
-    if (target.includes(badge.name.toLowerCase())) return badge.badge;
-  }
-  return "";
+type CloudBadge = (typeof cloud_badges)[number];
+
+/**
+ * The badge for the vendor the scheduler now PUBLISHES on each project entry
+ * ("Vercel", "Cloudflare Workers"), taken from the project's tech stack.
+ *
+ * Exact name first, then the longest badge name the vendor starts with:
+ * "Cloudflare Workers" has no badge of its own, so it lands on Cloudflare
+ * rather than on nothing.
+ */
+const byVendor = (vendor: string): CloudBadge | null => {
+  const name = vendor.trim().toLowerCase();
+  if (!name) return null;
+  const exact = cloud_badges.find((b) => b.name.toLowerCase() === name);
+  if (exact) return exact;
+  return (
+    cloud_badges
+      .filter((b) => name.startsWith(`${b.name.toLowerCase()} `))
+      .sort((a, b) => b.name.length - a.name.length)[0] ?? null
+  );
 };
+
+/**
+ * The fallback: read the host out of the deployed URL. It only ever worked when
+ * the vendor was IN the hostname (*.vercel.app, *.onrender.com) — a custom
+ * domain such as blog.wrujel.com reveals nothing, which is why the vendor is
+ * published now. Kept because it is still the ONLY source for the entries that
+ * predate that field, and for a project whose stack names no host.
+ */
+const byUrl = (url: string): CloudBadge | null => {
+  const target = url.toLowerCase();
+  if (!target) return null;
+  for (const badge of cloud_badges) {
+    if (target.includes(badge.name.toLowerCase())) return badge;
+  }
+  return null;
+};
+
+/** Where a project is deployed, as a shields badge — or null when neither the
+ *  published vendor nor the URL says. */
+const cloudBadgeFor = (project: ProjectStatus): CloudBadge | null =>
+  (project.vendor ? byVendor(project.vendor) : null) ??
+  byUrl(project.url ?? "");
 
 const generateTableHTML = (projectsStatus: ProjectStatus[]) => {
   return `<table>
@@ -60,12 +94,12 @@ const generateTableHTML = (projectsStatus: ProjectStatus[]) => {
             <tbody>
               ${projectsStatus
                 .map((project) => {
-                  const badge_url = cloudBadgeFor(project.url ?? "");
+                  const cloud = cloudBadgeFor(project);
 
                   return `<tr>
                     <td>${project.url ? `<a href="${project.url}">${project.name}</a>` : project.name}</td>
                     <td>${project.repoUrl ? `<a href="${project.repoUrl}">Link</a>` : "-"}</td>
-                    <td><img src="${badge_url}" alt="cloud"/></td>
+                    <td>${cloud ? `<img src="${cloud.badge}" alt="${cloud.name}"/>` : "-"}</td>
                     <td>${
                       project.status === "passed"
                         ? "✅"

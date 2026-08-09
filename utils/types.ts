@@ -14,6 +14,11 @@ export type ProjectStatus = {
    *  because the 90 entries already in report.json predate them. */
   url?: string;
   repoUrl?: string;
+  /** where it is deployed ("Vercel", "Cloudflare Workers"), from the project's
+   *  tech stack in the studio. Optional for the same reason as the two above,
+   *  plus one more: a stack that names no host leaves the vendor to be read off
+   *  the URL, which is all a *.onrender.com project has ever needed. */
+  vendor?: string;
   status: string;
   color?: string;
   startTime?: string | null;
