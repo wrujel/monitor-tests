@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Mon, 10 Aug 2026 19:14:57 GMT</span></li>
-            <li><span>Passed: 14</span></li>
-            <li><span>Failed: 2</span></li>
+            <li><span>Last Update: Mon, 10 Aug 2026 20:23:07 GMT</span></li>
+            <li><span>Passed: 13</span></li>
+            <li><span>Failed: 3</span></li>
             <li><span>Duration: 
-              478.90 sec
+              411.15 sec
             </span></li>
           </ul></p>
   
@@ -66,9 +66,9 @@
                     <td><a href="https://github-history.vercel.app">github-history</a></td>
                     <td><a href="https://github.com/wrujel/github-history">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
-                    <td>❌</td>
-                    <td>0/2</td>
-                    <td align='right'>17.91</td>
+                    <td>⚠️</td>
+                    <td>4/5</td>
+                    <td align='right'>15.26</td>
                   </tr><tr>
                     <td><a href="https://leetcode.wrujel.website/">leetcode-ui</a></td>
                     <td><a href="https://github.com/wrujel/leetcode-ui">Link</a></td>
@@ -108,9 +108,9 @@
                     <td><a href="https://rest-api-et.onrender.com">rest-api-et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="onrender"/></td>
-                    <td>✅</td>
-                    <td>3/3</td>
-                    <td align='right'>87.91</td>
+                    <td>⚠️</td>
+                    <td>3/6</td>
+                    <td align='right'>22.81</td>
                   </tr><tr>
                     <td><a href="https://ephemeral-zuccutto-49ec06.netlify.app">slider-static</a></td>
                     <td><a href="https://github.com/wrujel/slider-static">Link</a></td>
@@ -282,14 +282,29 @@
                           <td align='right'>36.78</td>
                         </tr><tr>
                           <td>github-history</td>
-                          <td>Test select a repo</td>
+                          <td>Home page</td>
                           <td>❌</td>
-                          <td align='right'>1.80</td>
+                          <td align='right'>1.05</td>
                         </tr><tr>
                           <td>github-history</td>
-                          <td>Test home</td>
-                          <td>❌</td>
-                          <td align='right'>16.11</td>
+                          <td>Commit timeline</td>
+                          <td>✅</td>
+                          <td align='right'>1.97</td>
+                        </tr><tr>
+                          <td>github-history</td>
+                          <td>Repository dropdown</td>
+                          <td>✅</td>
+                          <td align='right'>3.14</td>
+                        </tr><tr>
+                          <td>github-history</td>
+                          <td>Select a repository</td>
+                          <td>✅</td>
+                          <td align='right'>4.73</td>
+                        </tr><tr>
+                          <td>github-history</td>
+                          <td>Username validation</td>
+                          <td>✅</td>
+                          <td align='right'>4.37</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Navbar</td>
@@ -572,19 +587,34 @@
                           <td align='right'>2.14</td>
                         </tr><tr>
                           <td>rest-api-et</td>
-                          <td>Test home without logging in</td>
+                          <td>API docs landing</td>
                           <td>✅</td>
-                          <td align='right'>33.86</td>
+                          <td align='right'>3.99</td>
                         </tr><tr>
                           <td>rest-api-et</td>
-                          <td>Test register and login</td>
+                          <td>Endpoint selection</td>
                           <td>✅</td>
-                          <td align='right'>38.28</td>
+                          <td align='right'>4.19</td>
                         </tr><tr>
                           <td>rest-api-et</td>
-                          <td>Test crud products</td>
+                          <td>API test client</td>
                           <td>✅</td>
-                          <td align='right'>15.76</td>
+                          <td align='right'>3.29</td>
+                        </tr><tr>
+                          <td>rest-api-et</td>
+                          <td>Sign in, session and sign out</td>
+                          <td>❌</td>
+                          <td align='right'>5.64</td>
+                        </tr><tr>
+                          <td>rest-api-et</td>
+                          <td>Register a new account</td>
+                          <td>❌</td>
+                          <td align='right'>3.16</td>
+                        </tr><tr>
+                          <td>rest-api-et</td>
+                          <td>Product CRUD</td>
+                          <td>❌</td>
+                          <td align='right'>2.54</td>
                         </tr><tr>
                           <td>slider-static</td>
                           <td>Test home</td>
