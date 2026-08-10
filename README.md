@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Mon, 10 Aug 2026 20:32:08 GMT</span></li>
-            <li><span>Passed: 14</span></li>
-            <li><span>Failed: 2</span></li>
+            <li><span>Last Update: Mon, 10 Aug 2026 20:34:08 GMT</span></li>
+            <li><span>Passed: 15</span></li>
+            <li><span>Failed: 1</span></li>
             <li><span>Duration: 
-              405.92 sec
+              427.37 sec
             </span></li>
           </ul></p>
   
@@ -108,9 +108,9 @@
                     <td><a href="https://rest-api-et.onrender.com">rest-api-et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="onrender"/></td>
-                    <td>⚠️</td>
-                    <td>3/6</td>
-                    <td align='right'>22.81</td>
+                    <td>✅</td>
+                    <td>6/6</td>
+                    <td align='right'>44.26</td>
                   </tr><tr>
                     <td><a href="https://ephemeral-zuccutto-49ec06.netlify.app">slider-static</a></td>
                     <td><a href="https://github.com/wrujel/slider-static">Link</a></td>
@@ -589,12 +589,7 @@
                           <td>rest-api-et</td>
                           <td>API docs landing</td>
                           <td>✅</td>
-                          <td align='right'>3.99</td>
-                        </tr><tr>
-                          <td>rest-api-et</td>
-                          <td>Endpoint selection</td>
-                          <td>✅</td>
-                          <td align='right'>4.19</td>
+                          <td align='right'>2.70</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>API test client</td>
@@ -602,19 +597,24 @@
                           <td align='right'>3.29</td>
                         </tr><tr>
                           <td>rest-api-et</td>
+                          <td>Endpoint selection</td>
+                          <td>✅</td>
+                          <td align='right'>7.19</td>
+                        </tr><tr>
+                          <td>rest-api-et</td>
                           <td>Sign in, session and sign out</td>
-                          <td>❌</td>
-                          <td align='right'>5.64</td>
+                          <td>✅</td>
+                          <td align='right'>7.04</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>Register a new account</td>
-                          <td>❌</td>
-                          <td align='right'>3.16</td>
+                          <td>✅</td>
+                          <td align='right'>11.56</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>Product CRUD</td>
-                          <td>❌</td>
-                          <td align='right'>2.54</td>
+                          <td>✅</td>
+                          <td align='right'>12.47</td>
                         </tr><tr>
                           <td>slider-static</td>
                           <td>Test home</td>
