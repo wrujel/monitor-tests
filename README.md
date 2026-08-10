@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Mon, 10 Aug 2026 20:24:07 GMT</span></li>
-            <li><span>Passed: 13</span></li>
-            <li><span>Failed: 3</span></li>
+            <li><span>Last Update: Mon, 10 Aug 2026 20:32:08 GMT</span></li>
+            <li><span>Passed: 14</span></li>
+            <li><span>Failed: 2</span></li>
             <li><span>Duration: 
-              411.43 sec
+              405.92 sec
             </span></li>
           </ul></p>
   
@@ -66,9 +66,9 @@
                     <td><a href="https://github-history.vercel.app">github-history</a></td>
                     <td><a href="https://github.com/wrujel/github-history">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
-                    <td>⚠️</td>
-                    <td>4/5</td>
-                    <td align='right'>15.54</td>
+                    <td>✅</td>
+                    <td>5/5</td>
+                    <td align='right'>10.03</td>
                   </tr><tr>
                     <td><a href="https://leetcode.wrujel.website/">leetcode-ui</a></td>
                     <td><a href="https://github.com/wrujel/leetcode-ui">Link</a></td>
@@ -283,28 +283,28 @@
                         </tr><tr>
                           <td>github-history</td>
                           <td>Home page</td>
-                          <td>❌</td>
-                          <td align='right'>1.07</td>
+                          <td>✅</td>
+                          <td align='right'>1.42</td>
                         </tr><tr>
                           <td>github-history</td>
                           <td>Commit timeline</td>
                           <td>✅</td>
-                          <td align='right'>1.91</td>
-                        </tr><tr>
-                          <td>github-history</td>
-                          <td>Repository dropdown</td>
-                          <td>✅</td>
-                          <td align='right'>3.20</td>
+                          <td align='right'>1.44</td>
                         </tr><tr>
                           <td>github-history</td>
                           <td>Select a repository</td>
                           <td>✅</td>
-                          <td align='right'>4.86</td>
+                          <td align='right'>1.31</td>
+                        </tr><tr>
+                          <td>github-history</td>
+                          <td>Repository dropdown</td>
+                          <td>✅</td>
+                          <td align='right'>1.84</td>
                         </tr><tr>
                           <td>github-history</td>
                           <td>Username validation</td>
                           <td>✅</td>
-                          <td align='right'>4.50</td>
+                          <td align='right'>4.01</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Navbar</td>
