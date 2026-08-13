@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Thu, 13 Aug 2026 22:43:45 GMT</span></li>
+            <li><span>Last Update: Thu, 13 Aug 2026 23:07:46 GMT</span></li>
             <li><span>Passed: 15</span></li>
             <li><span>Failed: 1</span></li>
             <li><span>Duration: 
-              649.78 sec
+              568.92 sec
             </span></li>
           </ul></p>
   
@@ -138,7 +138,7 @@
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
                     <td>⚠️</td>
                     <td>5/11</td>
-                    <td align='right'>197.25</td>
+                    <td align='right'>116.38</td>
                   </tr>
             </tbody>
           </table>
@@ -654,57 +654,57 @@
                           <td>webpage-gpt</td>
                           <td>Hero</td>
                           <td>✅</td>
-                          <td align='right'>17.95</td>
+                          <td align='right'>5.49</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Navbar</td>
                           <td>✅</td>
-                          <td align='right'>20.06</td>
+                          <td align='right'>5.74</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Partner marquee</td>
                           <td>✅</td>
-                          <td align='right'>10.28</td>
+                          <td align='right'>1.77</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>What is GPT-Bot</td>
                           <td>❌</td>
-                          <td align='right'>20.09</td>
+                          <td align='right'>15.97</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Case studies</td>
                           <td>❌</td>
-                          <td align='right'>19.91</td>
+                          <td align='right'>15.95</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>The Robot</td>
                           <td>❌</td>
-                          <td align='right'>20.11</td>
+                          <td align='right'>16.10</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Early access CTA</td>
                           <td>❌</td>
-                          <td align='right'>20.69</td>
+                          <td align='right'>16.12</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Library filmstrip</td>
                           <td>❌</td>
-                          <td align='right'>19.99</td>
+                          <td align='right'>15.94</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Footer</td>
                           <td>❌</td>
-                          <td align='right'>21.21</td>
+                          <td align='right'>16.04</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Mobile menu</td>
                           <td>✅</td>
-                          <td align='right'>16.82</td>
+                          <td align='right'>2.39</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Preloader curtain</td>
                           <td>✅</td>
-                          <td align='right'>10.13</td>
+                          <td align='right'>4.88</td>
                         </tr>
             </tbody>
           </table>
