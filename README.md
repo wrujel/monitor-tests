@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Thu, 13 Aug 2026 23:07:46 GMT</span></li>
-            <li><span>Passed: 15</span></li>
-            <li><span>Failed: 1</span></li>
+            <li><span>Last Update: Thu, 13 Aug 2026 23:22:33 GMT</span></li>
+            <li><span>Passed: 16</span></li>
+            <li><span>Failed: 0</span></li>
             <li><span>Duration: 
-              568.92 sec
+              464.64 sec
             </span></li>
           </ul></p>
   
@@ -136,9 +136,9 @@
                     <td><a href="https://webpage-gpt-wrujels-projects.vercel.app/">webpage-gpt</a></td>
                     <td><a href="https://github.com/wrujel/webpage-gpt">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
-                    <td>⚠️</td>
-                    <td>5/11</td>
-                    <td align='right'>116.38</td>
+                    <td>✅</td>
+                    <td>11/11</td>
+                    <td align='right'>12.11</td>
                   </tr>
             </tbody>
           </table>
@@ -652,59 +652,59 @@
                           <td align='right'>5.01</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
-                          <td>Hero</td>
-                          <td>✅</td>
-                          <td align='right'>5.49</td>
-                        </tr><tr>
-                          <td>webpage-gpt</td>
                           <td>Navbar</td>
                           <td>✅</td>
-                          <td align='right'>5.74</td>
+                          <td align='right'>0.81</td>
+                        </tr><tr>
+                          <td>webpage-gpt</td>
+                          <td>Hero</td>
+                          <td>✅</td>
+                          <td align='right'>0.95</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Partner marquee</td>
                           <td>✅</td>
-                          <td align='right'>1.77</td>
+                          <td align='right'>0.63</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>What is GPT-Bot</td>
-                          <td>❌</td>
-                          <td align='right'>15.97</td>
+                          <td>✅</td>
+                          <td align='right'>0.61</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Case studies</td>
-                          <td>❌</td>
-                          <td align='right'>15.95</td>
+                          <td>✅</td>
+                          <td align='right'>0.73</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>The Robot</td>
-                          <td>❌</td>
-                          <td align='right'>16.10</td>
+                          <td>✅</td>
+                          <td align='right'>0.62</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Early access CTA</td>
-                          <td>❌</td>
-                          <td align='right'>16.12</td>
+                          <td>✅</td>
+                          <td align='right'>0.63</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Library filmstrip</td>
-                          <td>❌</td>
-                          <td align='right'>15.94</td>
+                          <td>✅</td>
+                          <td align='right'>0.79</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Footer</td>
-                          <td>❌</td>
-                          <td align='right'>16.04</td>
+                          <td>✅</td>
+                          <td align='right'>0.63</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Mobile menu</td>
                           <td>✅</td>
-                          <td align='right'>2.39</td>
+                          <td align='right'>0.73</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Preloader curtain</td>
                           <td>✅</td>
-                          <td align='right'>4.88</td>
+                          <td align='right'>4.97</td>
                         </tr>
             </tbody>
           </table>
