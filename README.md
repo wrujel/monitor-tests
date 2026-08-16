@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Sat, 15 Aug 2026 22:24:02 GMT</span></li>
+            <li><span>Last Update: Sun, 16 Aug 2026 16:09:36 GMT</span></li>
             <li><span>Passed: 16</span></li>
             <li><span>Failed: 0</span></li>
             <li><span>Duration: 
-              508.71 sec
+              432.00 sec
             </span></li>
           </ul></p>
   
@@ -33,7 +33,7 @@
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
                     <td>✅</td>
                     <td>2/2</td>
-                    <td align='right'>10.06</td>
+                    <td align='right'>10.50</td>
                   </tr><tr>
                     <td><a href="https://demo-airbnb-clone-three-phi-45.vercel.app/">airbnb-clone</a></td>
                     <td><a href="https://github.com/wrujel/airbnb-clone">Link</a></td>
@@ -110,35 +110,35 @@
                     <td><img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="onrender"/></td>
                     <td>✅</td>
                     <td>6/6</td>
-                    <td align='right'>121.67</td>
+                    <td align='right'>46.14</td>
                   </tr><tr>
                     <td><a href="https://ephemeral-zuccutto-49ec06.netlify.app">slider-static</a></td>
                     <td><a href="https://github.com/wrujel/slider-static">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="netlify"/></td>
                     <td>✅</td>
                     <td>1/1</td>
-                    <td align='right'>2.03</td>
+                    <td align='right'>2.18</td>
                   </tr><tr>
                     <td><a href="https://sage-daffodil-4904c3.netlify.app">tesla-landing</a></td>
                     <td><a href="https://github.com/wrujel/tesla-landing">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="netlify"/></td>
                     <td>✅</td>
                     <td>3/3</td>
-                    <td align='right'>4.18</td>
+                    <td align='right'>3.91</td>
                   </tr><tr>
                     <td><a href="https://tetris-javascript-pi.vercel.app">tetris-javascript</a></td>
                     <td><a href="https://github.com/wrujel/tetris-javascript">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
                     <td>✅</td>
                     <td>3/3</td>
-                    <td align='right'>8.70</td>
+                    <td align='right'>8.69</td>
                   </tr><tr>
                     <td><a href="https://webpage-gpt-wrujels-projects.vercel.app/">webpage-gpt</a></td>
                     <td><a href="https://github.com/wrujel/webpage-gpt">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
                     <td>✅</td>
                     <td>11/11</td>
-                    <td align='right'>15.94</td>
+                    <td align='right'>14.45</td>
                   </tr>
             </tbody>
           </table>
@@ -159,12 +159,12 @@
                           <td>admin-dashboard-next</td>
                           <td>Login page</td>
                           <td>✅</td>
-                          <td align='right'>2.13</td>
+                          <td align='right'>1.80</td>
                         </tr><tr>
                           <td>admin-dashboard-next</td>
                           <td>Dashboard, tables & analytics</td>
                           <td>✅</td>
-                          <td align='right'>7.93</td>
+                          <td align='right'>8.70</td>
                         </tr><tr>
                           <td>airbnb-clone</td>
                           <td>Test home without logging in</td>
@@ -589,87 +589,87 @@
                           <td>rest-api-et</td>
                           <td>API docs landing</td>
                           <td>✅</td>
-                          <td align='right'>39.17</td>
+                          <td align='right'>1.70</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>Endpoint selection</td>
                           <td>✅</td>
-                          <td align='right'>40.29</td>
+                          <td align='right'>3.34</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>API test client</td>
                           <td>✅</td>
-                          <td align='right'>3.23</td>
+                          <td align='right'>3.03</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>Sign in, session and sign out</td>
                           <td>✅</td>
-                          <td align='right'>9.18</td>
+                          <td align='right'>7.84</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>Register a new account</td>
                           <td>✅</td>
-                          <td align='right'>15.05</td>
+                          <td align='right'>15.26</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>Product CRUD</td>
                           <td>✅</td>
-                          <td align='right'>14.75</td>
+                          <td align='right'>14.98</td>
                         </tr><tr>
                           <td>slider-static</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td align='right'>2.03</td>
+                          <td align='right'>2.18</td>
                         </tr><tr>
                           <td>tesla-landing</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td align='right'>1.58</td>
+                          <td align='right'>1.46</td>
                         </tr><tr>
                           <td>tesla-landing</td>
                           <td>Test second section</td>
                           <td>✅</td>
-                          <td align='right'>1.61</td>
+                          <td align='right'>1.69</td>
                         </tr><tr>
                           <td>tesla-landing</td>
                           <td>Test last section</td>
                           <td>✅</td>
-                          <td align='right'>1.00</td>
+                          <td align='right'>0.77</td>
                         </tr><tr>
                           <td>tetris-javascript</td>
                           <td>Test home</td>
                           <td>✅</td>
-                          <td align='right'>1.40</td>
+                          <td align='right'>1.49</td>
                         </tr><tr>
                           <td>tetris-javascript</td>
                           <td>Test solo mode</td>
                           <td>✅</td>
-                          <td align='right'>1.90</td>
+                          <td align='right'>1.69</td>
                         </tr><tr>
                           <td>tetris-javascript</td>
                           <td>Test versus doom mode</td>
                           <td>✅</td>
-                          <td align='right'>5.39</td>
+                          <td align='right'>5.51</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Navbar</td>
                           <td>✅</td>
-                          <td align='right'>0.98</td>
+                          <td align='right'>1.01</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Hero</td>
                           <td>✅</td>
-                          <td align='right'>1.00</td>
-                        </tr><tr>
-                          <td>webpage-gpt</td>
-                          <td>What is GPT-Bot</td>
-                          <td>✅</td>
-                          <td align='right'>1.26</td>
+                          <td align='right'>1.21</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Partner marquee</td>
                           <td>✅</td>
-                          <td align='right'>1.56</td>
+                          <td align='right'>0.68</td>
+                        </tr><tr>
+                          <td>webpage-gpt</td>
+                          <td>What is GPT-Bot</td>
+                          <td>✅</td>
+                          <td align='right'>0.69</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Case studies</td>
@@ -679,32 +679,32 @@
                           <td>webpage-gpt</td>
                           <td>The Robot</td>
                           <td>✅</td>
-                          <td align='right'>0.61</td>
+                          <td align='right'>0.63</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Early access CTA</td>
                           <td>✅</td>
-                          <td align='right'>0.69</td>
+                          <td align='right'>0.64</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Library filmstrip</td>
                           <td>✅</td>
-                          <td align='right'>0.61</td>
+                          <td align='right'>0.63</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Footer</td>
                           <td>✅</td>
-                          <td align='right'>0.60</td>
+                          <td align='right'>0.82</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Mobile menu</td>
                           <td>✅</td>
-                          <td align='right'>0.69</td>
+                          <td align='right'>0.87</td>
                         </tr><tr>
                           <td>webpage-gpt</td>
                           <td>Preloader curtain</td>
                           <td>✅</td>
-                          <td align='right'>7.29</td>
+                          <td align='right'>6.64</td>
                         </tr>
             </tbody>
           </table>
