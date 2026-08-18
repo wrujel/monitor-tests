@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Tue, 18 Aug 2026 02:50:24 GMT</span></li>
-            <li><span>Passed: 15</span></li>
-            <li><span>Failed: 1</span></li>
+            <li><span>Last Update: Tue, 18 Aug 2026 02:51:24 GMT</span></li>
+            <li><span>Passed: 16</span></li>
+            <li><span>Failed: 0</span></li>
             <li><span>Duration: 
-              571.45 sec
+              457.35 sec
             </span></li>
           </ul></p>
   
@@ -98,12 +98,12 @@
                     <td>22/22</td>
                     <td align='right'>36.73</td>
                   </tr><tr>
-                    <td><a href="https://portfolio-web-wrujel.vercel.app">portfolio-web-template</a></td>
+                    <td><a href="https://portfolio-web-eight-tau.vercel.app">portfolio-web-template</a></td>
                     <td><a href="https://github.com/wrujel/portfolio-web-template">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
-                    <td>❌</td>
-                    <td>0/8</td>
-                    <td align='right'>133.26</td>
+                    <td>✅</td>
+                    <td>8/8</td>
+                    <td align='right'>19.16</td>
                   </tr><tr>
                     <td><a href="https://rest-api-et.onrender.com">rest-api-et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
@@ -553,43 +553,43 @@
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Navigation rail</td>
-                          <td>❌</td>
-                          <td align='right'>18.67</td>
-                        </tr><tr>
-                          <td>portfolio-web-template</td>
-                          <td>Home page</td>
-                          <td>❌</td>
-                          <td align='right'>18.70</td>
+                          <td>✅</td>
+                          <td align='right'>2.36</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Header</td>
-                          <td>❌</td>
-                          <td align='right'>15.74</td>
+                          <td>✅</td>
+                          <td align='right'>0.77</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
-                          <td>About page</td>
-                          <td>❌</td>
-                          <td align='right'>15.93</td>
+                          <td>Home page</td>
+                          <td>✅</td>
+                          <td align='right'>3.15</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Services page</td>
-                          <td>❌</td>
-                          <td align='right'>15.94</td>
+                          <td>✅</td>
+                          <td align='right'>1.77</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Projects page</td>
-                          <td>❌</td>
-                          <td align='right'>16.35</td>
+                          <td>✅</td>
+                          <td align='right'>2.50</td>
+                        </tr><tr>
+                          <td>portfolio-web-template</td>
+                          <td>About page</td>
+                          <td>✅</td>
+                          <td align='right'>5.71</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Customers page</td>
-                          <td>❌</td>
-                          <td align='right'>16.00</td>
+                          <td>✅</td>
+                          <td align='right'>1.46</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Contact page</td>
-                          <td>❌</td>
-                          <td align='right'>15.93</td>
+                          <td>✅</td>
+                          <td align='right'>1.44</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>API docs landing</td>
