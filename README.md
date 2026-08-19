@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Wed, 19 Aug 2026 02:12:24 GMT</span></li>
+            <li><span>Last Update: Wed, 19 Aug 2026 02:18:24 GMT</span></li>
             <li><span>Passed: 15</span></li>
             <li><span>Failed: 1</span></li>
             <li><span>Duration: 
-              514.41 sec
+              517.48 sec
             </span></li>
           </ul></p>
   
@@ -103,7 +103,7 @@
                     <td><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/></td>
                     <td>✅</td>
                     <td>8/8</td>
-                    <td align='right'>18.58</td>
+                    <td align='right'>21.66</td>
                   </tr><tr>
                     <td><a href="https://rest-api-et.onrender.com">rest-api-et</a></td>
                     <td><a href="https://github.com/wrujel/rest-api-et">Link</a></td>
@@ -554,42 +554,42 @@
                           <td>portfolio-web-template</td>
                           <td>Navigation rail</td>
                           <td>✅</td>
-                          <td align='right'>2.29</td>
-                        </tr><tr>
-                          <td>portfolio-web-template</td>
-                          <td>Home page</td>
-                          <td>✅</td>
-                          <td align='right'>3.00</td>
+                          <td align='right'>4.62</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Header</td>
                           <td>✅</td>
-                          <td align='right'>0.83</td>
+                          <td align='right'>0.57</td>
+                        </tr><tr>
+                          <td>portfolio-web-template</td>
+                          <td>Home page</td>
+                          <td>✅</td>
+                          <td align='right'>5.41</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Services page</td>
                           <td>✅</td>
-                          <td align='right'>0.98</td>
+                          <td align='right'>0.85</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Projects page</td>
                           <td>✅</td>
-                          <td align='right'>2.69</td>
+                          <td align='right'>2.51</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Customers page</td>
                           <td>✅</td>
-                          <td align='right'>1.31</td>
+                          <td align='right'>1.09</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>About page</td>
                           <td>✅</td>
-                          <td align='right'>6.09</td>
+                          <td align='right'>5.44</td>
                         </tr><tr>
                           <td>portfolio-web-template</td>
                           <td>Contact page</td>
                           <td>✅</td>
-                          <td align='right'>1.39</td>
+                          <td align='right'>1.17</td>
                         </tr><tr>
                           <td>rest-api-et</td>
                           <td>API docs landing</td>
