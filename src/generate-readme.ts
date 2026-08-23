@@ -8,6 +8,12 @@ import {
 } from "../utils/constants";
 import { ProjectBadge, ProjectStatus, Report, Summary } from "../utils/types";
 import { cloud_badges } from "../utils/badges.data";
+import {
+  SLOTS,
+  StatusStyles,
+  buildOverviewCard,
+  buildStripCard,
+} from "../utils/cards";
 
 /**
  * Render README.md (+ the charts and the shields badge endpoints) from
@@ -154,201 +160,131 @@ const generateTestsTableHTML = (projects: ProjectStatus[]) => {
   `;
 };
 
-const generateChartSVGContent = (reportEntries: Report[]) => {
-  const maxSlots = 90;
-  const chartWidth = 800;
-  const chartHeight = 230;
-  const barWidth = Math.max(4, Math.floor((chartWidth - 60) / maxSlots));
-  const paddingLeft = 40;
-  const paddingBottom = 50;
-  const plotHeight = chartHeight - paddingBottom - 10;
+/* ── Charts ────────────────────────────────────────────────────────────────
+ *
+ * Both charts are the status-page card drawn in utils/cards.ts: 90 day-bars
+ * under a title and a state badge, with the uptime over that window written
+ * between "90 days ago" and "Today". All this module supplies is what our
+ * three run outcomes look like and how a run maps onto a day.
+ */
 
-  const entries = reportEntries.slice(-maxSlots);
-  if (entries.length === 0) return "";
-
-  const maxProjects = Math.max(
-    ...entries.map((e) => e.summary.projects_count),
-    1,
-  );
-
-  const startSlot = maxSlots - entries.length;
-
-  let bars = "";
-  entries.forEach((entry, i) => {
-    const x = paddingLeft + (startSlot + i) * barWidth;
-    let passed = 0,
-      warning = 0,
-      failed = 0;
-    for (const proj of entry.projects) {
-      if (proj.status === "passed") passed++;
-      else if (proj.status === "warning") warning++;
-      else failed++;
-    }
-
-    // Stacked bars (bottom to top): failed (red), warning (yellow), passed (green)
-    const failedH = (failed / maxProjects) * plotHeight;
-    const warningH = (warning / maxProjects) * plotHeight;
-    const passedH = (passed / maxProjects) * plotHeight;
-
-    let y = chartHeight - paddingBottom;
-
-    if (failedH > 0) {
-      bars += `<rect x="${x}" y="${y - failedH}" width="${barWidth - 1}" height="${failedH}" fill="#e53935" rx="1"/>`;
-      y -= failedH;
-    }
-    if (warningH > 0) {
-      bars += `<rect x="${x}" y="${y - warningH}" width="${barWidth - 1}" height="${warningH}" fill="#fdd835" rx="1"/>`;
-      y -= warningH;
-    }
-    if (passedH > 0) {
-      bars += `<rect x="${x}" y="${y - passedH}" width="${barWidth - 1}" height="${passedH}" fill="#43a047" rx="1"/>`;
-    }
-  });
-
-  // Y-axis labels
-  const yLabels = [0, Math.round(maxProjects / 2), maxProjects];
-  const yAxisLabels = yLabels
-    .map((v) => {
-      const y = chartHeight - paddingBottom - (v / maxProjects) * plotHeight;
-      return `<text x="${paddingLeft - 5}" y="${y + 4}" text-anchor="end" font-size="10" fill="#666">${v}</text>`;
-    })
-    .join("");
-
-  const totalWidth = paddingLeft + maxSlots * barWidth + 10;
-
-  // Legend at bottom right
-  const legendRectY = chartHeight - paddingBottom + 38;
-  const legendTextY = legendRectY + 9;
-  const legendStartX = totalWidth - 210;
-  const legend = `
-    <rect x="${legendStartX}" y="${legendRectY}" width="10" height="10" fill="#43a047" rx="2"/>
-    <text x="${legendStartX + 14}" y="${legendTextY}" font-size="10" fill="#666">Passed</text>
-    <rect x="${legendStartX + 60}" y="${legendRectY}" width="10" height="10" fill="#fdd835" rx="2"/>
-    <text x="${legendStartX + 74}" y="${legendTextY}" font-size="10" fill="#666">Warning</text>
-    <rect x="${legendStartX + 140}" y="${legendRectY}" width="10" height="10" fill="#e53935" rx="2"/>
-    <text x="${legendStartX + 154}" y="${legendTextY}" font-size="10" fill="#666">Failed</text>
-  `;
-
-  // X-axis date labels: one every ~15 slots
-  const baselineY = chartHeight - paddingBottom;
-  const dateLabelY = baselineY + 14;
-  const dateStep = 15;
-  const xAxisDates = entries
-    .reduce<string[]>((acc, entry, i) => {
-      if (i % dateStep !== 0) return acc;
-      const x = paddingLeft + (startSlot + i + 0.5) * barWidth;
-      const dateStr = new Date(entry.summary.last_update).toLocaleDateString(
-        "en-US",
-        { month: "short", day: "numeric" },
-      );
-      acc.push(
-        `<line x1="${x.toFixed(1)}" y1="${baselineY}" x2="${x.toFixed(1)}" y2="${baselineY + 4}" stroke="#bbb" stroke-width="1"/>` +
-          `<text x="${x.toFixed(1)}" y="${dateLabelY}" text-anchor="middle" font-size="9" fill="#888">${dateStr}</text>`,
-      );
-      return acc;
-    }, [])
-    .join("");
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${chartHeight}" viewBox="0 0 ${totalWidth} ${chartHeight}">
-      <rect width="${totalWidth}" height="${chartHeight}" fill="#fff" rx="6"/>
-      ${legend}
-      ${yAxisLabels}
-      <line x1="${paddingLeft}" y1="${baselineY}" x2="${totalWidth}" y2="${baselineY}" stroke="#ccc" stroke-width="1"/>
-      ${bars}
-      ${xAxisDates}
-    </svg>`;
+const TEST_STYLES: StatusStyles = {
+  passed: {
+    bar: "#9fd8a3",
+    badge: "#2da44e",
+    label: "Normal",
+    legend: "Passed",
+    glyph: "check",
+  },
+  warning: {
+    bar: "#d4a72c",
+    badge: "#bf8700",
+    label: "Degraded",
+    legend: "Warning",
+    glyph: "bang",
+  },
+  failed: {
+    bar: "#e5534b",
+    badge: "#cf222e",
+    label: "Failing",
+    legend: "Failed",
+    glyph: "cross",
+  },
 };
 
+/** Stacked bottom to top, so a failure sits at the base of the day's bar. */
+const STACK_ORDER = ["failed", "warning", "passed"];
+
+const normalize = (status: string) =>
+  status in TEST_STYLES ? status : "failed";
+
+/** Tests passed over tests run — null when the window holds no tests at all. */
+const uptimeOf = (passed: number, failed: number) =>
+  passed + failed > 0 ? (passed / (passed + failed)) * 100 : null;
+
+/**
+ * Every project on one strip: each day is a full-height bar split between
+ * failed, warning and passed in proportion to how the projects settled, so a
+ * single amber sliver still reads at a glance.
+ */
+const generateChartSVGContent = (reportEntries: Report[]) => {
+  const entries = reportEntries.slice(-SLOTS);
+  if (entries.length === 0) return "";
+
+  const days: (Record<string, number> | null)[] = new Array(SLOTS).fill(null);
+  const startSlot = SLOTS - entries.length;
+  let passed = 0;
+  let failed = 0;
+
+  entries.forEach((entry, i) => {
+    const counts: Record<string, number> = {};
+    for (const proj of entry.projects) {
+      const status = normalize(proj.status);
+      counts[status] = (counts[status] ?? 0) + 1;
+      passed += proj.passed;
+      failed += proj.failed;
+    }
+    days[startSlot + i] = counts;
+  });
+
+  const latest = entries[entries.length - 1].projects;
+  const status = latest.some((p) => p.status === "failed")
+    ? "failed"
+    : latest.some((p) => p.status === "warning")
+      ? "warning"
+      : "passed";
+
+  return buildOverviewCard({
+    title: "All Projects",
+    days,
+    order: STACK_ORDER,
+    status,
+    uptime: uptimeOf(passed, failed),
+    styles: TEST_STYLES,
+    legend: ["passed", "warning", "failed"],
+  });
+};
+
+/**
+ * One card per project, written to the ./data/chart-<repo>.svg paths the
+ * project READMEs already embed, and laid out two per row so the markdown
+ * table's own cell borders draw the grid.
+ */
 const generatePerProjectCharts = async (
   reportEntries: Report[],
 ): Promise<string> => {
-  const maxSlots = 90;
-  const chartW = 380;
-  const chartH = 110;
-  const paddingLeft = 30;
-  const paddingTop = 22;
-  const paddingBottom = 20;
-  const paddingRight = 6;
-  const plotW = chartW - paddingLeft - paddingRight;
-  const plotH = chartH - paddingTop - paddingBottom;
-  const slotWidth = plotW / maxSlots;
-
-  const entries = reportEntries.slice(-maxSlots);
+  const entries = reportEntries.slice(-SLOTS);
   if (entries.length === 0) return "";
 
   const latestEntry = entries[entries.length - 1];
-  const startSlot = maxSlots - entries.length;
-  const baseline = paddingTop + plotH;
+  const startSlot = SLOTS - entries.length;
 
   const cells: string[] = [];
 
   for (const proj of latestEntry.projects) {
     const repo = proj.repo ?? proj.name.toLowerCase().replace(/\s+/g, "-");
 
-    const maxTests = Math.max(
-      ...entries.map((e) => {
-        const p = e.projects.find((p) => p.name === proj.name);
-        return p ? p.passed + p.failed : 0;
-      }),
-      1,
-    );
-
-    const passedPts: string[] = [];
-    const failedPts: string[] = [];
+    // Left to right is oldest to newest; a day the project did not run stays
+    // undefined and is drawn as the "no data" grey.
+    const days: (string | undefined)[] = new Array(SLOTS).fill(undefined);
+    let passed = 0;
+    let failed = 0;
 
     entries.forEach((entry, i) => {
       const p = entry.projects.find((p) => p.name === proj.name);
       if (!p) return;
-      const x = paddingLeft + (startSlot + i + 0.5) * slotWidth;
-      passedPts.push(
-        `${x.toFixed(1)},${(paddingTop + plotH * (1 - p.passed / maxTests)).toFixed(1)}`,
-      );
-      if (p.failed > 0) {
-        failedPts.push(
-          `${x.toFixed(1)},${(paddingTop + plotH * (1 - p.failed / maxTests)).toFixed(1)}`,
-        );
-      }
+      days[startSlot + i] = normalize(p.status);
+      passed += p.passed;
+      failed += p.failed;
     });
 
-    let passedArea = "";
-    if (passedPts.length >= 2) {
-      const [fx] = passedPts[0].split(",");
-      const [lx] = passedPts[passedPts.length - 1].split(",");
-      passedArea = `<polygon points="${passedPts.join(" ")} ${lx},${baseline} ${fx},${baseline}" fill="#43a047" opacity="0.15"/>`;
-    }
-
-    const passedLine =
-      passedPts.length >= 2
-        ? `<polyline points="${passedPts.join(" ")}" fill="none" stroke="#43a047" stroke-width="1.5" stroke-linejoin="round"/>`
-        : passedPts.length === 1
-          ? `<circle cx="${passedPts[0].split(",")[0]}" cy="${passedPts[0].split(",")[1]}" r="2" fill="#43a047"/>`
-          : "";
-
-    const failedLine =
-      failedPts.length >= 2
-        ? `<polyline points="${failedPts.join(" ")}" fill="none" stroke="#e53935" stroke-width="1.5" stroke-linejoin="round"/>`
-        : failedPts.length === 1
-          ? `<circle cx="${failedPts[0].split(",")[0]}" cy="${failedPts[0].split(",")[1]}" r="2" fill="#e53935"/>`
-          : "";
-
-    const yLabels = [0, maxTests]
-      .map((v) => {
-        const y = paddingTop + plotH * (1 - v / maxTests);
-        return `<text x="${paddingLeft - 3}" y="${y + 4}" text-anchor="end" font-size="8" fill="#888">${v}</text>`;
-      })
-      .join("");
-
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${chartW}" height="${chartH}" viewBox="0 0 ${chartW} ${chartH}">
-      <rect width="${chartW}" height="${chartH}" fill="#fafafa" rx="4"/>
-      <text x="${chartW / 2}" y="13" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">${repo}</text>
-      <line x1="${paddingLeft}" y1="${paddingTop}" x2="${paddingLeft}" y2="${baseline}" stroke="#e0e0e0" stroke-width="1"/>
-      <line x1="${paddingLeft}" y1="${baseline}" x2="${paddingLeft + plotW}" y2="${baseline}" stroke="#e0e0e0" stroke-width="1"/>
-      <line x1="${paddingLeft}" y1="${paddingTop}" x2="${paddingLeft + plotW}" y2="${paddingTop}" stroke="#f0f0f0" stroke-width="1"/>
-      ${yLabels}
-      ${passedArea}
-      ${passedLine}
-      ${failedLine}
-    </svg>`;
+    const svg = buildStripCard({
+      title: repo,
+      days,
+      status: normalize(proj.status),
+      uptime: uptimeOf(passed, failed),
+      styles: TEST_STYLES,
+    });
 
     await fs.writeFile(`./data/chart-${repo}.svg`, svg);
     cells.push(`<td><img src="./data/chart-${repo}.svg" alt="${repo}"/></td>`);
