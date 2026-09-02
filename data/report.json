@@ -2,923 +2,6 @@
   {
     "summary": {
       "projects_count": 16,
-      "last_update": "Sat, 29 Aug 2026 08:18:04 GMT",
-      "passed": 14,
-      "failed": 2,
-      "duration": 549587
-    },
-    "projects": [
-      {
-        "name": "admin-dashboard-next",
-        "repo": "admin-dashboard-next",
-        "url": "https://admin-dashboard-next-roan.vercel.app/",
-        "repoUrl": "https://github.com/wrujel/admin-dashboard-next",
-        "vendor": "Vercel",
-        "status": "warning",
-        "color": "yellow",
-        "startTime": "2026-08-29T08:12:05.247Z",
-        "passed": 1,
-        "failed": 1,
-        "duration": 30045,
-        "tests": [
-          {
-            "name": "admin-dashboard-next - Login page",
-            "status": "passed",
-            "duration": 947,
-            "startTime": "2026-08-29T08:12:05.247Z"
-          },
-          {
-            "name": "admin-dashboard-next - Dashboard, tables & analytics",
-            "status": "failed",
-            "duration": 29098,
-            "startTime": "2026-08-29T08:12:05.256Z"
-          }
-        ]
-      },
-      {
-        "name": "airbnb-clone",
-        "repo": "airbnb-clone",
-        "url": "https://demo-airbnb-clone-three-phi-45.vercel.app/",
-        "repoUrl": "https://github.com/wrujel/airbnb-clone",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:12:35.357Z",
-        "passed": 5,
-        "failed": 0,
-        "duration": 19596,
-        "tests": [
-          {
-            "name": "airbnb-clone - Test home without logging in",
-            "status": "passed",
-            "duration": 1149,
-            "startTime": "2026-08-29T08:12:35.357Z"
-          },
-          {
-            "name": "airbnb-clone - Test email register",
-            "status": "passed",
-            "duration": 4642,
-            "startTime": "2026-08-29T08:12:35.361Z"
-          },
-          {
-            "name": "airbnb-clone - Test gmail login",
-            "status": "passed",
-            "duration": 5280,
-            "startTime": "2026-08-29T08:12:36.621Z"
-          },
-          {
-            "name": "airbnb-clone - Test github login",
-            "status": "passed",
-            "duration": 3237,
-            "startTime": "2026-08-29T08:12:40.087Z"
-          },
-          {
-            "name": "airbnb-clone - Test home logged in",
-            "status": "passed",
-            "duration": 5288,
-            "startTime": "2026-08-29T08:12:41.910Z"
-          }
-        ]
-      },
-      {
-        "name": "blog",
-        "repo": "blog",
-        "url": "https://blog.wrujel.com",
-        "repoUrl": "https://github.com/wrujel/blog",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:12:47.932Z",
-        "passed": 10,
-        "failed": 0,
-        "duration": 71210,
-        "tests": [
-          {
-            "name": "blog - Hero section",
-            "status": "passed",
-            "duration": 6256,
-            "startTime": "2026-08-29T08:12:47.932Z"
-          },
-          {
-            "name": "blog - Navbar",
-            "status": "passed",
-            "duration": 6501,
-            "startTime": "2026-08-29T08:12:47.932Z"
-          },
-          {
-            "name": "blog - Latest articles",
-            "status": "passed",
-            "duration": 2389,
-            "startTime": "2026-08-29T08:12:54.530Z"
-          },
-          {
-            "name": "blog - Category showcase",
-            "status": "passed",
-            "duration": 5049,
-            "startTime": "2026-08-29T08:12:54.279Z"
-          },
-          {
-            "name": "blog - Subscribe section",
-            "status": "passed",
-            "duration": 7856,
-            "startTime": "2026-08-29T08:12:56.929Z"
-          },
-          {
-            "name": "blog - Footer",
-            "status": "passed",
-            "duration": 11697,
-            "startTime": "2026-08-29T08:12:59.389Z"
-          },
-          {
-            "name": "blog - Explore page",
-            "status": "passed",
-            "duration": 7800,
-            "startTime": "2026-08-29T08:13:04.821Z"
-          },
-          {
-            "name": "blog - Blog post page",
-            "status": "passed",
-            "duration": 5596,
-            "startTime": "2026-08-29T08:13:11.220Z"
-          },
-          {
-            "name": "blog - Locale - Spanish",
-            "status": "passed",
-            "duration": 11053,
-            "startTime": "2026-08-29T08:13:12.631Z"
-          },
-          {
-            "name": "blog - Theme toggle",
-            "status": "passed",
-            "duration": 7013,
-            "startTime": "2026-08-29T08:13:17.021Z"
-          }
-        ]
-      },
-      {
-        "name": "clock-app",
-        "repo": "clock-app",
-        "url": "https://clock-app-wrujel.vercel.app/",
-        "repoUrl": "https://github.com/wrujel/clock-app",
-        "vendor": "Vercel",
-        "status": "warning",
-        "color": "yellow",
-        "startTime": "2026-08-29T08:13:24.761Z",
-        "passed": 2,
-        "failed": 4,
-        "duration": 100764,
-        "tests": [
-          {
-            "name": "clock-app - Home page",
-            "status": "failed",
-            "duration": 16522,
-            "startTime": "2026-08-29T08:13:24.761Z"
-          },
-          {
-            "name": "clock-app - Clock ticks",
-            "status": "failed",
-            "duration": 32481,
-            "startTime": "2026-08-29T08:13:24.762Z"
-          },
-          {
-            "name": "clock-app - Quote refresh",
-            "status": "failed",
-            "duration": 31892,
-            "startTime": "2026-08-29T08:13:41.622Z"
-          },
-          {
-            "name": "clock-app - Quote API",
-            "status": "passed",
-            "duration": 1100,
-            "startTime": "2026-08-29T08:14:13.810Z"
-          },
-          {
-            "name": "clock-app - Stats panel",
-            "status": "failed",
-            "duration": 17848,
-            "startTime": "2026-08-29T08:13:57.621Z"
-          },
-          {
-            "name": "clock-app - Client data API",
-            "status": "passed",
-            "duration": 921,
-            "startTime": "2026-08-29T08:14:14.968Z"
-          }
-        ]
-      },
-      {
-        "name": "django-crud-react",
-        "repo": "django-crud-react",
-        "url": "https://django-crud-react.onrender.com/",
-        "repoUrl": "https://github.com/wrujel/django-crud-react",
-        "vendor": "Render",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:14:16.640Z",
-        "passed": 2,
-        "failed": 0,
-        "duration": 65787,
-        "tests": [
-          {
-            "name": "django-crud-react - Test home",
-            "status": "passed",
-            "duration": 32476,
-            "startTime": "2026-08-29T08:14:16.652Z"
-          },
-          {
-            "name": "django-crud-react - Test create and delete task",
-            "status": "passed",
-            "duration": 33311,
-            "startTime": "2026-08-29T08:14:16.640Z"
-          }
-        ]
-      },
-      {
-        "name": "github-history",
-        "repo": "github-history",
-        "url": "https://github-history.vercel.app/",
-        "repoUrl": "https://github.com/wrujel/github-history",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:14:50.763Z",
-        "passed": 5,
-        "failed": 0,
-        "duration": 16942,
-        "tests": [
-          {
-            "name": "github-history - Home page",
-            "status": "passed",
-            "duration": 1874,
-            "startTime": "2026-08-29T08:14:50.763Z"
-          },
-          {
-            "name": "github-history - Commit timeline",
-            "status": "passed",
-            "duration": 2376,
-            "startTime": "2026-08-29T08:14:50.789Z"
-          },
-          {
-            "name": "github-history - Repository dropdown",
-            "status": "passed",
-            "duration": 3360,
-            "startTime": "2026-08-29T08:14:52.770Z"
-          },
-          {
-            "name": "github-history - Select a repository",
-            "status": "passed",
-            "duration": 5247,
-            "startTime": "2026-08-29T08:14:53.271Z"
-          },
-          {
-            "name": "github-history - Username validation",
-            "status": "passed",
-            "duration": 4085,
-            "startTime": "2026-08-29T08:14:56.138Z"
-          }
-        ]
-      },
-      {
-        "name": "leetcode-ui",
-        "repo": "leetcode-ui",
-        "url": "https://leetcode.wrujel.website/",
-        "repoUrl": "https://github.com/wrujel/leetcode-ui",
-        "vendor": "Cloudflare",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:15:00.958Z",
-        "passed": 19,
-        "failed": 0,
-        "duration": 27310,
-        "tests": [
-          {
-            "name": "leetcode-ui - Stat cards",
-            "status": "passed",
-            "duration": 802,
-            "startTime": "2026-08-29T08:15:00.958Z"
-          },
-          {
-            "name": "leetcode-ui - Navbar",
-            "status": "passed",
-            "duration": 930,
-            "startTime": "2026-08-29T08:15:00.964Z"
-          },
-          {
-            "name": "leetcode-ui - Problem list",
-            "status": "passed",
-            "duration": 1445,
-            "startTime": "2026-08-29T08:15:02.026Z"
-          },
-          {
-            "name": "leetcode-ui - View switcher",
-            "status": "passed",
-            "duration": 2390,
-            "startTime": "2026-08-29T08:15:01.890Z"
-          },
-          {
-            "name": "leetcode-ui - Filter deep link",
-            "status": "passed",
-            "duration": 1056,
-            "startTime": "2026-08-29T08:15:04.290Z"
-          },
-          {
-            "name": "leetcode-ui - Difficulty filter",
-            "status": "passed",
-            "duration": 2191,
-            "startTime": "2026-08-29T08:15:03.483Z"
-          },
-          {
-            "name": "leetcode-ui - Filter panels",
-            "status": "passed",
-            "duration": 1504,
-            "startTime": "2026-08-29T08:15:05.354Z"
-          },
-          {
-            "name": "leetcode-ui - Search functionality",
-            "status": "passed",
-            "duration": 1794,
-            "startTime": "2026-08-29T08:15:05.679Z"
-          },
-          {
-            "name": "leetcode-ui - Page size",
-            "status": "passed",
-            "duration": 2222,
-            "startTime": "2026-08-29T08:15:07.488Z"
-          },
-          {
-            "name": "leetcode-ui - Pagination",
-            "status": "passed",
-            "duration": 2966,
-            "startTime": "2026-08-29T08:15:06.865Z"
-          },
-          {
-            "name": "leetcode-ui - Problem detail page",
-            "status": "passed",
-            "duration": 929,
-            "startTime": "2026-08-29T08:15:09.717Z"
-          },
-          {
-            "name": "leetcode-ui - Problem tab deep link",
-            "status": "passed",
-            "duration": 885,
-            "startTime": "2026-08-29T08:15:09.838Z"
-          },
-          {
-            "name": "leetcode-ui - Problem detail navigation",
-            "status": "passed",
-            "duration": 1202,
-            "startTime": "2026-08-29T08:15:10.688Z"
-          },
-          {
-            "name": "leetcode-ui - Charts view",
-            "status": "passed",
-            "duration": 2225,
-            "startTime": "2026-08-29T08:15:10.729Z"
-          },
-          {
-            "name": "leetcode-ui - Data API",
-            "status": "passed",
-            "duration": 1654,
-            "startTime": "2026-08-29T08:15:11.900Z"
-          },
-          {
-            "name": "leetcode-ui - Liveness probe",
-            "status": "passed",
-            "duration": 1206,
-            "startTime": "2026-08-29T08:15:12.961Z"
-          },
-          {
-            "name": "leetcode-ui - Trailing slash redirect",
-            "status": "passed",
-            "duration": 828,
-            "startTime": "2026-08-29T08:15:13.562Z"
-          },
-          {
-            "name": "leetcode-ui - Footer links",
-            "status": "passed",
-            "duration": 501,
-            "startTime": "2026-08-29T08:15:14.175Z"
-          },
-          {
-            "name": "leetcode-ui - 404 page",
-            "status": "passed",
-            "duration": 580,
-            "startTime": "2026-08-29T08:15:14.397Z"
-          }
-        ]
-      },
-      {
-        "name": "movies-search",
-        "repo": "movies-search",
-        "url": "https://movies-search-five.vercel.app",
-        "repoUrl": "https://github.com/wrujel/movies-search",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:15:15.707Z",
-        "passed": 3,
-        "failed": 0,
-        "duration": 5623,
-        "tests": [
-          {
-            "name": "movies-search - Test page",
-            "status": "passed",
-            "duration": 741,
-            "startTime": "2026-08-29T08:15:15.712Z"
-          },
-          {
-            "name": "movies-search - Test search",
-            "status": "passed",
-            "duration": 1569,
-            "startTime": "2026-08-29T08:15:15.707Z"
-          },
-          {
-            "name": "movies-search - Test movie details modal",
-            "status": "passed",
-            "duration": 3313,
-            "startTime": "2026-08-29T08:15:16.540Z"
-          }
-        ]
-      },
-      {
-        "name": "netflix-clone",
-        "repo": "netflix-clone",
-        "url": "https://movies-app-o2ff-git-main-wrujels-projects.vercel.app",
-        "repoUrl": "https://github.com/wrujel/netflix-clone",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:15:20.596Z",
-        "passed": 5,
-        "failed": 0,
-        "duration": 17085,
-        "tests": [
-          {
-            "name": "netflix-clone - Test home without logging in",
-            "status": "passed",
-            "duration": 2667,
-            "startTime": "2026-08-29T08:15:20.601Z"
-          },
-          {
-            "name": "netflix-clone - Test google login",
-            "status": "passed",
-            "duration": 1291,
-            "startTime": "2026-08-29T08:15:23.364Z"
-          },
-          {
-            "name": "netflix-clone - Test email register",
-            "status": "passed",
-            "duration": 4564,
-            "startTime": "2026-08-29T08:15:20.596Z"
-          },
-          {
-            "name": "netflix-clone - Test github login",
-            "status": "passed",
-            "duration": 2721,
-            "startTime": "2026-08-29T08:15:24.663Z"
-          },
-          {
-            "name": "netflix-clone - Test home logged in",
-            "status": "passed",
-            "duration": 5842,
-            "startTime": "2026-08-29T08:15:25.223Z"
-          }
-        ]
-      },
-      {
-        "name": "portfolio",
-        "repo": "portfolio",
-        "url": "https://wrujel.com",
-        "repoUrl": "https://github.com/wrujel/portfolio",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:15:31.841Z",
-        "passed": 22,
-        "failed": 0,
-        "duration": 39023,
-        "tests": [
-          {
-            "name": "portfolio - Hero section",
-            "status": "passed",
-            "duration": 1483,
-            "startTime": "2026-08-29T08:15:31.849Z"
-          },
-          {
-            "name": "portfolio - Navbar links",
-            "status": "passed",
-            "duration": 1587,
-            "startTime": "2026-08-29T08:15:31.841Z"
-          },
-          {
-            "name": "portfolio - About section",
-            "status": "passed",
-            "duration": 1017,
-            "startTime": "2026-08-29T08:15:33.522Z"
-          },
-          {
-            "name": "portfolio - Section rail",
-            "status": "passed",
-            "duration": 1213,
-            "startTime": "2026-08-29T08:15:33.489Z"
-          },
-          {
-            "name": "portfolio - Projects section",
-            "status": "passed",
-            "duration": 1086,
-            "startTime": "2026-08-29T08:15:34.546Z"
-          },
-          {
-            "name": "portfolio - Case studies section",
-            "status": "passed",
-            "duration": 1029,
-            "startTime": "2026-08-29T08:15:34.714Z"
-          },
-          {
-            "name": "portfolio - Skills section",
-            "status": "passed",
-            "duration": 1186,
-            "startTime": "2026-08-29T08:15:35.749Z"
-          },
-          {
-            "name": "portfolio - Case study dialog",
-            "status": "passed",
-            "duration": 2377,
-            "startTime": "2026-08-29T08:15:35.640Z"
-          },
-          {
-            "name": "portfolio - Services section",
-            "status": "passed",
-            "duration": 1164,
-            "startTime": "2026-08-29T08:15:38.089Z"
-          },
-          {
-            "name": "portfolio - LeetCode section",
-            "status": "passed",
-            "duration": 3781,
-            "startTime": "2026-08-29T08:15:36.941Z"
-          },
-          {
-            "name": "portfolio - Contact section",
-            "status": "passed",
-            "duration": 4055,
-            "startTime": "2026-08-29T08:15:39.261Z"
-          },
-          {
-            "name": "portfolio - Footer",
-            "status": "passed",
-            "duration": 904,
-            "startTime": "2026-08-29T08:15:43.323Z"
-          },
-          {
-            "name": "portfolio - AI chat assistant",
-            "status": "passed",
-            "duration": 4195,
-            "startTime": "2026-08-29T08:15:40.823Z"
-          },
-          {
-            "name": "portfolio - Theme toggle",
-            "status": "passed",
-            "duration": 987,
-            "startTime": "2026-08-29T08:15:44.235Z"
-          },
-          {
-            "name": "portfolio - Projects page language filter",
-            "status": "passed",
-            "duration": 1616,
-            "startTime": "2026-08-29T08:15:45.229Z"
-          },
-          {
-            "name": "portfolio - Projects page",
-            "status": "passed",
-            "duration": 2043,
-            "startTime": "2026-08-29T08:15:45.090Z"
-          },
-          {
-            "name": "portfolio - Project detail page",
-            "status": "passed",
-            "duration": 1501,
-            "startTime": "2026-08-29T08:15:46.853Z"
-          },
-          {
-            "name": "portfolio - About page",
-            "status": "passed",
-            "duration": 1512,
-            "startTime": "2026-08-29T08:15:47.142Z"
-          },
-          {
-            "name": "portfolio - Contact page",
-            "status": "passed",
-            "duration": 1293,
-            "startTime": "2026-08-29T08:15:48.661Z"
-          },
-          {
-            "name": "portfolio - Location page",
-            "status": "passed",
-            "duration": 1681,
-            "startTime": "2026-08-29T08:15:48.361Z"
-          },
-          {
-            "name": "portfolio - Not found page",
-            "status": "passed",
-            "duration": 1476,
-            "startTime": "2026-08-29T08:15:50.049Z"
-          },
-          {
-            "name": "portfolio - Locale - Spanish",
-            "status": "passed",
-            "duration": 1837,
-            "startTime": "2026-08-29T08:15:49.961Z"
-          }
-        ]
-      },
-      {
-        "name": "portfolio-web-template",
-        "repo": "portfolio-web-template",
-        "url": "https://portfolio-web-eight-tau.vercel.app",
-        "repoUrl": "https://github.com/wrujel/portfolio-web-template",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:15:52.547Z",
-        "passed": 8,
-        "failed": 0,
-        "duration": 15193,
-        "tests": [
-          {
-            "name": "portfolio-web-template - Navigation rail",
-            "status": "passed",
-            "duration": 2200,
-            "startTime": "2026-08-29T08:15:52.547Z"
-          },
-          {
-            "name": "portfolio-web-template - Home page",
-            "status": "passed",
-            "duration": 2559,
-            "startTime": "2026-08-29T08:15:52.559Z"
-          },
-          {
-            "name": "portfolio-web-template - Header",
-            "status": "passed",
-            "duration": 602,
-            "startTime": "2026-08-29T08:15:54.837Z"
-          },
-          {
-            "name": "portfolio-web-template - Services page",
-            "status": "passed",
-            "duration": 887,
-            "startTime": "2026-08-29T08:15:55.446Z"
-          },
-          {
-            "name": "portfolio-web-template - Projects page",
-            "status": "passed",
-            "duration": 1860,
-            "startTime": "2026-08-29T08:15:56.342Z"
-          },
-          {
-            "name": "portfolio-web-template - Customers page",
-            "status": "passed",
-            "duration": 1046,
-            "startTime": "2026-08-29T08:15:58.209Z"
-          },
-          {
-            "name": "portfolio-web-template - Contact page",
-            "status": "passed",
-            "duration": 844,
-            "startTime": "2026-08-29T08:15:59.262Z"
-          },
-          {
-            "name": "portfolio-web-template - About page",
-            "status": "passed",
-            "duration": 5195,
-            "startTime": "2026-08-29T08:15:55.254Z"
-          }
-        ]
-      },
-      {
-        "name": "rest-api-et",
-        "repo": "rest-api-et",
-        "url": "https://rest-api-et.onrender.com",
-        "repoUrl": "https://github.com/wrujel/rest-api-et",
-        "vendor": "Render",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:16:01.209Z",
-        "passed": 6,
-        "failed": 0,
-        "duration": 104803,
-        "tests": [
-          {
-            "name": "rest-api-et - API docs landing",
-            "status": "passed",
-            "duration": 32318,
-            "startTime": "2026-08-29T08:16:01.209Z"
-          },
-          {
-            "name": "rest-api-et - Endpoint selection",
-            "status": "passed",
-            "duration": 33868,
-            "startTime": "2026-08-29T08:16:01.213Z"
-          },
-          {
-            "name": "rest-api-et - API test client",
-            "status": "passed",
-            "duration": 2416,
-            "startTime": "2026-08-29T08:16:33.646Z"
-          },
-          {
-            "name": "rest-api-et - Sign in, session and sign out",
-            "status": "passed",
-            "duration": 8122,
-            "startTime": "2026-08-29T08:16:35.195Z"
-          },
-          {
-            "name": "rest-api-et - Register a new account",
-            "status": "passed",
-            "duration": 14358,
-            "startTime": "2026-08-29T08:16:36.069Z"
-          },
-          {
-            "name": "rest-api-et - Product CRUD",
-            "status": "passed",
-            "duration": 13721,
-            "startTime": "2026-08-29T08:16:43.328Z"
-          }
-        ]
-      },
-      {
-        "name": "slider-static",
-        "repo": "slider-static",
-        "url": "https://ephemeral-zuccutto-49ec06.netlify.app",
-        "repoUrl": "https://github.com/wrujel/slider-static",
-        "vendor": "Netlify",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:16:57.825Z",
-        "passed": 1,
-        "failed": 0,
-        "duration": 1603,
-        "tests": [
-          {
-            "name": "slider-static - Test home",
-            "status": "passed",
-            "duration": 1603,
-            "startTime": "2026-08-29T08:16:57.825Z"
-          }
-        ]
-      },
-      {
-        "name": "tesla-landing",
-        "repo": "tesla-landing",
-        "url": "https://sage-daffodil-4904c3.netlify.app",
-        "repoUrl": "https://github.com/wrujel/tesla-landing",
-        "vendor": "Netlify",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:17:00.244Z",
-        "passed": 3,
-        "failed": 0,
-        "duration": 3546,
-        "tests": [
-          {
-            "name": "tesla-landing - Test second section",
-            "status": "passed",
-            "duration": 1249,
-            "startTime": "2026-08-29T08:17:00.248Z"
-          },
-          {
-            "name": "tesla-landing - Test home",
-            "status": "passed",
-            "duration": 1377,
-            "startTime": "2026-08-29T08:17:00.244Z"
-          },
-          {
-            "name": "tesla-landing - Test last section",
-            "status": "passed",
-            "duration": 920,
-            "startTime": "2026-08-29T08:17:01.696Z"
-          }
-        ]
-      },
-      {
-        "name": "tetris-javascript",
-        "repo": "tetris-javascript",
-        "url": "https://tetris-javascript-pi.vercel.app",
-        "repoUrl": "https://github.com/wrujel/tetris-javascript",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:17:03.358Z",
-        "passed": 3,
-        "failed": 0,
-        "duration": 11188,
-        "tests": [
-          {
-            "name": "tetris-javascript - Test home",
-            "status": "passed",
-            "duration": 2487,
-            "startTime": "2026-08-29T08:17:03.358Z"
-          },
-          {
-            "name": "tetris-javascript - Test solo mode",
-            "status": "passed",
-            "duration": 2788,
-            "startTime": "2026-08-29T08:17:03.358Z"
-          },
-          {
-            "name": "tetris-javascript - Test versus doom mode",
-            "status": "passed",
-            "duration": 5913,
-            "startTime": "2026-08-29T08:17:05.933Z"
-          }
-        ]
-      },
-      {
-        "name": "webpage-gpt",
-        "repo": "webpage-gpt",
-        "url": "https://webpage-gpt-wrujels-projects.vercel.app/",
-        "repoUrl": "https://github.com/wrujel/webpage-gpt",
-        "vendor": "Vercel",
-        "status": "passed",
-        "color": "green",
-        "startTime": "2026-08-29T08:17:12.727Z",
-        "passed": 11,
-        "failed": 0,
-        "duration": 19869,
-        "tests": [
-          {
-            "name": "webpage-gpt - Navbar",
-            "status": "passed",
-            "duration": 1268,
-            "startTime": "2026-08-29T08:17:12.730Z"
-          },
-          {
-            "name": "webpage-gpt - Hero",
-            "status": "passed",
-            "duration": 1283,
-            "startTime": "2026-08-29T08:17:12.727Z"
-          },
-          {
-            "name": "webpage-gpt - Partner marquee",
-            "status": "passed",
-            "duration": 1106,
-            "startTime": "2026-08-29T08:17:14.098Z"
-          },
-          {
-            "name": "webpage-gpt - What is GPT-Bot",
-            "status": "passed",
-            "duration": 1093,
-            "startTime": "2026-08-29T08:17:14.130Z"
-          },
-          {
-            "name": "webpage-gpt - The Robot",
-            "status": "passed",
-            "duration": 992,
-            "startTime": "2026-08-29T08:17:15.290Z"
-          },
-          {
-            "name": "webpage-gpt - Case studies",
-            "status": "passed",
-            "duration": 1052,
-            "startTime": "2026-08-29T08:17:15.290Z"
-          },
-          {
-            "name": "webpage-gpt - Early access CTA",
-            "status": "passed",
-            "duration": 1294,
-            "startTime": "2026-08-29T08:17:16.291Z"
-          },
-          {
-            "name": "webpage-gpt - Library filmstrip",
-            "status": "passed",
-            "duration": 1229,
-            "startTime": "2026-08-29T08:17:16.389Z"
-          },
-          {
-            "name": "webpage-gpt - Footer",
-            "status": "passed",
-            "duration": 1093,
-            "startTime": "2026-08-29T08:17:17.593Z"
-          },
-          {
-            "name": "webpage-gpt - Mobile menu",
-            "status": "passed",
-            "duration": 1225,
-            "startTime": "2026-08-29T08:17:17.625Z"
-          },
-          {
-            "name": "webpage-gpt - Preloader curtain",
-            "status": "passed",
-            "duration": 8234,
-            "startTime": "2026-08-29T08:17:18.694Z"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "summary": {
-      "projects_count": 16,
       "last_update": "Sat, 29 Aug 2026 09:02:05 GMT",
       "passed": 14,
       "failed": 2,
@@ -83441,6 +82524,923 @@
             "status": "passed",
             "duration": 6950,
             "startTime": "2026-09-01T23:07:20.993Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "summary": {
+      "projects_count": 16,
+      "last_update": "Wed, 02 Sep 2026 01:49:43 GMT",
+      "passed": 15,
+      "failed": 1,
+      "duration": 546476
+    },
+    "projects": [
+      {
+        "name": "admin-dashboard-next",
+        "repo": "admin-dashboard-next",
+        "url": "https://admin-dashboard-next-roan.vercel.app/",
+        "repoUrl": "https://github.com/wrujel/admin-dashboard-next",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:43:44.552Z",
+        "passed": 2,
+        "failed": 0,
+        "duration": 12400,
+        "tests": [
+          {
+            "name": "admin-dashboard-next - Login page",
+            "status": "passed",
+            "duration": 1740,
+            "startTime": "2026-09-02T01:43:44.552Z"
+          },
+          {
+            "name": "admin-dashboard-next - Dashboard, tables & analytics",
+            "status": "passed",
+            "duration": 10660,
+            "startTime": "2026-09-02T01:43:44.553Z"
+          }
+        ]
+      },
+      {
+        "name": "airbnb-clone",
+        "repo": "airbnb-clone",
+        "url": "https://demo-airbnb-clone-three-phi-45.vercel.app/",
+        "repoUrl": "https://github.com/wrujel/airbnb-clone",
+        "vendor": "Vercel",
+        "status": "warning",
+        "color": "yellow",
+        "startTime": "2026-09-02T01:43:56.276Z",
+        "passed": 4,
+        "failed": 1,
+        "duration": 39024,
+        "tests": [
+          {
+            "name": "airbnb-clone - Test email register",
+            "status": "passed",
+            "duration": 2686,
+            "startTime": "2026-09-02T01:43:56.285Z"
+          },
+          {
+            "name": "airbnb-clone - Test home without logging in",
+            "status": "passed",
+            "duration": 3116,
+            "startTime": "2026-09-02T01:43:56.276Z"
+          },
+          {
+            "name": "airbnb-clone - Test gmail login",
+            "status": "passed",
+            "duration": 5072,
+            "startTime": "2026-09-02T01:43:59.065Z"
+          },
+          {
+            "name": "airbnb-clone - Test github login",
+            "status": "passed",
+            "duration": 5133,
+            "startTime": "2026-09-02T01:43:59.533Z"
+          },
+          {
+            "name": "airbnb-clone - Test home logged in",
+            "status": "failed",
+            "duration": 23017,
+            "startTime": "2026-09-02T01:44:04.144Z"
+          }
+        ]
+      },
+      {
+        "name": "blog",
+        "repo": "blog",
+        "url": "https://blog.wrujel.com",
+        "repoUrl": "https://github.com/wrujel/blog",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:44:27.876Z",
+        "passed": 10,
+        "failed": 0,
+        "duration": 76492,
+        "tests": [
+          {
+            "name": "blog - Navbar",
+            "status": "passed",
+            "duration": 6020,
+            "startTime": "2026-09-02T01:44:27.876Z"
+          },
+          {
+            "name": "blog - Hero section",
+            "status": "passed",
+            "duration": 8683,
+            "startTime": "2026-09-02T01:44:27.876Z"
+          },
+          {
+            "name": "blog - Category showcase",
+            "status": "passed",
+            "duration": 5692,
+            "startTime": "2026-09-02T01:44:33.979Z"
+          },
+          {
+            "name": "blog - Latest articles",
+            "status": "passed",
+            "duration": 6593,
+            "startTime": "2026-09-02T01:44:36.645Z"
+          },
+          {
+            "name": "blog - Subscribe section",
+            "status": "passed",
+            "duration": 10469,
+            "startTime": "2026-09-02T01:44:39.749Z"
+          },
+          {
+            "name": "blog - Footer",
+            "status": "passed",
+            "duration": 12992,
+            "startTime": "2026-09-02T01:44:43.313Z"
+          },
+          {
+            "name": "blog - Explore page",
+            "status": "passed",
+            "duration": 8107,
+            "startTime": "2026-09-02T01:44:50.238Z"
+          },
+          {
+            "name": "blog - Blog post page",
+            "status": "passed",
+            "duration": 6504,
+            "startTime": "2026-09-02T01:44:56.445Z"
+          },
+          {
+            "name": "blog - Locale - Spanish",
+            "status": "passed",
+            "duration": 7095,
+            "startTime": "2026-09-02T01:44:58.412Z"
+          },
+          {
+            "name": "blog - Theme toggle",
+            "status": "passed",
+            "duration": 4337,
+            "startTime": "2026-09-02T01:45:03.141Z"
+          }
+        ]
+      },
+      {
+        "name": "clock-app",
+        "repo": "clock-app",
+        "url": "https://clock-app-wrujel.vercel.app/",
+        "repoUrl": "https://github.com/wrujel/clock-app",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:45:08.234Z",
+        "passed": 6,
+        "failed": 0,
+        "duration": 17493,
+        "tests": [
+          {
+            "name": "clock-app - Clock ticks",
+            "status": "passed",
+            "duration": 3474,
+            "startTime": "2026-09-02T01:45:08.242Z"
+          },
+          {
+            "name": "clock-app - Home page",
+            "status": "passed",
+            "duration": 3950,
+            "startTime": "2026-09-02T01:45:08.234Z"
+          },
+          {
+            "name": "clock-app - Quote refresh",
+            "status": "passed",
+            "duration": 3766,
+            "startTime": "2026-09-02T01:45:11.820Z"
+          },
+          {
+            "name": "clock-app - Stats panel",
+            "status": "passed",
+            "duration": 4226,
+            "startTime": "2026-09-02T01:45:12.272Z"
+          },
+          {
+            "name": "clock-app - Quote API",
+            "status": "passed",
+            "duration": 1004,
+            "startTime": "2026-09-02T01:45:15.595Z"
+          },
+          {
+            "name": "clock-app - Client data API",
+            "status": "passed",
+            "duration": 1073,
+            "startTime": "2026-09-02T01:45:16.507Z"
+          }
+        ]
+      },
+      {
+        "name": "django-crud-react",
+        "repo": "django-crud-react",
+        "url": "https://django-crud-react.onrender.com/",
+        "repoUrl": "https://github.com/wrujel/django-crud-react",
+        "vendor": "Render",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:45:18.264Z",
+        "passed": 2,
+        "failed": 0,
+        "duration": 73395,
+        "tests": [
+          {
+            "name": "django-crud-react - Test home",
+            "status": "passed",
+            "duration": 35918,
+            "startTime": "2026-09-02T01:45:18.264Z"
+          },
+          {
+            "name": "django-crud-react - Test create and delete task",
+            "status": "passed",
+            "duration": 37477,
+            "startTime": "2026-09-02T01:45:18.277Z"
+          }
+        ]
+      },
+      {
+        "name": "github-history",
+        "repo": "github-history",
+        "url": "https://github-history.vercel.app/",
+        "repoUrl": "https://github.com/wrujel/github-history",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:45:56.530Z",
+        "passed": 5,
+        "failed": 0,
+        "duration": 16755,
+        "tests": [
+          {
+            "name": "github-history - Home page",
+            "status": "passed",
+            "duration": 2019,
+            "startTime": "2026-09-02T01:45:56.530Z"
+          },
+          {
+            "name": "github-history - Commit timeline",
+            "status": "passed",
+            "duration": 2455,
+            "startTime": "2026-09-02T01:45:56.547Z"
+          },
+          {
+            "name": "github-history - Repository dropdown",
+            "status": "passed",
+            "duration": 3337,
+            "startTime": "2026-09-02T01:45:58.642Z"
+          },
+          {
+            "name": "github-history - Select a repository",
+            "status": "passed",
+            "duration": 4940,
+            "startTime": "2026-09-02T01:45:59.120Z"
+          },
+          {
+            "name": "github-history - Username validation",
+            "status": "passed",
+            "duration": 4004,
+            "startTime": "2026-09-02T01:46:01.987Z"
+          }
+        ]
+      },
+      {
+        "name": "leetcode-ui",
+        "repo": "leetcode-ui",
+        "url": "https://leetcode.wrujel.website/",
+        "repoUrl": "https://github.com/wrujel/leetcode-ui",
+        "vendor": "Cloudflare",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:46:06.674Z",
+        "passed": 19,
+        "failed": 0,
+        "duration": 31022,
+        "tests": [
+          {
+            "name": "leetcode-ui - Navbar",
+            "status": "passed",
+            "duration": 673,
+            "startTime": "2026-09-02T01:46:06.674Z"
+          },
+          {
+            "name": "leetcode-ui - Stat cards",
+            "status": "passed",
+            "duration": 1000,
+            "startTime": "2026-09-02T01:46:06.681Z"
+          },
+          {
+            "name": "leetcode-ui - Problem list",
+            "status": "passed",
+            "duration": 1484,
+            "startTime": "2026-09-02T01:46:07.770Z"
+          },
+          {
+            "name": "leetcode-ui - View switcher",
+            "status": "passed",
+            "duration": 3334,
+            "startTime": "2026-09-02T01:46:07.440Z"
+          },
+          {
+            "name": "leetcode-ui - Difficulty filter",
+            "status": "passed",
+            "duration": 2446,
+            "startTime": "2026-09-02T01:46:09.261Z"
+          },
+          {
+            "name": "leetcode-ui - Filter deep link",
+            "status": "passed",
+            "duration": 1418,
+            "startTime": "2026-09-02T01:46:10.783Z"
+          },
+          {
+            "name": "leetcode-ui - Filter panels",
+            "status": "passed",
+            "duration": 1591,
+            "startTime": "2026-09-02T01:46:11.718Z"
+          },
+          {
+            "name": "leetcode-ui - Search functionality",
+            "status": "passed",
+            "duration": 2113,
+            "startTime": "2026-09-02T01:46:12.208Z"
+          },
+          {
+            "name": "leetcode-ui - Pagination",
+            "status": "passed",
+            "duration": 3212,
+            "startTime": "2026-09-02T01:46:13.316Z"
+          },
+          {
+            "name": "leetcode-ui - Page size",
+            "status": "passed",
+            "duration": 2242,
+            "startTime": "2026-09-02T01:46:14.327Z"
+          },
+          {
+            "name": "leetcode-ui - Problem tab deep link",
+            "status": "passed",
+            "duration": 605,
+            "startTime": "2026-09-02T01:46:16.576Z"
+          },
+          {
+            "name": "leetcode-ui - Problem detail page",
+            "status": "passed",
+            "duration": 1121,
+            "startTime": "2026-09-02T01:46:16.535Z"
+          },
+          {
+            "name": "leetcode-ui - Problem detail navigation",
+            "status": "passed",
+            "duration": 931,
+            "startTime": "2026-09-02T01:46:17.187Z"
+          },
+          {
+            "name": "leetcode-ui - Charts view",
+            "status": "passed",
+            "duration": 2215,
+            "startTime": "2026-09-02T01:46:17.662Z"
+          },
+          {
+            "name": "leetcode-ui - Data API",
+            "status": "passed",
+            "duration": 2622,
+            "startTime": "2026-09-02T01:46:18.145Z"
+          },
+          {
+            "name": "leetcode-ui - Liveness probe",
+            "status": "passed",
+            "duration": 1481,
+            "startTime": "2026-09-02T01:46:19.883Z"
+          },
+          {
+            "name": "leetcode-ui - Trailing slash redirect",
+            "status": "passed",
+            "duration": 1036,
+            "startTime": "2026-09-02T01:46:20.774Z"
+          },
+          {
+            "name": "leetcode-ui - Footer links",
+            "status": "passed",
+            "duration": 661,
+            "startTime": "2026-09-02T01:46:21.370Z"
+          },
+          {
+            "name": "leetcode-ui - 404 page",
+            "status": "passed",
+            "duration": 837,
+            "startTime": "2026-09-02T01:46:21.817Z"
+          }
+        ]
+      },
+      {
+        "name": "movies-search",
+        "repo": "movies-search",
+        "url": "https://movies-search-five.vercel.app",
+        "repoUrl": "https://github.com/wrujel/movies-search",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:46:23.373Z",
+        "passed": 3,
+        "failed": 0,
+        "duration": 37938,
+        "tests": [
+          {
+            "name": "movies-search - Test page",
+            "status": "passed",
+            "duration": 1009,
+            "startTime": "2026-09-02T01:46:23.373Z"
+          },
+          {
+            "name": "movies-search - Test movie details modal",
+            "status": "passed",
+            "duration": 4524,
+            "startTime": "2026-09-02T01:46:24.517Z"
+          },
+          {
+            "name": "movies-search - Test search",
+            "status": "passed",
+            "duration": 32405,
+            "startTime": "2026-09-02T01:46:23.373Z"
+          }
+        ]
+      },
+      {
+        "name": "netflix-clone",
+        "repo": "netflix-clone",
+        "url": "https://movies-app-o2ff-git-main-wrujels-projects.vercel.app",
+        "repoUrl": "https://github.com/wrujel/netflix-clone",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:46:56.561Z",
+        "passed": 5,
+        "failed": 0,
+        "duration": 19763,
+        "tests": [
+          {
+            "name": "netflix-clone - Test home without logging in",
+            "status": "passed",
+            "duration": 2911,
+            "startTime": "2026-09-02T01:46:56.574Z"
+          },
+          {
+            "name": "netflix-clone - Test google login",
+            "status": "passed",
+            "duration": 965,
+            "startTime": "2026-09-02T01:46:59.568Z"
+          },
+          {
+            "name": "netflix-clone - Test github login",
+            "status": "passed",
+            "duration": 2942,
+            "startTime": "2026-09-02T01:47:00.543Z"
+          },
+          {
+            "name": "netflix-clone - Test email register",
+            "status": "passed",
+            "duration": 7054,
+            "startTime": "2026-09-02T01:46:56.561Z"
+          },
+          {
+            "name": "netflix-clone - Test home logged in",
+            "status": "passed",
+            "duration": 5891,
+            "startTime": "2026-09-02T01:47:03.491Z"
+          }
+        ]
+      },
+      {
+        "name": "portfolio",
+        "repo": "portfolio",
+        "url": "https://wrujel.com",
+        "repoUrl": "https://github.com/wrujel/portfolio",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:47:10.075Z",
+        "passed": 22,
+        "failed": 0,
+        "duration": 41786,
+        "tests": [
+          {
+            "name": "portfolio - Hero section",
+            "status": "passed",
+            "duration": 1973,
+            "startTime": "2026-09-02T01:47:10.075Z"
+          },
+          {
+            "name": "portfolio - Navbar links",
+            "status": "passed",
+            "duration": 2032,
+            "startTime": "2026-09-02T01:47:10.118Z"
+          },
+          {
+            "name": "portfolio - Section rail",
+            "status": "passed",
+            "duration": 1198,
+            "startTime": "2026-09-02T01:47:12.143Z"
+          },
+          {
+            "name": "portfolio - About section",
+            "status": "passed",
+            "duration": 1136,
+            "startTime": "2026-09-02T01:47:12.276Z"
+          },
+          {
+            "name": "portfolio - Case studies section",
+            "status": "passed",
+            "duration": 1017,
+            "startTime": "2026-09-02T01:47:13.419Z"
+          },
+          {
+            "name": "portfolio - Projects section",
+            "status": "passed",
+            "duration": 1214,
+            "startTime": "2026-09-02T01:47:13.347Z"
+          },
+          {
+            "name": "portfolio - Skills section",
+            "status": "passed",
+            "duration": 1117,
+            "startTime": "2026-09-02T01:47:14.569Z"
+          },
+          {
+            "name": "portfolio - Case study dialog",
+            "status": "passed",
+            "duration": 2701,
+            "startTime": "2026-09-02T01:47:14.444Z"
+          },
+          {
+            "name": "portfolio - Services section",
+            "status": "passed",
+            "duration": 991,
+            "startTime": "2026-09-02T01:47:17.153Z"
+          },
+          {
+            "name": "portfolio - LeetCode section",
+            "status": "passed",
+            "duration": 3690,
+            "startTime": "2026-09-02T01:47:15.817Z"
+          },
+          {
+            "name": "portfolio - Contact section",
+            "status": "passed",
+            "duration": 3234,
+            "startTime": "2026-09-02T01:47:18.154Z"
+          },
+          {
+            "name": "portfolio - Footer",
+            "status": "passed",
+            "duration": 860,
+            "startTime": "2026-09-02T01:47:21.438Z"
+          },
+          {
+            "name": "portfolio - Theme toggle",
+            "status": "passed",
+            "duration": 932,
+            "startTime": "2026-09-02T01:47:22.306Z"
+          },
+          {
+            "name": "portfolio - AI chat assistant",
+            "status": "passed",
+            "duration": 4109,
+            "startTime": "2026-09-02T01:47:19.541Z"
+          },
+          {
+            "name": "portfolio - Projects page",
+            "status": "passed",
+            "duration": 2002,
+            "startTime": "2026-09-02T01:47:23.246Z"
+          },
+          {
+            "name": "portfolio - Projects page language filter",
+            "status": "passed",
+            "duration": 1732,
+            "startTime": "2026-09-02T01:47:23.728Z"
+          },
+          {
+            "name": "portfolio - About page",
+            "status": "passed",
+            "duration": 1570,
+            "startTime": "2026-09-02T01:47:25.466Z"
+          },
+          {
+            "name": "portfolio - Project detail page",
+            "status": "passed",
+            "duration": 1896,
+            "startTime": "2026-09-02T01:47:25.313Z"
+          },
+          {
+            "name": "portfolio - Location page",
+            "status": "passed",
+            "duration": 1718,
+            "startTime": "2026-09-02T01:47:27.041Z"
+          },
+          {
+            "name": "portfolio - Contact page",
+            "status": "passed",
+            "duration": 1667,
+            "startTime": "2026-09-02T01:47:27.215Z"
+          },
+          {
+            "name": "portfolio - Not found page",
+            "status": "passed",
+            "duration": 2389,
+            "startTime": "2026-09-02T01:47:28.889Z"
+          },
+          {
+            "name": "portfolio - Locale - Spanish",
+            "status": "passed",
+            "duration": 2608,
+            "startTime": "2026-09-02T01:47:28.766Z"
+          }
+        ]
+      },
+      {
+        "name": "portfolio-web-template",
+        "repo": "portfolio-web-template",
+        "url": "https://portfolio-web-eight-tau.vercel.app",
+        "repoUrl": "https://github.com/wrujel/portfolio-web-template",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:47:32.065Z",
+        "passed": 8,
+        "failed": 0,
+        "duration": 16270,
+        "tests": [
+          {
+            "name": "portfolio-web-template - Navigation rail",
+            "status": "passed",
+            "duration": 1995,
+            "startTime": "2026-09-02T01:47:32.082Z"
+          },
+          {
+            "name": "portfolio-web-template - Header",
+            "status": "passed",
+            "duration": 539,
+            "startTime": "2026-09-02T01:47:34.174Z"
+          },
+          {
+            "name": "portfolio-web-template - Home page",
+            "status": "passed",
+            "duration": 2825,
+            "startTime": "2026-09-02T01:47:32.065Z"
+          },
+          {
+            "name": "portfolio-web-template - Services page",
+            "status": "passed",
+            "duration": 1006,
+            "startTime": "2026-09-02T01:47:34.976Z"
+          },
+          {
+            "name": "portfolio-web-template - Projects page",
+            "status": "passed",
+            "duration": 2550,
+            "startTime": "2026-09-02T01:47:36.015Z"
+          },
+          {
+            "name": "portfolio-web-template - Customers page",
+            "status": "passed",
+            "duration": 1192,
+            "startTime": "2026-09-02T01:47:38.571Z"
+          },
+          {
+            "name": "portfolio-web-template - About page",
+            "status": "passed",
+            "duration": 5331,
+            "startTime": "2026-09-02T01:47:34.720Z"
+          },
+          {
+            "name": "portfolio-web-template - Contact page",
+            "status": "passed",
+            "duration": 832,
+            "startTime": "2026-09-02T01:47:39.770Z"
+          }
+        ]
+      },
+      {
+        "name": "rest-api-et",
+        "repo": "rest-api-et",
+        "url": "https://rest-api-et.onrender.com",
+        "repoUrl": "https://github.com/wrujel/rest-api-et",
+        "vendor": "Render",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:47:41.336Z",
+        "passed": 6,
+        "failed": 0,
+        "duration": 132857,
+        "tests": [
+          {
+            "name": "rest-api-et - API docs landing",
+            "status": "passed",
+            "duration": 44915,
+            "startTime": "2026-09-02T01:47:41.343Z"
+          },
+          {
+            "name": "rest-api-et - Endpoint selection",
+            "status": "passed",
+            "duration": 45255,
+            "startTime": "2026-09-02T01:47:41.336Z"
+          },
+          {
+            "name": "rest-api-et - API test client",
+            "status": "passed",
+            "duration": 4978,
+            "startTime": "2026-09-02T01:48:26.362Z"
+          },
+          {
+            "name": "rest-api-et - Sign in, session and sign out",
+            "status": "passed",
+            "duration": 8567,
+            "startTime": "2026-09-02T01:48:26.676Z"
+          },
+          {
+            "name": "rest-api-et - Register a new account",
+            "status": "passed",
+            "duration": 14504,
+            "startTime": "2026-09-02T01:48:31.349Z"
+          },
+          {
+            "name": "rest-api-et - Product CRUD",
+            "status": "passed",
+            "duration": 14638,
+            "startTime": "2026-09-02T01:48:35.313Z"
+          }
+        ]
+      },
+      {
+        "name": "slider-static",
+        "repo": "slider-static",
+        "url": "https://ephemeral-zuccutto-49ec06.netlify.app",
+        "repoUrl": "https://github.com/wrujel/slider-static",
+        "vendor": "Netlify",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:48:50.631Z",
+        "passed": 1,
+        "failed": 0,
+        "duration": 3877,
+        "tests": [
+          {
+            "name": "slider-static - Test home",
+            "status": "passed",
+            "duration": 3877,
+            "startTime": "2026-09-02T01:48:50.631Z"
+          }
+        ]
+      },
+      {
+        "name": "tesla-landing",
+        "repo": "tesla-landing",
+        "url": "https://sage-daffodil-4904c3.netlify.app",
+        "repoUrl": "https://github.com/wrujel/tesla-landing",
+        "vendor": "Netlify",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:48:55.250Z",
+        "passed": 3,
+        "failed": 0,
+        "duration": 3842,
+        "tests": [
+          {
+            "name": "tesla-landing - Test home",
+            "status": "passed",
+            "duration": 1423,
+            "startTime": "2026-09-02T01:48:55.250Z"
+          },
+          {
+            "name": "tesla-landing - Test second section",
+            "status": "passed",
+            "duration": 1415,
+            "startTime": "2026-09-02T01:48:55.263Z"
+          },
+          {
+            "name": "tesla-landing - Test last section",
+            "status": "passed",
+            "duration": 1004,
+            "startTime": "2026-09-02T01:48:56.767Z"
+          }
+        ]
+      },
+      {
+        "name": "tetris-javascript",
+        "repo": "tetris-javascript",
+        "url": "https://tetris-javascript-pi.vercel.app",
+        "repoUrl": "https://github.com/wrujel/tetris-javascript",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:48:58.477Z",
+        "passed": 3,
+        "failed": 0,
+        "duration": 8798,
+        "tests": [
+          {
+            "name": "tetris-javascript - Test home",
+            "status": "passed",
+            "duration": 1663,
+            "startTime": "2026-09-02T01:48:58.477Z"
+          },
+          {
+            "name": "tetris-javascript - Test solo mode",
+            "status": "passed",
+            "duration": 1932,
+            "startTime": "2026-09-02T01:48:58.515Z"
+          },
+          {
+            "name": "tetris-javascript - Test versus doom mode",
+            "status": "passed",
+            "duration": 5203,
+            "startTime": "2026-09-02T01:49:00.243Z"
+          }
+        ]
+      },
+      {
+        "name": "webpage-gpt",
+        "repo": "webpage-gpt",
+        "url": "https://webpage-gpt-wrujels-projects.vercel.app/",
+        "repoUrl": "https://github.com/wrujel/webpage-gpt",
+        "vendor": "Vercel",
+        "status": "passed",
+        "color": "green",
+        "startTime": "2026-09-02T01:49:06.181Z",
+        "passed": 11,
+        "failed": 0,
+        "duration": 14764,
+        "tests": [
+          {
+            "name": "webpage-gpt - Navbar",
+            "status": "passed",
+            "duration": 877,
+            "startTime": "2026-09-02T01:49:06.181Z"
+          },
+          {
+            "name": "webpage-gpt - Hero",
+            "status": "passed",
+            "duration": 1140,
+            "startTime": "2026-09-02T01:49:06.215Z"
+          },
+          {
+            "name": "webpage-gpt - Partner marquee",
+            "status": "passed",
+            "duration": 599,
+            "startTime": "2026-09-02T01:49:07.158Z"
+          },
+          {
+            "name": "webpage-gpt - What is GPT-Bot",
+            "status": "passed",
+            "duration": 658,
+            "startTime": "2026-09-02T01:49:07.490Z"
+          },
+          {
+            "name": "webpage-gpt - Case studies",
+            "status": "passed",
+            "duration": 628,
+            "startTime": "2026-09-02T01:49:07.766Z"
+          },
+          {
+            "name": "webpage-gpt - The Robot",
+            "status": "passed",
+            "duration": 661,
+            "startTime": "2026-09-02T01:49:08.160Z"
+          },
+          {
+            "name": "webpage-gpt - Early access CTA",
+            "status": "passed",
+            "duration": 567,
+            "startTime": "2026-09-02T01:49:08.403Z"
+          },
+          {
+            "name": "webpage-gpt - Library filmstrip",
+            "status": "passed",
+            "duration": 585,
+            "startTime": "2026-09-02T01:49:08.829Z"
+          },
+          {
+            "name": "webpage-gpt - Footer",
+            "status": "passed",
+            "duration": 652,
+            "startTime": "2026-09-02T01:49:08.979Z"
+          },
+          {
+            "name": "webpage-gpt - Mobile menu",
+            "status": "passed",
+            "duration": 670,
+            "startTime": "2026-09-02T01:49:09.420Z"
+          },
+          {
+            "name": "webpage-gpt - Preloader curtain",
+            "status": "passed",
+            "duration": 7727,
+            "startTime": "2026-09-02T01:49:09.637Z"
           }
         ]
       }
