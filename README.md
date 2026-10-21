@@ -2,11 +2,11 @@
 ## &#x1F4CA; Summary:
 <p><ul>
             <li><span>Total Projects: 16</span></li>
-            <li><span>Last Update: Tue, 20 Oct 2026 23:48:58 GMT</span></li>
-            <li><span>Passed: 15</span></li>
-            <li><span>Failed: 1</span></li>
+            <li><span>Last Update: Wed, 21 Oct 2026 02:39:33 GMT</span></li>
+            <li><span>Passed: 16</span></li>
+            <li><span>Failed: 0</span></li>
             <li><span>Duration: 
-              570.02 sec
+              588.05 sec
             </span></li>
           </ul></p>
   
@@ -73,12 +73,12 @@
                     <td>5/5</td>
                     <td align='right'>25.46</td>
                   </tr><tr>
-                    <td><a href="https://leetcode.wrujel.website/">leetcode-ui</a></td>
+                    <td><a href="https://leetcode-ui.wilfredo-rujel.workers.dev/">leetcode-ui</a></td>
                     <td><a href="https://github.com/wrujel/leetcode-ui">Link</a></td>
                     <td><img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white" alt="Cloudflare"/></td>
-                    <td>❌</td>
-                    <td>0/19</td>
-                    <td align='right'>12.19</td>
+                    <td>✅</td>
+                    <td>19/19</td>
+                    <td align='right'>30.22</td>
                   </tr><tr>
                     <td><a href="https://movies-search-five.vercel.app">movies-search</a></td>
                     <td><a href="https://github.com/wrujel/movies-search">Link</a></td>
@@ -350,99 +350,99 @@
                           <td align='right'>10.14</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
-                          <td>Navbar</td>
-                          <td>❌</td>
-                          <td align='right'>0.59</td>
+                          <td>Stat cards</td>
+                          <td>✅</td>
+                          <td align='right'>0.70</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
-                          <td>Stat cards</td>
-                          <td>❌</td>
-                          <td align='right'>0.69</td>
+                          <td>Navbar</td>
+                          <td>✅</td>
+                          <td align='right'>0.83</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Problem list</td>
-                          <td>❌</td>
-                          <td align='right'>1.32</td>
+                          <td>✅</td>
+                          <td align='right'>1.33</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>View switcher</td>
-                          <td>❌</td>
-                          <td align='right'>1.31</td>
+                          <td>✅</td>
+                          <td align='right'>2.99</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Difficulty filter</td>
-                          <td>❌</td>
-                          <td align='right'>0.29</td>
+                          <td>✅</td>
+                          <td align='right'>2.58</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Filter deep link</td>
-                          <td>❌</td>
-                          <td align='right'>0.23</td>
-                        </tr><tr>
-                          <td>leetcode-ui</td>
-                          <td>Search functionality</td>
-                          <td>❌</td>
-                          <td align='right'>0.13</td>
-                        </tr><tr>
-                          <td>leetcode-ui</td>
-                          <td>Pagination</td>
-                          <td>❌</td>
-                          <td align='right'>0.14</td>
+                          <td>✅</td>
+                          <td align='right'>1.83</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Filter panels</td>
-                          <td>❌</td>
-                          <td align='right'>1.16</td>
+                          <td>✅</td>
+                          <td align='right'>2.05</td>
+                        </tr><tr>
+                          <td>leetcode-ui</td>
+                          <td>Search functionality</td>
+                          <td>✅</td>
+                          <td align='right'>2.08</td>
+                        </tr><tr>
+                          <td>leetcode-ui</td>
+                          <td>Pagination</td>
+                          <td>✅</td>
+                          <td align='right'>2.88</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Page size</td>
-                          <td>❌</td>
-                          <td align='right'>0.20</td>
+                          <td>✅</td>
+                          <td align='right'>2.27</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Problem detail page</td>
-                          <td>❌</td>
-                          <td align='right'>0.14</td>
-                        </tr><tr>
-                          <td>leetcode-ui</td>
-                          <td>Problem detail navigation</td>
-                          <td>❌</td>
-                          <td align='right'>0.13</td>
-                        </tr><tr>
-                          <td>leetcode-ui</td>
-                          <td>Charts view</td>
-                          <td>❌</td>
-                          <td align='right'>0.16</td>
+                          <td>✅</td>
+                          <td align='right'>0.71</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Problem tab deep link</td>
-                          <td>❌</td>
-                          <td align='right'>1.13</td>
+                          <td>✅</td>
+                          <td align='right'>0.63</td>
+                        </tr><tr>
+                          <td>leetcode-ui</td>
+                          <td>Problem detail navigation</td>
+                          <td>✅</td>
+                          <td align='right'>0.88</td>
+                        </tr><tr>
+                          <td>leetcode-ui</td>
+                          <td>Charts view</td>
+                          <td>✅</td>
+                          <td align='right'>2.15</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Data API</td>
-                          <td>❌</td>
-                          <td align='right'>1.13</td>
+                          <td>✅</td>
+                          <td align='right'>2.67</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Liveness probe</td>
-                          <td>❌</td>
-                          <td align='right'>1.10</td>
-                        </tr><tr>
-                          <td>leetcode-ui</td>
-                          <td>Trailing slash redirect</td>
-                          <td>❌</td>
-                          <td align='right'>1.15</td>
+                          <td>✅</td>
+                          <td align='right'>1.26</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>Footer links</td>
-                          <td>❌</td>
-                          <td align='right'>1.10</td>
+                          <td>✅</td>
+                          <td align='right'>0.53</td>
+                        </tr><tr>
+                          <td>leetcode-ui</td>
+                          <td>Trailing slash redirect</td>
+                          <td>✅</td>
+                          <td align='right'>0.97</td>
                         </tr><tr>
                           <td>leetcode-ui</td>
                           <td>404 page</td>
-                          <td>❌</td>
-                          <td align='right'>0.11</td>
+                          <td>✅</td>
+                          <td align='right'>0.91</td>
                         </tr><tr>
                           <td>movies-search</td>
                           <td>Test page</td>
